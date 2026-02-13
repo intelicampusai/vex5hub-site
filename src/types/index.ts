@@ -45,6 +45,7 @@ export interface Event {
     division_ids?: number[];
     status: 'active' | 'future' | 'past';
     livestream_url?: string;
+    grade?: string;
 }
 
 export interface Match {

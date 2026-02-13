@@ -161,8 +161,13 @@ function EventCard({ event, isPast }: { event: Event; isPast?: boolean }) {
                     <Badge variant={isPast ? "outline" : "default"} className="font-mono text-[10px] uppercase">
                         {event.sku.split('-')[1] || 'VRC'}
                     </Badge>
+                    {event.grade && (
+                        <Badge variant="outline" className="ml-2 font-mono text-[10px] uppercase">
+                            {event.grade.replace('High School', 'HS').replace('Middle School', 'MS').replace('College', 'VU').replace('Elementary School', 'ES')}
+                        </Badge>
+                    )}
                     {event.livestream_url && !isPast && (
-                        <div className="flex items-center text-[10px] text-red-500 font-bold animate-pulse">
+                        <div className="flex items-center text-[10px] text-red-500 font-bold animate-pulse ml-auto">
                             <Video className="h-3 w-3 mr-1" /> LIVE
                         </div>
                     )}
@@ -186,7 +191,10 @@ function EventCard({ event, isPast }: { event: Event; isPast?: boolean }) {
                         <span>{event.capacity ? `${event.capacity.current}/${event.capacity.max}` : "N/A"} Teams</span>
                     </div>
                     <Button variant="ghost" size="sm" className="h-7 text-xs px-2" asChild>
-                        <Link href={`https://www.robotevents.com/${event.sku}.html`} target="_blank">
+                        <Link
+                            href={`https://www.robotevents.com/robot-competitions/vex-robotics-competition/${event.sku.replace('RE-VRC-25', 'RE-V5RC-25')}.html#general-info`}
+                            target="_blank"
+                        >
                             View RE
                         </Link>
                     </Button>

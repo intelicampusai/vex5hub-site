@@ -7,7 +7,16 @@ const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 async function fetchFromApi<T>(path: string): Promise<T | null> {
     if (!API_BASE_URL) return null;
     try {
+        const headers: HeadersInit = {
+            'Accept': 'application/json',
+        };
+        const token = process.env.ROBOTEVENTS_TOKEN;
+        if (token) {
+            headers['Authorization'] = `Bearer ${token}`;
+        }
+
         const response = await fetch(`${API_BASE_URL}${path}`, {
+            headers,
             next: { revalidate: 3600 } // Cache for 1 hour
         });
         if (!response.ok) return null;
@@ -130,40 +139,43 @@ const MOCK_TEAMS: Team[] = [
 const MOCK_EVENTS: Event[] = [
     {
         id: 1,
-        sku: 'RE-VRC-24-1234',
+        sku: 'RE-V5RC-25-1234',
         name: 'Ontario Provincial Championship',
         start: '2026-02-28T08:00:00Z',
         end: '2026-03-01T17:00:00Z',
-        season_id: 190,
+        season_id: 197,
         location: { venue: 'The International Centre', city: 'Mississauga', region: 'Ontario' },
         capacity: { max: 80, current: 80 },
         division_ids: [1],
-        status: 'future'
+        status: 'future',
+        grade: 'High School'
     },
     {
         id: 2,
-        sku: 'RE-VRC-24-5678',
+        sku: 'RE-V5RC-25-5678',
         name: 'Ridley College Signature Event',
         start: '2026-02-14T08:00:00Z',
         end: '2026-02-14T17:00:00Z',
-        season_id: 190,
+        season_id: 197,
         location: { venue: 'Ridley College', city: 'St. Catharines', region: 'Ontario' },
         capacity: { max: 40, current: 32 },
         division_ids: [1],
         status: 'active',
-        livestream_url: 'https://youtube.com/live/example'
+        livestream_url: 'https://youtube.com/live/example',
+        grade: 'Middle School'
     },
     {
         id: 3,
-        sku: 'RE-VRC-24-9999',
+        sku: 'RE-V5RC-25-9999',
         name: 'California State Championship',
         start: '2026-03-15T08:00:00Z',
         end: '2026-03-16T17:00:00Z',
-        season_id: 190,
+        season_id: 197,
         location: { venue: 'Santa Clara Convention Center', city: 'Santa Clara', region: 'California' },
         capacity: { max: 100, current: 45 },
         division_ids: [1, 2],
-        status: 'future'
+        status: 'future',
+        grade: 'High School, Middle School'
     },
     {
         id: 4,
@@ -175,7 +187,8 @@ const MOCK_EVENTS: Event[] = [
         location: { venue: 'Kalahari Resorts', city: 'Sandusky', region: 'Ohio' },
         capacity: { max: 200, current: 200 },
         division_ids: [1, 2, 3],
-        status: 'past'
+        status: 'past',
+        grade: 'High School'
     },
     {
         id: 5,
@@ -187,7 +200,8 @@ const MOCK_EVENTS: Event[] = [
         location: { venue: 'Guangzhou International Center', city: 'Guangzhou', region: 'Guangdong' },
         capacity: { max: 300, current: 300 },
         division_ids: [1, 2, 3, 4],
-        status: 'past'
+        status: 'past',
+        grade: 'High School, Middle School'
     }
 ];
 
@@ -257,7 +271,27 @@ export async function getEvents(): Promise<Event[]> {
             else break;
         }
 
-        allEvents = allEvents.concat(response.data);
+        if (page === 1 && response.data && response.data.length > 0) {
+            // console.log("DEBUG EVENT DATA:", JSON.stringify(response.data[0], null, 2));
+        }
+
+        const events = response.data.map((item: any) => ({
+            id: item.id,
+            sku: item.sku,
+            name: item.name,
+            start: item.start,
+            end: item.end,
+            season_id: item.season_id,
+            location: item.location,
+            capacity: item.capacity,
+            division_ids: item.division_ids,
+            status: item.status || 'future', // Fallback
+            livestream_url: item.livestream_url,
+            // Try to find grade level
+            grade: item.level || item.grade_level || (item.program ? item.program.grade_level : undefined)
+        }));
+
+        allEvents = allEvents.concat(events);
 
         // RobotEvents API meta structure
         if (response.meta?.last_page) {
