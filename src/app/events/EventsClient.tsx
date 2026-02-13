@@ -31,16 +31,13 @@ export default function EventsClient({ initialEvents, topRegions = [] }: EventsC
     const [expandedUpcoming, setExpandedUpcoming] = useState(true);
     const [expandedPast, setExpandedPast] = useState(false);
 
-    // Get unique regions for the filter: combine top regions with actual event regions
-    const eventRegions = Array.from(new Set(initialEvents.map(e => e.location.region)));
-    const allRegionsSet = new Set([...topRegions, ...eventRegions]);
-    // Remove "All Regions" (added manually) and empty strings if any
-    allRegionsSet.delete('All Regions');
-    allRegionsSet.delete('');
+    // Sort: topRegions first (competitiveness), then other event regions sorted alphabetically
+    const topRegionsSet = new Set(topRegions);
+    const eventRegions = Array.from(new Set(initialEvents.map(e => e.location.region)))
+        .filter(r => r && !topRegionsSet.has(r))
+        .sort();
 
-    // Sort: Top regions first (in their original order if possible, or just alpha), then others?
-    // Let's just sort alphabetically for the filter bar to be predictable
-    const regions = ['All Regions', ...Array.from(allRegionsSet).sort()];
+    const regions = ['All Regions', ...topRegions, ...eventRegions];
 
     // Filter events
     const filteredEvents = initialEvents.filter(event => {
