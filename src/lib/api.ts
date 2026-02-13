@@ -264,3 +264,44 @@ export async function getMatches(teamNumber: string): Promise<Match[]> {
         m.alliances.blue.teams.some(t => t.team.name === teamNumber)
     );
 }
+
+export async function getSkillsStandings(): Promise<Team[]> {
+    // Fetch top 100 skills teams
+    const path = `/seasons/${SEASON_ID}/skills?grade_level=Middle%20School&grade_level=High%20School&sort=score&limit=100`;
+    const data = await fetchFromApi<any[]>(path);
+
+    if (!data) return MOCK_TEAMS;
+
+    // Transform API response to Team objects if necessary
+    // RobotEvents /skills endpoint returns objects with 'team', 'rank', 'score', etc.
+    return data.map((item: any) => ({
+        id: item.team.id,
+        number: item.team.name, // RobotEvents v2 often puts number in 'name' or 'team_name' depending on endpoint, usually 'team.name' is number like '3150N'
+        name: item.team.team_name || item.team.name, // Fallback
+        organization: item.team.organization,
+        grade: item.team.grade,
+        region: item.team.region,
+        country: item.team.country,
+        skills: {
+            rank: item.rank,
+            combined_score: item.score,
+            driver_score: item.driver_score,
+            programming_score: item.programming_score
+        }
+    }));
+}
+
+export async function getTopRegions(): Promise<string[]> {
+    const teams = await getSkillsStandings();
+    const regions = new Set<string>();
+
+    teams.forEach(team => {
+        if (team.region) {
+            regions.add(team.region);
+        } else if (team.country) {
+            regions.add(team.country);
+        }
+    });
+
+    return Array.from(regions).sort();
+}

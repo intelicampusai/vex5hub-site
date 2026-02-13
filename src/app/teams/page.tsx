@@ -2,7 +2,7 @@
 
 import { useState, useEffect, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
-import { getTeams } from "@/lib/api";
+import { getTeams, getTopRegions } from "@/lib/api";
 import { TeamCard } from "@/components/dashboard/TeamCard";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -18,7 +18,12 @@ function TeamsContent() {
     const selectedRegion = searchParams.get('region') || "All";
 
     const [teams, setTeams] = useState<any[]>([]);
+    const [regions, setRegions] = useState<string[]>([]);
     const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        getTopRegions().then(setRegions).catch(console.error);
+    }, []);
 
     useEffect(() => {
         const fetchTeams = async () => {
@@ -97,15 +102,17 @@ function TeamsContent() {
                         onChange={(e) => handleRegionFilter(e.target.value)}
                     >
                         <option value="All">All Regions</option>
-                        <optgroup label="Popular Regions">
-                            <option value="Ontario">Ontario</option>
-                            <option value="British Columbia">British Columbia</option>
-                            <option value="California">California</option>
-                        </optgroup>
-                        <optgroup label="Countries">
+                        {regions.length > 0 && (
+                            <optgroup label="Top Performing Regions">
+                                {regions.map(r => (
+                                    <option key={r} value={r}>{r}</option>
+                                ))}
+                            </optgroup>
+                        )}
+                        <optgroup label="Other">
+                            <option value="United States">United States</option>
                             <option value="China">China</option>
                             <option value="Canada">Canada</option>
-                            <option value="United States">United States</option>
                         </optgroup>
                     </select>
 

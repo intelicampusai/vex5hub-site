@@ -21,16 +21,26 @@ import Link from 'next/link';
 
 interface EventsClientProps {
     initialEvents: Event[];
+    topRegions?: string[];
 }
 
-export default function EventsClient({ initialEvents }: EventsClientProps) {
+export default function EventsClient({ initialEvents, topRegions = [] }: EventsClientProps) {
     const [selectedRegion, setSelectedRegion] = useState<string>('All Regions');
+
     const [searchQuery, setSearchQuery] = useState('');
     const [expandedUpcoming, setExpandedUpcoming] = useState(true);
     const [expandedPast, setExpandedPast] = useState(false);
 
-    // Get unique regions for the filter
-    const regions = ['All Regions', ...Array.from(new Set(initialEvents.map(e => e.location.region)))].sort();
+    // Get unique regions for the filter: combine top regions with actual event regions
+    const eventRegions = Array.from(new Set(initialEvents.map(e => e.location.region)));
+    const allRegionsSet = new Set([...topRegions, ...eventRegions]);
+    // Remove "All Regions" (added manually) and empty strings if any
+    allRegionsSet.delete('All Regions');
+    allRegionsSet.delete('');
+
+    // Sort: Top regions first (in their original order if possible, or just alpha), then others?
+    // Let's just sort alphabetically for the filter bar to be predictable
+    const regions = ['All Regions', ...Array.from(allRegionsSet).sort()];
 
     // Filter events
     const filteredEvents = initialEvents.filter(event => {
