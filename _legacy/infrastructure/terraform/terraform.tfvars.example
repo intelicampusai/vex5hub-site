@@ -1,0 +1,23 @@
+# Example terraform.tfvars configuration
+# Copy to terraform.tfvars and customize
+
+# AWS region (ca-central-1 for Canada residency)
+aws_region = "ca-central-1"
+
+# Project name prefix for all resources
+project_name = "nighthawks"
+
+# Domain name - leave empty to use CloudFront default domain
+# Uncomment and set your domain to enable custom domain + SSL
+# domain_name = "3150n-nighthawks.com"
+
+# Content refresh interval (hours)
+content_refresh_hours = 4
+
+# Resource tags
+tags = {
+  Project     = "3150N-Nighthawks"
+  Environment = "production"
+  ManagedBy   = "terraform"
+  Team        = "3150N"
+}

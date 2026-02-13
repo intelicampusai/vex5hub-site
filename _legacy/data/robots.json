@@ -1,0 +1,98 @@
+[
+    {
+        "id": "dex-hero-bot",
+        "title": "Dex - Push Back Hero Bot",
+        "team": "VEX Robotics (Official)",
+        "description": "The official Hero Bot for the 2025-2026 Push Back season. Features floating intake arms, conveyor system for block transport, and versatile scoring mechanisms for all goal types.",
+        "image": "https://placehold.co/400x300/1a1a2e/00d9ff?text=Dex+Hero+Bot",
+        "features": [
+            "Floating intake arms with rubber band tension",
+            "Internal conveyor system for block transport",
+            "Scores in long goals and upper/lower center goals",
+            "Compact design within 18x18x18 starting size"
+        ],
+        "trending": true,
+        "views": "50K+",
+        "icon": "🤖"
+    },
+    {
+        "id": "throwing-mechanism",
+        "title": "Precision Throwing Robot",
+        "team": "Community Innovation",
+        "description": "Unique design featuring a motorized arm that throws blocks into goals one at a time. Focuses on precise placement for control bonuses rather than high-volume scoring.",
+        "image": "https://placehold.co/400x300/1a1a2e/ff6b6b?text=Throwing+Mech",
+        "features": [
+            "Motorized throwing arm",
+            "Precision block placement",
+            "Control bonus optimization",
+            "Innovative scoring approach"
+        ],
+        "trending": true,
+        "views": "35K+",
+        "icon": "🎯"
+    },
+    {
+        "id": "six-motor-speed",
+        "title": "High-Speed Six-Motor Drive",
+        "team": "Various Teams",
+        "description": "Popular drive configuration using six motors and 2.75-inch wheels for maximum speed and maneuverability. Includes gear train for RPM adjustment.",
+        "image": "https://placehold.co/400x300/1a1a2e/4ecdc4?text=Speed+Drive",
+        "features": [
+            "Six-motor drive system",
+            "2.75-inch wheels for speed",
+            "Adjustable gear ratios",
+            "Enhanced maneuverability"
+        ],
+        "trending": true,
+        "views": "42K+",
+        "icon": "⚡"
+    },
+    {
+        "id": "latch-wing-mech",
+        "title": "Multi-Position Latch Wing",
+        "team": "Community Design",
+        "description": "Innovative mechanism achieving multiple precise positions (down, up, middle) for descoring blocks and staying within size constraints. Uses pneumatic cylinders with mechanical stops.",
+        "image": "https://placehold.co/400x300/1a1a2e/95e1d3?text=Latch+Wing",
+        "features": [
+            "Three precise positions",
+            "Pneumatic actuation",
+            "Descoring capability",
+            "Size constraint compliance"
+        ],
+        "trending": true,
+        "views": "28K+",
+        "icon": "🔧"
+    },
+    {
+        "id": "double-park-platform",
+        "title": "Alliance Double-Park Platform",
+        "team": "Strategic Designs",
+        "description": "Mechanism allowing an alliance partner to drive onto the robot, facilitating the 30-point double park bonus at match end. Critical for maximizing end-game points.",
+        "image": "https://placehold.co/400x300/1a1a2e/f38181?text=Double+Park",
+        "features": [
+            "Alliance partner platform",
+            "30-point bonus enabler",
+            "Stable support structure",
+            "End-game optimization"
+        ],
+        "trending": true,
+        "views": "31K+",
+        "icon": "🏗️"
+    },
+    {
+        "id": "defensive-wedge",
+        "title": "Defensive Wedge Design",
+        "team": "Defensive Specialists",
+        "description": "Low-profile wedge mechanism for defensive play. Gets inside opponent drives to interfere with movement and protect alliance scoring opportunities.",
+        "image": "https://placehold.co/400x300/1a1a2e/aa96da?text=Wedge+Defense",
+        "features": [
+            "Low-profile wedge",
+            "Defensive interference",
+            "Drive disruption",
+            "Alliance protection"
+        ],
+        "trending": false,
+        "views": "19K+",
+        "icon": "🛡️"
+    }
+]

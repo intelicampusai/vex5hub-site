@@ -1,0 +1,382 @@
+[
+    {
+        "id": "13212D",
+        "number": "13212D",
+        "name": "SixSeven",
+        "organization": "Concordia International School Shanghai",
+        "grade": "High School",
+        "region": "Shanghai",
+        "country": "China",
+        "stats": {
+            "rank": 1,
+            "total_matches": 0
+        },
+        "skills": {
+            "driver_score": 119,
+            "programming_score": 100,
+            "combined_score": 219,
+            "rank": 1
+        }
+    },
+    {
+        "id": "3588Y",
+        "number": "3588Y",
+        "name": "Cyber Spacers",
+        "organization": "Edubot Inc.",
+        "grade": "Middle School",
+        "region": "California",
+        "country": "United States",
+        "stats": {
+            "rank": 1,
+            "total_matches": 0
+        },
+        "skills": {
+            "driver_score": 116,
+            "programming_score": 113,
+            "combined_score": 229,
+            "rank": 1
+        }
+    },
+    {
+        "id": "1590A",
+        "number": "1590A",
+        "name": "Blue Army",
+        "organization": "Innovagine Robotics",
+        "grade": "Middle School",
+        "region": "California",
+        "country": "United States",
+        "stats": {
+            "rank": 2,
+            "total_matches": 0
+        },
+        "skills": {
+            "driver_score": 101,
+            "programming_score": 88,
+            "combined_score": 189,
+            "rank": 2
+        }
+    },
+    {
+        "id": "3588X",
+        "number": "3588X",
+        "name": "Galaxy",
+        "organization": "Edubot Inc.",
+        "grade": "High School",
+        "region": "California",
+        "country": "United States",
+        "stats": {
+            "rank": 2,
+            "total_matches": 0
+        },
+        "skills": {
+            "driver_score": 115,
+            "programming_score": 102,
+            "combined_score": 217,
+            "rank": 2
+        }
+    },
+    {
+        "id": "16099A",
+        "number": "16099A",
+        "name": "Overclock",
+        "organization": "KG Computech",
+        "grade": "High School",
+        "region": "New York",
+        "country": "United States",
+        "stats": {
+            "rank": 3,
+            "total_matches": 0
+        },
+        "skills": {
+            "driver_score": 118,
+            "programming_score": 99,
+            "combined_score": 217,
+            "rank": 3
+        }
+    },
+    {
+        "id": "88825H",
+        "number": "88825H",
+        "name": "ROACH",
+        "organization": "Shanghai Koller Foreign Language School",
+        "grade": "Middle School",
+        "region": "Shanghai",
+        "country": "China",
+        "stats": {
+            "rank": 3,
+            "total_matches": 0
+        },
+        "skills": {
+            "driver_score": 91,
+            "programming_score": 91,
+            "combined_score": 182,
+            "rank": 3
+        }
+    },
+    {
+        "id": "252A",
+        "number": "252A",
+        "name": "And I Wonder",
+        "organization": "I Wonder Nexus",
+        "grade": "Middle School",
+        "region": "Ontario",
+        "country": "Canada",
+        "stats": {
+            "rank": 4,
+            "total_matches": 0
+        },
+        "skills": {
+            "driver_score": 91,
+            "programming_score": 90,
+            "combined_score": 181,
+            "rank": 4
+        }
+    },
+    {
+        "id": "89040B",
+        "number": "89040B",
+        "name": "Dread Pirates",
+        "organization": "MOAPA VALLEY HIGH SCHOOL",
+        "grade": "High School",
+        "region": "Nevada",
+        "country": "United States",
+        "stats": {
+            "rank": 4,
+            "total_matches": 0
+        },
+        "skills": {
+            "driver_score": 111,
+            "programming_score": 104,
+            "combined_score": 215,
+            "rank": 4
+        }
+    },
+    {
+        "id": "2577X",
+        "number": "2577X",
+        "name": "Funky Monkeys",
+        "organization": "Monkey Business Incorporated",
+        "grade": "Middle School",
+        "region": "Alabama",
+        "country": "United States",
+        "stats": {
+            "rank": 5,
+            "total_matches": 0
+        },
+        "skills": {
+            "driver_score": 95,
+            "programming_score": 86,
+            "combined_score": 181,
+            "rank": 5
+        }
+    },
+    {
+        "id": "47874J",
+        "number": "47874J",
+        "name": "Occam's Chainsaw",
+        "organization": "Squalicum High School",
+        "grade": "High School",
+        "region": "Washington",
+        "country": "United States",
+        "stats": {
+            "rank": 5,
+            "total_matches": 0
+        },
+        "skills": {
+            "driver_score": 113,
+            "programming_score": 102,
+            "combined_score": 215,
+            "rank": 5
+        }
+    },
+    {
+        "id": "10012Y",
+        "number": "10012Y",
+        "name": "Ten Ton Robotics",
+        "organization": "West Vancouver School District",
+        "grade": "Middle School",
+        "region": "British Columbia",
+        "country": "Canada",
+        "stats": {
+            "rank": 6,
+            "total_matches": 0
+        },
+        "skills": {
+            "driver_score": 102,
+            "programming_score": 79,
+            "combined_score": 181,
+            "rank": 6
+        }
+    },
+    {
+        "id": "16610A",
+        "number": "16610A",
+        "name": "Snacky Cakes",
+        "organization": "Techblazers",
+        "grade": "High School",
+        "region": "Ontario",
+        "country": "Canada",
+        "stats": {
+            "rank": 6,
+            "total_matches": 0
+        },
+        "skills": {
+            "driver_score": 117,
+            "programming_score": 96,
+            "combined_score": 213,
+            "rank": 6
+        }
+    },
+    {
+        "id": "3150A",
+        "number": "3150A",
+        "name": "Silver Owl",
+        "organization": "Silver Owl Robotics Inc.",
+        "grade": "High School",
+        "region": "Ontario",
+        "country": "Canada",
+        "stats": {
+            "rank": 7,
+            "total_matches": 0
+        },
+        "skills": {
+            "driver_score": 116,
+            "programming_score": 92,
+            "combined_score": 208,
+            "rank": 7
+        }
+    },
+    {
+        "id": "45000A",
+        "number": "45000A",
+        "name": "HeFei X-Free A",
+        "organization": "Hefei No.45 middle school",
+        "grade": "Middle School",
+        "region": "Anhui",
+        "country": "China",
+        "stats": {
+            "rank": 7,
+            "total_matches": 0
+        },
+        "skills": {
+            "driver_score": 92,
+            "programming_score": 88,
+            "combined_score": 180,
+            "rank": 7
+        }
+    },
+    {
+        "id": "8977A",
+        "number": "8977A",
+        "name": "\u4e0a\u6d77\u5e02\u5e02\u5317\u521d\u7ea7\u4e2d\u5b66\uff06\u8fbe\u7f57\u6377\u6d3e\u5b66\u9662\u8054\u961f",
+        "organization": "Shanghai Shibei Junior High School",
+        "grade": "High School",
+        "region": "Shanghai",
+        "country": "China",
+        "stats": {
+            "rank": 8,
+            "total_matches": 0
+        },
+        "skills": {
+            "driver_score": 119,
+            "programming_score": 84,
+            "combined_score": 203,
+            "rank": 8
+        }
+    },
+    {
+        "id": "9123Y",
+        "number": "9123Y",
+        "name": "Shanghai RuiGuan Team 9123Y",
+        "organization": "ShangHai RuiGuan Robotics Activity Center",
+        "grade": "Middle School",
+        "region": "Shanghai",
+        "country": "China",
+        "stats": {
+            "rank": 8,
+            "total_matches": 0
+        },
+        "skills": {
+            "driver_score": 93,
+            "programming_score": 86,
+            "combined_score": 179,
+            "rank": 8
+        }
+    },
+    {
+        "id": "55555A",
+        "number": "55555A",
+        "name": "HeFei USTC A",
+        "organization": "X.USTC",
+        "grade": "Middle School",
+        "region": "Anhui",
+        "country": "China",
+        "stats": {
+            "rank": 9,
+            "total_matches": 0
+        },
+        "skills": {
+            "driver_score": 94,
+            "programming_score": 84,
+            "combined_score": 178,
+            "rank": 9
+        }
+    },
+    {
+        "id": "86669A",
+        "number": "86669A",
+        "name": "EDS_Bunreal",
+        "organization": "Edison Schools",
+        "grade": "High School",
+        "region": null,
+        "country": "Vietnam",
+        "stats": {
+            "rank": 9,
+            "total_matches": 0
+        },
+        "skills": {
+            "driver_score": 110,
+            "programming_score": 92,
+            "combined_score": 202,
+            "rank": 9
+        }
+    },
+    {
+        "id": "2429A",
+        "number": "2429A",
+        "name": "Blockbot - Radiant",
+        "organization": "Radiant",
+        "grade": "Middle School",
+        "region": "California",
+        "country": "United States",
+        "stats": {
+            "rank": 10,
+            "total_matches": 0
+        },
+        "skills": {
+            "driver_score": 98,
+            "programming_score": 80,
+            "combined_score": 178,
+            "rank": 10
+        }
+    },
+    {
+        "id": "98601Y",
+        "number": "98601Y",
+        "name": "Atlantis (Troy)",
+        "organization": "TROY HIGH NJROTC",
+        "grade": "High School",
+        "region": "California",
+        "country": "United States",
+        "stats": {
+            "rank": 10,
+            "total_matches": 0
+        },
+        "skills": {
+            "driver_score": 101,
+            "programming_score": 100,
+            "combined_score": 201,
+            "rank": 10
+        }
+    }
+]

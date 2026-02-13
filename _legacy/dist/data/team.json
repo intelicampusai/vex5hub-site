@@ -1,0 +1,48 @@
+{
+    "teamNumber": "3150N",
+    "teamName": "Nighthawks",
+    "organization": "Silver Owl Robotics",
+    "location": "Ontario, Canada",
+    "program": "VEX V5 Robotics Competition",
+    "founded": "2015",
+    "description": "Team 3150N Nighthawks is a competitive VEX V5 robotics team from Ontario, Canada, dedicated to innovation, excellence, and STEM education. Part of the Silver Owl Robotics organization, we compete in regional, provincial, and international competitions.",
+    "achievements": [
+        {
+            "award": "Think Award",
+            "event": "Toronto February VEX V5 Robotics Competition",
+            "date": "February 1, 2025",
+            "description": "Recognized for outstanding engineering notebook and design process documentation"
+        },
+        {
+            "award": "Provincial Qualifier",
+            "event": "Ontario Regional Events",
+            "date": "2024-2025 Season",
+            "description": "Qualified for Ontario Provincial Championships through consistent performance"
+        }
+    ],
+    "stats": {
+        "seasonsCompeted": "9+",
+        "eventsAttended": "45+",
+        "awardsWon": "12+",
+        "skillsRanking": "Provincial Top 50"
+    },
+    "currentSeason": {
+        "game": "Push Back",
+        "year": "2025-2026",
+        "goals": [
+            "Qualify for VEX Worlds 2026",
+            "Win Ontario Provincial Championship",
+            "Achieve Top 10 Skills Ranking in Canada"
+        ]
+    },
+    "contact": {
+        "email": "team@vex5hub.com",
+        "website": "https://vex5hub.com/about.html",
+        "social": {
+            "instagram": "@3150n_nighthawks",
+            "youtube": "3150N Nighthawks"
+        }
+    },
+    "maintainer": true,
+    "maintainerNote": "Team 3150N Nighthawks maintains the VEX V5 Hub as a community resource for all VEX robotics teams worldwide."
+}

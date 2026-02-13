@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About Team 3150N Nighthawks - VEX V5 Robotics Team from Ontario, Canada">
+    <meta name="keywords" content="VEX, V5, Robotics, 3150N, Nighthawks, Ontario, Canada, STEM">
+    <meta name="theme-color" content="#1a1a2e">
+    <title>About 3150N Nighthawks | VEX V5 Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css?v=2">
+</head>
+
+<body>
+    <!-- Header Navigation -->
+    <header class="header">
+        <nav class="nav">
+            <a href="index.html" class="nav__logo">
+                <span class="nav__logo-icon">🤖</span>
+                <span class="nav__logo-text">VEX V5 Hub</span>
+            </a>
+            <ul class="nav__menu">
+                <li><a href="index.html" class="nav__link">Home</a></li>
+                <li><a href="competitions.html" class="nav__link">Competitions</a></li>
+                <li><a href="robots.html" class="nav__link">Robots</a></li>
+                <li><a href="teams.html" class="nav__link">Teams</a></li>
+                <li><a href="about.html" class="nav__link nav__link--active">About</a></li>
+            </ul>
+            <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero hero--about">
+        <div class="hero__background">
+            <div class="hero__particles"></div>
+            <div class="hero__gradient"></div>
+        </div>
+        <div class="hero__content">
+            <h1 class="hero__title">
+                <span class="hero__title-line">Team</span>
+                <span class="hero__title-main">3150N</span>
+                <span class="hero__title-sub">NIGHTHAWKS</span>
+            </h1>
+            <p class="hero__description">
+                Pushing the boundaries of competitive robotics in Ontario, Canada.
+                Innovation. Excellence. Teamwork.
+            </p>
+        </div>
+        <div class="hero__scroll">
+            <span>Scroll to explore</span>
+            <div class="hero__scroll-indicator"></div>
+        </div>
+    </section>
+
+    <!-- Team Profile Section -->
+    <section id="profile" class="section section--team">
+        <div class="container">
+            <div class="section__header">
+                <span class="section__tag">🦅 Our Team</span>
+                <h2 class="section__title">Meet the Nighthawks</h2>
+                <p class="section__subtitle">Passionate builders and innovators from Ontario, Canada</p>
+            </div>
+
+            <div class="team-hero">
+                <div class="team-hero__badge">
+                    <span class="team-hero__number">3150N</span>
+                    <span class="team-hero__name">Nighthawks</span>
+                </div>
+                <div class="team-hero__info">
+                    <div class="team-hero__stat">
+                        <span class="team-hero__stat-value">VEX V5</span>
+                        <span class="team-hero__stat-label">Program</span>
+                    </div>
+                    <div class="team-hero__stat">
+                        <span class="team-hero__stat-value">Ontario</span>
+                        <span class="team-hero__stat-label">Region</span>
+                    </div>
+                    <div class="team-hero__stat">
+                        <span class="team-hero__stat-value">Canada</span>
+                        <span class="team-hero__stat-label">Country</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team History Section -->
+    <section id="history" class="section section--competition">
+        <div class="container">
+            <div class="section__header">
+                <span class="section__tag">📜 History</span>
+                <h2 class="section__title">Our Journey</h2>
+                <p class="section__subtitle">Building excellence since our founding</p>
+            </div>
+
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card__header">
+                        <span class="card__icon">🎯</span>
+                        <h3 class="card__title">Mission</h3>
+                    </div>
+                    <div class="card__body">
+                        <p class="card__description">
+                            To inspire and develop the next generation of engineers through competitive
+                            robotics, fostering innovation, teamwork, and technical excellence in everything we do.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card__header">
+                        <span class="card__icon">💡</span>
+                        <h3 class="card__title">Vision</h3>
+                    </div>
+                    <div class="card__body">
+                        <p class="card__description">
+                            To be recognized as a leading VEX V5 team in Canada, known for our innovative
+                            designs, competitive spirit, and commitment to STEM education in our community.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card__header">
+                        <span class="card__icon">⚡</span>
+                        <h3 class="card__title">Values</h3>
+                    </div>
+                    <div class="card__body">
+                        <p class="card__description">
+                            Innovation, collaboration, perseverance, and sportsmanship. We believe in learning
+                            from both victories and setbacks, always striving to improve.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="section section--robots">
+        <div class="container">
+            <div class="section__header">
+                <span class="section__tag">🏆 Achievements</span>
+                <h2 class="section__title">Competition Highlights</h2>
+                <p class="section__subtitle">Our proudest moments in VEX V5 competition</p>
+            </div>
+
+            <div class="cards-grid" id="achievements-cards">
+                <!-- Dynamic content will be loaded here -->
+                <div class="card">
+                    <div class="card__header">
+                        <span class="card__icon">🥇</span>
+                        <h3 class="card__title">Regional Championships</h3>
+                    </div>
+                    <div class="card__body">
+                        <p class="card__description">
+                            Competed in multiple Ontario regional championships, consistently advancing
+                            through qualification rounds.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card__header">
+                        <span class="card__icon">🎖️</span>
+                        <h3 class="card__title">Skills Challenges</h3>
+                    </div>
+                    <div class="card__body">
+                        <p class="card__description">
+                            Achieved top rankings in robot skills and programming skills challenges
+                            at various tournaments.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card__header">
+                        <span class="card__icon">🤝</span>
+                        <h3 class="card__title">Alliance Excellence</h3>
+                    </div>
+                    <div class="card__body">
+                        <p class="card__description">
+                            Recognized for outstanding teamwork and collaboration with alliance partners
+                            throughout the season.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Outreach Section -->
+    <section id="outreach" class="section section--team">
+        <div class="container">
+            <div class="section__header">
+                <span class="section__tag">🌟 Outreach</span>
+                <h2 class="section__title">Community Impact</h2>
+                <p class="section__subtitle">Inspiring the next generation of innovators</p>
+            </div>
+
+            <div class="outreach">
+                <h3 class="outreach__title">STEM Advocacy & Community Engagement</h3>
+                <p class="outreach__description">
+                    The Nighthawks are committed to inspiring the next generation of engineers and innovators
+                    through community workshops, school demonstrations, and mentorship programs. We believe
+                    that robotics is more than just competition—it's about building skills, confidence, and
+                    a passion for STEM that will last a lifetime.
+                </p>
+            </div>
+
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card__header">
+                        <span class="card__icon">🏫</span>
+                        <h3 class="card__title">School Workshops</h3>
+                    </div>
+                    <div class="card__body">
+                        <p class="card__description">
+                            Regular visits to local schools to demonstrate robotics and inspire students
+                            to explore STEM fields.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card__header">
+                        <span class="card__icon">👨‍🏫</span>
+                        <h3 class="card__title">Mentorship</h3>
+                    </div>
+                    <div class="card__body">
+                        <p class="card__description">
+                            Mentoring younger VEX teams and helping them develop their technical and
+                            teamwork skills.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card__header">
+                        <span class="card__icon">🎪</span>
+                        <h3 class="card__title">Community Events</h3>
+                    </div>
+                    <div class="card__body">
+                        <p class="card__description">
+                            Participating in local STEM fairs, maker festivals, and community events to
+                            showcase robotics.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section section--competition">
+        <div class="container">
+            <div class="section__header">
+                <span class="section__tag">📧 Contact</span>
+                <h2 class="section__title">Get In Touch</h2>
+                <p class="section__subtitle">Interested in collaborating or learning more about our team?</p>
+            </div>
+
+            <div class="outreach">
+                <p class="outreach__description">
+                    We're always excited to connect with other teams, potential sponsors, and community
+                    members interested in VEX robotics. Whether you're looking for collaboration opportunities,
+                    mentorship, or just want to learn more about what we do, feel free to reach out!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__brand">
+                    <span class="footer__logo">🦅 3150N Nighthawks</span>
+                    <p class="footer__tagline">VEX V5 Robotics Excellence</p>
+                </div>
+                <div class="footer__links">
+                    <a href="index.html">Home</a>
+                    <a href="competitions.html">Competitions</a>
+                    <a href="robots.html">Robots</a>
+                    <a href="teams.html">Teams</a>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>© 2026 Team 3150N Nighthawks. All rights reserved.</p>
+                <p class="footer__update">Part of VEX V5 Hub</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/app.js?v=2"></script>
+</body>
+
+</html>

@@ -1,0 +1,676 @@
+{
+    "regions": [
+        {
+            "id": "ontario",
+            "name": "Ontario",
+            "country": "Canada",
+            "teams": [
+                {
+                    "number": "3150N",
+                    "name": "Nighthawks",
+                    "rank": 1,
+                    "skills_score": 412,
+                    "wins": 24,
+                    "losses": 6,
+                    "awards": [
+                        "Tournament Champions x3",
+                        "Skills Champion"
+                    ],
+                    "division": "High School",
+                    "skills_rank": 15,
+                    "worlds_qualified": true,
+                    "match_videos": [
+                        {
+                            "event": "Kalahari Classic MS Signature",
+                            "event_date": "Jan 21-22, 2026",
+                            "event_url": "https://www.robotevents.com/robot-competitions/vex-robotics-competition/RE-V5RC-25-0165.html",
+                            "matches": [
+                                {
+                                    "match": "Q9",
+                                    "result": "W",
+                                    "score": "82-12",
+                                    "video_url": "https://www.youtube.com/watch?v=uZLlramgfoQ&t=2353s",
+                                    "day": 1
+                                },
+                                {
+                                    "match": "Q22",
+                                    "result": "W",
+                                    "score": "39-38",
+                                    "video_url": "https://www.youtube.com/watch?v=uZLlramgfoQ&t=5170s",
+                                    "day": 1
+                                },
+                                {
+                                    "match": "Q36",
+                                    "result": "W",
+                                    "score": "85-18",
+                                    "video_url": "https://www.youtube.com/watch?v=uZLlramgfoQ&t=7793s",
+                                    "day": 1
+                                },
+                                {
+                                    "match": "Q61",
+                                    "result": "W",
+                                    "score": "100-38",
+                                    "video_url": "https://www.youtube.com/watch?v=uZLlramgfoQ&t=12531s",
+                                    "day": 1
+                                },
+                                {
+                                    "match": "Q80",
+                                    "result": "W",
+                                    "score": "59-28",
+                                    "video_url": "https://www.youtube.com/watch?v=uZLlramgfoQ&t=15773s",
+                                    "day": 1
+                                },
+                                {
+                                    "match": "Q99",
+                                    "result": "W",
+                                    "score": "58-33",
+                                    "video_url": "https://www.youtube.com/watch?v=k5bKDk28BQ8&t=3216s",
+                                    "day": 2
+                                },
+                                {
+                                    "match": "Q111",
+                                    "result": "L",
+                                    "score": "34-63",
+                                    "video_url": "https://www.youtube.com/watch?v=k5bKDk28BQ8&t=9906s",
+                                    "day": 2
+                                },
+                                {
+                                    "match": "Q123",
+                                    "result": "W",
+                                    "score": "64-31",
+                                    "video_url": "https://www.youtube.com/watch?v=k5bKDk28BQ8&t=7420s",
+                                    "day": 2
+                                },
+                                {
+                                    "match": "R16-1",
+                                    "result": "W",
+                                    "score": "89-11",
+                                    "video_url": "https://www.youtube.com/watch?v=k5bKDk28BQ8&t=17591s",
+                                    "day": 2
+                                },
+                                {
+                                    "match": "QF-2",
+                                    "result": "W",
+                                    "score": "84-13",
+                                    "video_url": "https://www.youtube.com/watch?v=k5bKDk28BQ8&t=17591s",
+                                    "day": 2
+                                },
+                                {
+                                    "match": "SF-1",
+                                    "result": "L",
+                                    "score": "32-49",
+                                    "video_url": "https://www.youtube.com/watch?v=k5bKDk28BQ8&t=18384s",
+                                    "day": 2
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "number": "7842B",
+                    "name": "Steel Talons",
+                    "rank": 2,
+                    "skills_score": 398,
+                    "wins": 22,
+                    "losses": 8,
+                    "awards": [
+                        "Excellence Award",
+                        "Tournament Champions x2"
+                    ],
+                    "division": "High School",
+                    "skills_rank": 14,
+                    "worlds_qualified": true
+                },
+                {
+                    "number": "1104A",
+                    "name": "Iron Eagles",
+                    "rank": 3,
+                    "skills_score": 385,
+                    "wins": 20,
+                    "losses": 10,
+                    "awards": [
+                        "Design Award",
+                        "Tournament Finalists x3"
+                    ],
+                    "division": "High School",
+                    "skills_rank": 21,
+                    "worlds_qualified": false
+                },
+                {
+                    "number": "9290C",
+                    "name": "Circuit Breakers",
+                    "rank": 4,
+                    "skills_score": 371,
+                    "wins": 19,
+                    "losses": 11,
+                    "awards": [
+                        "Judges Award",
+                        "Tournament Champions"
+                    ],
+                    "division": "Middle School",
+                    "skills_rank": 20,
+                    "worlds_qualified": false
+                },
+                {
+                    "number": "6526X",
+                    "name": "Raptors",
+                    "rank": 5,
+                    "skills_score": 360,
+                    "wins": 18,
+                    "losses": 12,
+                    "awards": [
+                        "Innovate Award"
+                    ],
+                    "division": "High School",
+                    "skills_rank": 35,
+                    "worlds_qualified": false
+                },
+                {
+                    "number": "2011A",
+                    "name": "Phoenix Rising",
+                    "rank": 6,
+                    "skills_score": 348,
+                    "wins": 17,
+                    "losses": 13,
+                    "awards": [
+                        "Think Award",
+                        "Tournament Finalists"
+                    ],
+                    "division": "Middle School",
+                    "skills_rank": 66,
+                    "worlds_qualified": false
+                }
+            ]
+        },
+        {
+            "id": "british-columbia",
+            "name": "British Columbia",
+            "country": "Canada",
+            "teams": [
+                {
+                    "number": "8838B",
+                    "name": "Pacific Storm",
+                    "rank": 1,
+                    "skills_score": 405,
+                    "wins": 23,
+                    "losses": 7,
+                    "awards": [
+                        "Excellence Award x2",
+                        "Skills Champion"
+                    ],
+                    "division": "High School",
+                    "skills_rank": 8,
+                    "worlds_qualified": true
+                },
+                {
+                    "number": "1916A",
+                    "name": "Byte Force",
+                    "rank": 2,
+                    "skills_score": 390,
+                    "wins": 21,
+                    "losses": 9,
+                    "awards": [
+                        "Tournament Champions x2"
+                    ],
+                    "division": "High School",
+                    "skills_rank": 14,
+                    "worlds_qualified": true
+                },
+                {
+                    "number": "4253C",
+                    "name": "Cascade Robotics",
+                    "rank": 3,
+                    "skills_score": 376,
+                    "wins": 19,
+                    "losses": 11,
+                    "awards": [
+                        "Design Award x2"
+                    ],
+                    "division": "High School",
+                    "skills_rank": 21,
+                    "worlds_qualified": false
+                },
+                {
+                    "number": "7700X",
+                    "name": "Terminal Velocity",
+                    "rank": 4,
+                    "skills_score": 362,
+                    "wins": 18,
+                    "losses": 12,
+                    "awards": [
+                        "Innovate Award"
+                    ],
+                    "division": "High School",
+                    "skills_rank": 28,
+                    "worlds_qualified": false
+                },
+                {
+                    "number": "5150D",
+                    "name": "Quantum Gears",
+                    "rank": 5,
+                    "skills_score": 350,
+                    "wins": 16,
+                    "losses": 14,
+                    "awards": [
+                        "Think Award"
+                    ],
+                    "division": "High School",
+                    "skills_rank": 70,
+                    "worlds_qualified": false
+                }
+            ]
+        },
+        {
+            "id": "alberta",
+            "name": "Alberta",
+            "country": "Canada",
+            "teams": [
+                {
+                    "number": "2915A",
+                    "name": "Prairie Thunder",
+                    "rank": 1,
+                    "skills_score": 395,
+                    "wins": 22,
+                    "losses": 8,
+                    "awards": [
+                        "Excellence Award",
+                        "Tournament Champions x2"
+                    ],
+                    "division": "High School",
+                    "skills_rank": 7,
+                    "worlds_qualified": true
+                },
+                {
+                    "number": "6210B",
+                    "name": "Northern Lights",
+                    "rank": 2,
+                    "skills_score": 380,
+                    "wins": 20,
+                    "losses": 10,
+                    "awards": [
+                        "Skills Champion",
+                        "Design Award"
+                    ],
+                    "division": "High School",
+                    "skills_rank": 20,
+                    "worlds_qualified": true
+                },
+                {
+                    "number": "4417C",
+                    "name": "Stampede Bots",
+                    "rank": 3,
+                    "skills_score": 367,
+                    "wins": 18,
+                    "losses": 12,
+                    "awards": [
+                        "Tournament Champions"
+                    ],
+                    "division": "High School",
+                    "skills_rank": 30,
+                    "worlds_qualified": false
+                },
+                {
+                    "number": "8823X",
+                    "name": "Rocky Mountain",
+                    "rank": 4,
+                    "skills_score": 355,
+                    "wins": 17,
+                    "losses": 13,
+                    "awards": [
+                        "Judges Award"
+                    ],
+                    "division": "High School",
+                    "skills_rank": 60,
+                    "worlds_qualified": false
+                },
+                {
+                    "number": "3301D",
+                    "name": "Oilfield Innovators",
+                    "rank": 5,
+                    "skills_score": 342,
+                    "wins": 15,
+                    "losses": 15,
+                    "awards": [
+                        "Think Award"
+                    ],
+                    "division": "High School",
+                    "skills_rank": 70,
+                    "worlds_qualified": false
+                }
+            ]
+        },
+        {
+            "id": "california",
+            "name": "California",
+            "country": "USA",
+            "teams": [
+                {
+                    "number": "315K",
+                    "name": "Silicon Valley Bots",
+                    "rank": 1,
+                    "skills_score": 430,
+                    "wins": 27,
+                    "losses": 3,
+                    "awards": [
+                        "Excellence Award x3",
+                        "World Skills Finalist"
+                    ],
+                    "division": "High School",
+                    "skills_rank": 9,
+                    "worlds_qualified": true
+                },
+                {
+                    "number": "5225A",
+                    "name": "Gael Force",
+                    "rank": 2,
+                    "skills_score": 425,
+                    "wins": 26,
+                    "losses": 4,
+                    "awards": [
+                        "World Champions",
+                        "Excellence Award x2"
+                    ],
+                    "division": "High School",
+                    "skills_rank": 20,
+                    "worlds_qualified": true
+                },
+                {
+                    "number": "7700R",
+                    "name": "SoCal Robotics",
+                    "rank": 3,
+                    "skills_score": 415,
+                    "wins": 25,
+                    "losses": 5,
+                    "awards": [
+                        "Tournament Champions x4"
+                    ],
+                    "division": "High School",
+                    "skills_rank": 39,
+                    "worlds_qualified": false
+                },
+                {
+                    "number": "9364C",
+                    "name": "Bay Area Builders",
+                    "rank": 4,
+                    "skills_score": 402,
+                    "wins": 23,
+                    "losses": 7,
+                    "awards": [
+                        "Design Award x2",
+                        "Skills Champion"
+                    ],
+                    "division": "Middle School",
+                    "skills_rank": 40,
+                    "worlds_qualified": false
+                },
+                {
+                    "number": "2626H",
+                    "name": "Golden Gate Gears",
+                    "rank": 5,
+                    "skills_score": 390,
+                    "wins": 21,
+                    "losses": 9,
+                    "awards": [
+                        "Innovate Award x2"
+                    ],
+                    "division": "Middle School",
+                    "skills_rank": 75,
+                    "worlds_qualified": false
+                },
+                {
+                    "number": "1138B",
+                    "name": "Westside Wolves",
+                    "rank": 6,
+                    "skills_score": 378,
+                    "wins": 20,
+                    "losses": 10,
+                    "awards": [
+                        "Tournament Champions x2"
+                    ],
+                    "division": "High School",
+                    "skills_rank": 78,
+                    "worlds_qualified": false
+                }
+            ]
+        },
+        {
+            "id": "texas",
+            "name": "Texas",
+            "country": "USA",
+            "teams": [
+                {
+                    "number": "8000A",
+                    "name": "Lone Star Legends",
+                    "rank": 1,
+                    "skills_score": 420,
+                    "wins": 25,
+                    "losses": 5,
+                    "awards": [
+                        "Excellence Award x2",
+                        "World Finalists"
+                    ],
+                    "division": "High School",
+                    "skills_rank": 7,
+                    "worlds_qualified": true
+                },
+                {
+                    "number": "6047X",
+                    "name": "Houston Havoc",
+                    "rank": 2,
+                    "skills_score": 408,
+                    "wins": 24,
+                    "losses": 6,
+                    "awards": [
+                        "Tournament Champions x3"
+                    ],
+                    "division": "High School",
+                    "skills_rank": 18,
+                    "worlds_qualified": true
+                },
+                {
+                    "number": "3018B",
+                    "name": "Dallas Dynamos",
+                    "rank": 3,
+                    "skills_score": 395,
+                    "wins": 22,
+                    "losses": 8,
+                    "awards": [
+                        "Skills Champion x2"
+                    ],
+                    "division": "High School",
+                    "skills_rank": 24,
+                    "worlds_qualified": false
+                },
+                {
+                    "number": "5776T",
+                    "name": "Austin Automatons",
+                    "rank": 4,
+                    "skills_score": 382,
+                    "wins": 20,
+                    "losses": 10,
+                    "awards": [
+                        "Design Award",
+                        "Tournament Champions"
+                    ],
+                    "division": "High School",
+                    "skills_rank": 60,
+                    "worlds_qualified": false
+                },
+                {
+                    "number": "9999C",
+                    "name": "San Antonio Steel",
+                    "rank": 5,
+                    "skills_score": 370,
+                    "wins": 19,
+                    "losses": 11,
+                    "awards": [
+                        "Judges Award"
+                    ],
+                    "division": "High School",
+                    "skills_rank": 30,
+                    "worlds_qualified": false
+                }
+            ]
+        },
+        {
+            "id": "midwest",
+            "name": "Midwest (US)",
+            "country": "USA",
+            "teams": [
+                {
+                    "number": "1727B",
+                    "name": "Michigan Makers",
+                    "rank": 1,
+                    "skills_score": 410,
+                    "wins": 24,
+                    "losses": 6,
+                    "awards": [
+                        "Excellence Award",
+                        "World Finalists"
+                    ],
+                    "division": "High School",
+                    "skills_rank": 6,
+                    "worlds_qualified": true
+                },
+                {
+                    "number": "4610A",
+                    "name": "Buckeye Bots",
+                    "rank": 2,
+                    "skills_score": 396,
+                    "wins": 22,
+                    "losses": 8,
+                    "awards": [
+                        "Tournament Champions x3"
+                    ],
+                    "division": "High School",
+                    "skills_rank": 20,
+                    "worlds_qualified": true
+                },
+                {
+                    "number": "8059C",
+                    "name": "Windy City Gears",
+                    "rank": 3,
+                    "skills_score": 384,
+                    "wins": 21,
+                    "losses": 9,
+                    "awards": [
+                        "Skills Champion",
+                        "Design Award"
+                    ],
+                    "division": "High School",
+                    "skills_rank": 36,
+                    "worlds_qualified": false
+                },
+                {
+                    "number": "2775X",
+                    "name": "Hoosier Bots",
+                    "rank": 4,
+                    "skills_score": 370,
+                    "wins": 19,
+                    "losses": 11,
+                    "awards": [
+                        "Innovate Award"
+                    ],
+                    "division": "High School",
+                    "skills_rank": 60,
+                    "worlds_qualified": false
+                },
+                {
+                    "number": "6341D",
+                    "name": "Badger Builders",
+                    "rank": 5,
+                    "skills_score": 358,
+                    "wins": 17,
+                    "losses": 13,
+                    "awards": [
+                        "Think Award",
+                        "Tournament Finalists"
+                    ],
+                    "division": "High School",
+                    "skills_rank": 50,
+                    "worlds_qualified": false
+                }
+            ]
+        },
+        {
+            "id": "china",
+            "name": "China",
+            "country": "China",
+            "teams": [
+                {
+                    "number": "1599Z",
+                    "name": "Shanghai Stars",
+                    "rank": 1,
+                    "skills_score": 435,
+                    "wins": 28,
+                    "losses": 2,
+                    "awards": [
+                        "World Champions x2",
+                        "Excellence Award x3"
+                    ],
+                    "division": "High School",
+                    "skills_rank": 15,
+                    "worlds_qualified": true
+                },
+                {
+                    "number": "2880A",
+                    "name": "Beijing Bolt",
+                    "rank": 2,
+                    "skills_score": 428,
+                    "wins": 27,
+                    "losses": 3,
+                    "awards": [
+                        "World Skills Champion",
+                        "Excellence Award"
+                    ],
+                    "division": "Middle School",
+                    "skills_rank": 16,
+                    "worlds_qualified": true
+                },
+                {
+                    "number": "8610C",
+                    "name": "Shenzhen Tech",
+                    "rank": 3,
+                    "skills_score": 418,
+                    "wins": 25,
+                    "losses": 5,
+                    "awards": [
+                        "Tournament Champions x5"
+                    ],
+                    "division": "High School",
+                    "skills_rank": 21,
+                    "worlds_qualified": false
+                },
+                {
+                    "number": "5839X",
+                    "name": "Hangzhou Coders",
+                    "rank": 4,
+                    "skills_score": 405,
+                    "wins": 23,
+                    "losses": 7,
+                    "awards": [
+                        "Design Award x3"
+                    ],
+                    "division": "High School",
+                    "skills_rank": 60,
+                    "worlds_qualified": false
+                },
+                {
+                    "number": "3131B",
+                    "name": "Guangzhou Gears",
+                    "rank": 5,
+                    "skills_score": 395,
+                    "wins": 22,
+                    "losses": 8,
+                    "awards": [
+                        "Skills Champion",
+                        "Tournament Champions x2"
+                    ],
+                    "division": "High School",
+                    "skills_rank": 40,
+                    "worlds_qualified": false
+                }
+            ]
+        }
+    ]
+}
