@@ -8,19 +8,20 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Search, Trophy } from "lucide-react";
 
+const PAGE_SIZE = 100;
+
 function TeamsContent() {
     const searchParams = useSearchParams();
     const router = useRouter();
 
     const query = searchParams.get('q') || "";
-
     const selectedGrade = searchParams.get('grade') || "All";
     const selectedRegion = searchParams.get('region') || "All";
 
-    const [teams, setTeams] = useState<any[]>([]);
+    const [allFilteredTeams, setAllFilteredTeams] = useState<any[]>([]);
+    const [displayedCount, setDisplayedCount] = useState(PAGE_SIZE);
     const [regions, setRegions] = useState<string[]>([]);
     const [loading, setLoading] = useState(true);
-
     const [showQualified, setShowQualified] = useState(false);
 
     useEffect(() => {
@@ -28,13 +29,9 @@ function TeamsContent() {
     }, []);
 
     useEffect(() => {
-        getTopRegions().then(setRegions).catch(console.error);
-    }, []);
-
-    useEffect(() => {
         const fetchTeams = async () => {
-
             setLoading(true);
+            setDisplayedCount(PAGE_SIZE); // reset pagination on filter change
             try {
                 const allTeams = await getTeams(query);
                 const filtered = allTeams.filter(t => {
@@ -45,7 +42,7 @@ function TeamsContent() {
                         if (["United States", "China", "Canada"].includes(selectedRegion)) {
                             regionMatch = t.country === selectedRegion;
                         } else {
-                            regionMatch = t.region === selectedRegion; // e.g. "Ontario", "British Columbia", "California"
+                            regionMatch = t.region === selectedRegion;
                         }
                     }
 
@@ -53,7 +50,7 @@ function TeamsContent() {
 
                     return gradeMatch && regionMatch && qualifiedMatch;
                 });
-                setTeams(filtered);
+                setAllFilteredTeams(filtered);
             } catch (error) {
                 console.error("Failed to fetch teams:", error);
             } finally {
@@ -61,7 +58,6 @@ function TeamsContent() {
             }
         };
         fetchTeams();
-
     }, [query, selectedGrade, selectedRegion, showQualified]);
 
     const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
@@ -88,6 +84,9 @@ function TeamsContent() {
         router.push(`/teams?${params.toString()}`);
     };
 
+    const displayedTeams = allFilteredTeams.slice(0, displayedCount);
+    const hasMore = displayedCount < allFilteredTeams.length;
+
     return (
         <div className="space-y-4">
             <div className="sticky top-14 z-40 bg-background/95 backdrop-blur py-2 -mx-4 px-4 border-b md:static md:bg-transparent md:border-none md:p-0 md:m-0 flex flex-col sm:flex-row gap-2">
@@ -104,9 +103,9 @@ function TeamsContent() {
                     <Button type="submit">Search</Button>
                 </form>
 
-                <div className="flex gap-2 items-center">
+                <div className="flex gap-2 items-center flex-wrap">
                     <select
-                        className="h-10 w-[180px] rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                        className="h-10 w-[160px] rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
                         value={selectedRegion}
                         onChange={(e) => handleRegionFilter(e.target.value)}
                     >
@@ -156,7 +155,7 @@ function TeamsContent() {
                         title="Show World Championship Qualified Teams Only"
                     >
                         <Trophy className="h-4 w-4" />
-                        <span className="hidden sm:inline">Worlds Qualified</span>
+                        Worlds Qualified
                     </Button>
                 </div>
             </div>
@@ -170,21 +169,33 @@ function TeamsContent() {
             ) : (
                 <div className="space-y-4">
                     <div className="text-sm text-muted-foreground px-1 font-medium">
-                        Showing {teams.length} team{teams.length !== 1 ? 's' : ''}
+                        Showing {displayedTeams.length} of {allFilteredTeams.length} team{allFilteredTeams.length !== 1 ? 's' : ''}
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                        {teams.length > 0 ? (
-                            teams.map((team) => (
-                                <TeamCard key={team.id} team={team} />
+                        {displayedTeams.length > 0 ? (
+                            displayedTeams.map((team) => (
+                                <TeamCard key={team.id || team.number} team={team} />
                             ))
                         ) : (
                             <div className="col-span-full text-center py-10 text-muted-foreground">
-                                No teams found matching "{query}"
+                                No teams found
+                                {query ? ` matching "${query}"` : ""}
                                 {selectedGrade !== "All" ? ` in ${selectedGrade}` : ""}
                                 {selectedRegion !== "All" ? ` in ${selectedRegion}` : ""}
                             </div>
                         )}
                     </div>
+                    {hasMore && (
+                        <div className="flex justify-center pt-4">
+                            <Button
+                                variant="outline"
+                                onClick={() => setDisplayedCount(c => c + PAGE_SIZE)}
+                                className="px-8"
+                            >
+                                Load More ({allFilteredTeams.length - displayedCount} remaining)
+                            </Button>
+                        </div>
+                    )}
                 </div>
             )}
         </div>
