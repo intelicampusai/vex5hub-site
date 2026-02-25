@@ -50,24 +50,20 @@ export interface Event {
 }
 
 export interface Match {
-    id: number;
-    event_id: number;
+    /** Sort key: MATCH#{sku}#{div_id}#{match_num:04d} */
+    SK: string;
+    sku: string;
+    event_name: string;
     division_id: number;
-    round: number;
-    instance: number;
-    matchnum: number;
-    scheduled: string;
-    started?: string;
-    field?: string;
-    name?: string;
-    alliances: {
-        red: { score: number; teams: { team: { id: number; name: string } }[] };
-        blue: { score: number; teams: { team: { id: number; name: string } }[] };
-    };
+    match_num: number;
+    round: string;       // 'Practice' | 'Qualification' | 'Quarterfinal' | 'Semifinal' | 'Final' | 'Round of 16'
+    alliance: 'red' | 'blue';
+    partner_teams: string[];
+    opponent_teams: string[];
+    my_score?: number;
+    opp_score?: number;
+    won?: boolean;
+    scheduled?: string;
+    updated_at?: string;
     video_url?: string;
-    event?: {
-        id: number;
-        name: string;
-        sku?: string;
-    };
 }

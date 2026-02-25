@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useParams, notFound } from "next/navigation";
+import { useParams } from "next/navigation";
 import { getTeam, getMatches } from "@/lib/api";
 import { Team, Match } from "@/types";
 import {
@@ -30,38 +30,41 @@ export default function TeamDetailClient({ teamNumber }: TeamDetailClientProps) 
     const [team, setTeam] = useState<Team | null>(null);
     const [matches, setMatches] = useState<Match[]>([]);
     const [loading, setLoading] = useState(true);
+    const [matchesLoading, setMatchesLoading] = useState(true);
     const [error, setError] = useState(false);
 
     useEffect(() => {
-        const fetchData = async () => {
-            if (!number) return;
+        if (!number) return;
 
+        const fetchTeam = async () => {
             try {
                 setLoading(true);
                 const teamData = await getTeam(number);
-
-                if (!teamData) {
-                    setError(true);
-                    return;
-                }
-
+                if (!teamData) { setError(true); return; }
                 setTeam(teamData);
-
-                // Fetch matches separately to not block UI
-                const matchesData = await getMatches(number);
-                setMatches(matchesData);
             } catch (err) {
-                console.error("Error fetching team data:", err);
+                console.error("Error fetching team:", err);
                 setError(true);
             } finally {
                 setLoading(false);
             }
         };
 
-        fetchData();
+        const fetchMatches = async () => {
+            try {
+                setMatchesLoading(true);
+                const matchData = await getMatches(number);
+                setMatches(matchData);
+            } catch (err) {
+                console.error("Error fetching matches:", err);
+            } finally {
+                setMatchesLoading(false);
+            }
+        };
+
+        fetchTeam();
+        fetchMatches();
     }, [number]);
-
-
 
     if (loading) {
         return (
@@ -95,9 +98,16 @@ export default function TeamDetailClient({ teamNumber }: TeamDetailClientProps) 
         );
     }
 
+    // Derive win/loss/tie counts from match data
+    const playedMatches = matches.filter(m => m.my_score !== undefined && m.opp_score !== undefined);
+    const wins = playedMatches.filter(m => m.won === true).length;
+    const losses = playedMatches.filter(m => m.won === false && m.my_score !== m.opp_score).length;
+    const ties = playedMatches.filter(m => m.my_score === m.opp_score).length;
+    const winRate = playedMatches.length > 0 ? ((wins / playedMatches.length) * 100).toFixed(1) : "0.0";
+
     return (
         <div className="space-y-6 pb-10">
-            {/* Header / Breadcrumbs */}
+            {/* Breadcrumbs */}
             <div className="flex items-center space-x-2 text-sm text-muted-foreground">
                 <Link href="/teams" className="hover:text-primary flex items-center">
                     <ArrowLeft className="mr-1 h-3 w-3" /> Rankings
@@ -106,6 +116,7 @@ export default function TeamDetailClient({ teamNumber }: TeamDetailClientProps) 
                 <span className="text-foreground font-medium">{team.number}</span>
             </div>
 
+            {/* Header */}
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
                 <div>
                     <h1 className="text-4xl font-black tracking-tight">{team.number}</h1>
@@ -113,31 +124,32 @@ export default function TeamDetailClient({ teamNumber }: TeamDetailClientProps) 
                     <p className="text-sm opacity-70">{team.organization} • {team.region}, {team.country}</p>
                 </div>
                 <div className="flex space-x-2">
-                    <Badge variant="outline" className="text-sm px-3 py-1">
-                        {team.grade}
-                    </Badge>
-                    {team.stats && (
-                        <Badge className="text-sm px-3 py-1">
-                            Rank {team.stats.rank}
+                    <Badge variant="outline" className="text-sm px-3 py-1">{team.grade}</Badge>
+                    {team.skills?.rank && (
+                        <Badge className="text-sm px-3 py-1">Rank #{team.skills.rank}</Badge>
+                    )}
+                    {team.worlds_qualified && (
+                        <Badge variant="default" className="text-sm px-3 py-1 bg-yellow-500 hover:bg-yellow-600 text-black">
+                            🌍 Worlds Qualified
                         </Badge>
                     )}
                 </div>
             </div>
 
-            {/* Performance Grid */}
+            {/* Stats Grid */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <Card>
                     <CardHeader className="pb-2">
                         <CardTitle className="text-sm font-medium text-muted-foreground flex items-center">
-                            <Trophy className="mr-2 h-4 w-4 text-yellow-500" /> Season record
+                            <Trophy className="mr-2 h-4 w-4 text-yellow-500" /> Season Record
                         </CardTitle>
                     </CardHeader>
                     <CardContent>
                         <div className="text-2xl font-bold font-mono">
-                            {team.stats?.wins || 0} - {team.stats?.losses || 0} - {team.stats?.ties || 0}
+                            {wins} - {losses} - {ties}
                         </div>
                         <p className="text-xs text-muted-foreground mt-1">
-                            {team.stats?.total_matches ? ((team.stats.wins / team.stats.total_matches) * 100).toFixed(1) : "0.0"}% Win Rate
+                            {playedMatches.length} Matches · {winRate}% Win Rate
                         </p>
                     </CardContent>
                 </Card>
@@ -171,57 +183,49 @@ export default function TeamDetailClient({ teamNumber }: TeamDetailClientProps) 
                 </Card>
             </div>
 
-            {/* Match History Grouped by Competition */}
+            {/* Competition History */}
             <div className="space-y-4">
                 <h2 className="text-2xl font-bold tracking-tight px-1">Competition History</h2>
-                {matches.length > 0 ? (
+
+                {matchesLoading ? (
+                    <div className="space-y-3 animate-pulse">
+                        {[1, 2, 3].map(i => (
+                            <div key={i} className="h-20 bg-muted rounded-lg" />
+                        ))}
+                    </div>
+                ) : matches.length > 0 ? (
                     (() => {
-                        // Group matches by event
-                        const groups: { [key: string]: { name: string; matches: Match[] } } = {};
+                        // Group matches by event (using event_name + sku for uniqueness)
+                        const groups: { [key: string]: { name: string; sku: string; matches: Match[] } } = {};
                         matches.forEach(match => {
-                            const eventId = match.event?.id || 0;
-                            const eventName = match.event?.name || "Unknown Competition";
-                            const key = `${eventId}-${eventName}`;
+                            const key = match.sku || match.event_name;
                             if (!groups[key]) {
-                                groups[key] = { name: eventName, matches: [] };
+                                groups[key] = { name: match.event_name, sku: match.sku, matches: [] };
                             }
                             groups[key].matches.push(match);
                         });
 
-                        // Sort matches within each group: Latest rounds/numbers first
-                        Object.values(groups).forEach(group => {
-                            group.matches.sort((a, b) => {
-                                const getRoundPriority = (r: number) => {
-                                    if (r === 5) return 100; // Finals
-                                    if (r === 4) return 80;  // Semi-finals
-                                    if (r === 3) return 60;  // Quarter-finals
-                                    if (r === 6) return 40;  // R16
-                                    if (r === 2) return 20;  // Quals
-                                    return r;
-                                };
-
-                                const pA = getRoundPriority(a.round);
-                                const pB = getRoundPriority(b.round);
-
-                                if (pA !== pB) return pB - pA;
-                                if (a.instance !== b.instance) return (b.instance || 0) - (a.instance || 0);
-                                return (b.matchnum || 0) - (a.matchnum || 0);
-                            });
+                        // Sort groups: most recent first (by scheduled date of first match)
+                        const sortedGroups = Object.entries(groups).sort(([, a], [, b]) => {
+                            const aDate = a.matches[0]?.scheduled || '';
+                            const bDate = b.matches[0]?.scheduled || '';
+                            return bDate.localeCompare(aDate);
                         });
 
-                        return Object.entries(groups).map(([key, group]) => (
+                        return sortedGroups.map(([key, group]) => (
                             <MatchGroup
                                 key={key}
                                 eventName={group.name}
+                                sku={group.sku}
                                 matches={group.matches}
-                                teamNumber={team.number}
+                                teamNumber={number}
                             />
                         ));
                     })()
                 ) : (
                     <Card>
                         <CardContent className="py-10 text-center text-muted-foreground">
-                            No matches found for this team.
+                            No match data found for this team yet.
                         </CardContent>
                     </Card>
                 )}
@@ -230,8 +234,49 @@ export default function TeamDetailClient({ teamNumber }: TeamDetailClientProps) 
     );
 }
 
-function MatchGroup({ eventName, matches, teamNumber }: { eventName: string; matches: Match[]; teamNumber: string }) {
+const ROUND_ORDER: Record<string, number> = {
+    'Final': 100,
+    'Semifinal': 80,
+    'Quarterfinal': 60,
+    'Round of 16': 40,
+    'Qualification': 20,
+    'Practice': 0
+};
+
+function MatchGroup({
+    eventName, sku, matches, teamNumber
+}: {
+    eventName: string;
+    sku: string;
+    matches: Match[];
+    teamNumber: string;
+}) {
     const [isOpen, setIsOpen] = useState(true);
+
+    // Sort matches: elims first, then by match_num descending
+    const sorted = [...matches].sort((a, b) => {
+        const rA = ROUND_ORDER[a.round] ?? 10;
+        const rB = ROUND_ORDER[b.round] ?? 10;
+        if (rA !== rB) return rB - rA;
+        return b.match_num - a.match_num;
+    });
+
+    const played = matches.filter(m => m.my_score !== undefined);
+    const wins = played.filter(m => m.won).length;
+    const losses = played.filter(m => m.won === false && m.my_score !== m.opp_score).length;
+
+    // Build a short match label
+    const matchLabel = (match: Match): string => {
+        switch (match.round) {
+            case 'Qualification': return `Q${match.match_num}`;
+            case 'Practice': return `P${match.match_num}`;
+            case 'Final': return `F${match.match_num}`;
+            case 'Semifinal': return `SF${match.match_num}`;
+            case 'Quarterfinal': return `QF${match.match_num}`;
+            case 'Round of 16': return `R16-${match.match_num}`;
+            default: return `#${match.match_num}`;
+        }
+    };
 
     return (
         <Card className="overflow-hidden">
@@ -245,68 +290,93 @@ function MatchGroup({ eventName, matches, teamNumber }: { eventName: string; mat
                     </div>
                     <div>
                         <h3 className="font-bold leading-none">{eventName}</h3>
-                        <p className="text-xs text-muted-foreground mt-1">{matches.length} Matches</p>
+                        <p className="text-xs text-muted-foreground mt-1">
+                            {matches.length} Matches
+                            {played.length > 0 && (
+                                <span className="ml-2">
+                                    <span className="text-green-600 dark:text-green-400 font-semibold">{wins}W</span>
+                                    {' · '}
+                                    <span className="text-red-600 dark:text-red-400 font-semibold">{losses}L</span>
+                                </span>
+                            )}
+                        </p>
                     </div>
                 </div>
-                {isOpen ? <ChevronUp className="h-5 w-5 text-muted-foreground" /> : <ChevronDown className="h-5 w-5 text-muted-foreground" />}
+                {isOpen
+                    ? <ChevronUp className="h-5 w-5 text-muted-foreground flex-shrink-0" />
+                    : <ChevronDown className="h-5 w-5 text-muted-foreground flex-shrink-0" />
+                }
             </button>
 
-            <div className={cn("transition-all", !isOpen && "hidden")}>
+            <div className={cn(!isOpen && "hidden")}>
                 <div className="overflow-x-auto">
                     <Table>
                         <TableHeader>
                             <TableRow>
-                                <TableHead className="w-[100px]">Match</TableHead>
-                                <TableHead>Result</TableHead>
-                                <TableHead>Alliances</TableHead>
-                                <TableHead className="text-right">Video</TableHead>
+                                <TableHead className="w-[80px]">Match</TableHead>
+                                <TableHead className="w-[110px]">Result</TableHead>
+                                <TableHead>Partners</TableHead>
+                                <TableHead>Opponents</TableHead>
+                                <TableHead className="text-right w-[60px]">Video</TableHead>
                             </TableRow>
                         </TableHeader>
                         <TableBody>
-                            {matches.map((match) => {
-                                const isRed = match.alliances.red.teams.some(t => t.team.name === teamNumber);
-                                const myScore = isRed ? match.alliances.red.score : match.alliances.blue.score;
-                                const oppScore = isRed ? match.alliances.blue.score : match.alliances.red.score;
-                                const isWin = myScore > oppScore;
-                                const isTie = myScore === oppScore;
-
-                                // Format match name correctly
-                                let matchLabel = match.name || "";
-                                if (match.round === 2) {
-                                    matchLabel = `Q${match.matchnum}`;
-                                } else if (matchLabel.includes('#')) {
-                                    matchLabel = matchLabel.replace('#', '');
-                                } else {
-                                    // Fallback mapping if name is missing
-                                    const roundMap: { [key: number]: string } = {
-                                        3: 'QF',
-                                        4: 'SF',
-                                        5: 'F',
-                                        6: 'R16'
-                                    };
-                                    matchLabel = `${roundMap[match.round] || `R${match.round}`} ${match.instance}-${match.matchnum}`;
-                                }
+                            {sorted.map((match) => {
+                                const hasScore = match.my_score !== undefined && match.opp_score !== undefined;
+                                const isWin = match.won === true;
+                                const isTie = hasScore && match.my_score === match.opp_score;
+                                const isRed = match.alliance === 'red';
 
                                 return (
-                                    <TableRow key={match.id}>
+                                    <TableRow key={match.SK}>
+                                        {/* Match label */}
                                         <TableCell className="font-medium font-mono text-xs whitespace-nowrap">
-                                            {matchLabel}
+                                            {matchLabel(match)}
                                         </TableCell>
+
+                                        {/* Result badge */}
                                         <TableCell>
-                                            <Badge variant={isWin ? "default" : isTie ? "outline" : "destructive"} className="font-mono text-[10px] px-1.5 py-0">
-                                                {isWin ? "WIN" : isTie ? "TIE" : "LOSS"} {myScore}-{oppScore}
-                                            </Badge>
+                                            {hasScore ? (
+                                                <Badge
+                                                    variant={isWin ? "default" : isTie ? "outline" : "destructive"}
+                                                    className="font-mono text-[10px] px-1.5 py-0"
+                                                >
+                                                    {isWin ? "WIN" : isTie ? "TIE" : "LOSS"}{" "}
+                                                    {match.my_score}-{match.opp_score}
+                                                </Badge>
+                                            ) : (
+                                                <span className="text-muted-foreground text-[10px] italic">Unscored</span>
+                                            )}
                                         </TableCell>
-                                        <TableCell className="text-[10px]">
-                                            <div className="flex flex-col space-y-1">
-                                                <div className={cn("px-2 py-0.5 rounded bg-red-100 dark:bg-red-950 text-red-700 dark:text-red-300", isRed && "ring-1 ring-red-500 font-bold")}>
-                                                    {match.alliances.red.teams.map(t => t.team.name).join(", ")}
-                                                </div>
-                                                <div className={cn("px-2 py-0.5 rounded bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-300", !isRed && "ring-1 ring-blue-500 font-bold")}>
-                                                    {match.alliances.blue.teams.map(t => t.team.name).join(", ")}
-                                                </div>
+
+                                        {/* Partners */}
+                                        <TableCell className="text-[11px]">
+                                            <div className={cn(
+                                                "flex flex-wrap gap-1 px-2 py-0.5 rounded",
+                                                isRed
+                                                    ? "bg-red-100 dark:bg-red-950 text-red-700 dark:text-red-300"
+                                                    : "bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-300"
+                                            )}>
+                                                {(match.partner_teams?.length ?? 0) > 0
+                                                    ? match.partner_teams.join(", ")
+                                                    : <span className="italic opacity-60">Solo</span>
+                                                }
                                             </div>
                                         </TableCell>
+
+                                        {/* Opponents */}
+                                        <TableCell className="text-[11px]">
+                                            <div className={cn(
+                                                "flex flex-wrap gap-1 px-2 py-0.5 rounded",
+                                                isRed
+                                                    ? "bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-300"
+                                                    : "bg-red-100 dark:bg-red-950 text-red-700 dark:text-red-300"
+                                            )}>
+                                                {(match.opponent_teams ?? []).join(", ")}
+                                            </div>
+                                        </TableCell>
+
+                                        {/* Video */}
                                         <TableCell className="text-right">
                                             {match.video_url ? (
                                                 <Button variant="ghost" size="sm" asChild className="h-8 w-8 p-0">
@@ -315,7 +385,7 @@ function MatchGroup({ eventName, matches, teamNumber }: { eventName: string; mat
                                                     </Link>
                                                 </Button>
                                             ) : (
-                                                <span className="text-muted-foreground text-[10px] italic">N/A</span>
+                                                <span className="text-muted-foreground text-[10px] italic">—</span>
                                             )}
                                         </TableCell>
                                     </TableRow>

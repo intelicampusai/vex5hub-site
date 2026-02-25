@@ -205,39 +205,7 @@ const MOCK_EVENTS: Event[] = [
     }
 ];
 
-const MOCK_MATCHES: Match[] = [
-    {
-        id: 101,
-        event_id: 1,
-        division_id: 1,
-        round: 2, // Qualification
-        instance: 1,
-        matchnum: 42,
-        scheduled: '2026-02-14T10:15:00Z',
-        started: '2026-02-14T10:16:30Z',
-        field: 'Main Stage',
-        alliances: {
-            red: { score: 24, teams: [{ team: { id: 1, name: '3150N' } }, { team: { id: 5, name: '1234A' } }] },
-            blue: { score: 12, teams: [{ team: { id: 6, name: '5678B' } }, { team: { id: 7, name: '9999X' } }] }
-        },
-        video_url: 'https://youtube.com/watch?v=example&t=3600s'
-    },
-    {
-        id: 102,
-        event_id: 1,
-        division_id: 1,
-        round: 2,
-        instance: 1,
-        matchnum: 58,
-        scheduled: '2026-02-14T11:45:00Z',
-        started: '2026-02-14T11:50:00Z',
-        field: 'Main Stage',
-        alliances: {
-            red: { score: 10, teams: [{ team: { id: 8, name: '1111A' } }, { team: { id: 9, name: '2222B' } }] },
-            blue: { score: 28, teams: [{ team: { id: 1, name: '3150N' } }, { team: { id: 10, name: '3333C' } }] }
-        }
-    }
-];
+
 
 export async function getTeams(query: string = ''): Promise<Team[]> {
     const apiTeams = await fetchFromApi<Team[]>(`/teams?season=${SEASON_ID}&q=${query}`);
@@ -319,14 +287,9 @@ export async function getTeam(number: string): Promise<Team | undefined> {
 }
 
 export async function getMatches(teamNumber: string): Promise<Match[]> {
-    const apiTeamDetail = await fetchFromApi<Team & { matches: Match[] }>(`/teams/${teamNumber}`);
-    if (apiTeamDetail && apiTeamDetail.matches) return apiTeamDetail.matches;
-
-    await new Promise(resolve => setTimeout(resolve, 500));
-    return MOCK_MATCHES.filter(m =>
-        m.alliances.red.teams.some(t => t.team.name === teamNumber) ||
-        m.alliances.blue.teams.some(t => t.team.name === teamNumber)
-    );
+    const apiMatches = await fetchFromApi<Match[]>(`/teams/${teamNumber}/matches`);
+    if (apiMatches && Array.isArray(apiMatches)) return apiMatches;
+    return [];
 }
 
 export async function getSkillsStandings(): Promise<Team[]> {
