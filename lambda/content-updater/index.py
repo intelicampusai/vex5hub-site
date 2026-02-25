@@ -163,12 +163,16 @@ def update_top_teams(api_key: str, worlds_teams: set = None):
             if isinstance(data, list) and len(data) > 0:
                 logger.info(f"Fetched {len(data)} teams for {grade}")
                 
-                # Process top 50 for each grade to save capacity
-                for entry in data[:50]:
+                # Process top 150 for each grade + any Worlds Qualified team to ensure they appear
+                for i, entry in enumerate(data):
                     team_info = entry.get('team', {})
+                    team_num = team_info.get('team')
                     scores = entry.get('scores', {})
                     
-                    team_num = team_info.get('team')
+                    is_worlds = team_num in (worlds_teams or set())
+                    if i >= 150 and not is_worlds:
+                        continue
+                        
                     rank = entry.get('rank')
                     score = scores.get('score')
                     

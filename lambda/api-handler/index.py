@@ -57,7 +57,7 @@ def get_teams(params: dict):
     resp = table.query(
         IndexName='GSI1',
         KeyConditionExpression=Key('GSI1PK').eq(f'SEASON#{season_id}') & Key('GSI1SK').begins_with('RANK#'),
-        Limit=100
+        Limit=1000
     )
     
     teams = resp.get('Items', [])
