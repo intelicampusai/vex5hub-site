@@ -355,6 +355,72 @@ export async function getSkillsStandings(): Promise<Team[]> {
     }));
 }
 
+export async function getEventTeams(eventId: number): Promise<string[]> {
+    const teamNumbers = new Set<string>();
+    let page = 1;
+    let lastPage = 1;
+
+    // Loop to fetch all pages
+    do {
+        // Add a small delay between requests to be nice to the API
+        if (page > 1) await new Promise(resolve => setTimeout(resolve, 200));
+
+        const response = await fetchFromApi<any>(`/events/${eventId}/teams?page=${page}`);
+
+        if (!response || !response.data) break;
+
+        response.data.forEach((t: any) => teamNumbers.add(t.number));
+
+        if (response.meta?.last_page) {
+            lastPage = response.meta.last_page;
+        } else {
+            break;
+        }
+
+        page++;
+    } while (page <= lastPage && page <= 50); // Safety limit, Worlds acts have many teams
+
+    return Array.from(teamNumbers);
+}
+
+export async function getWorldsQualifiedTeams(): Promise<Set<string>> {
+    // 1. Get all events first to find the World Championship event(s)
+    const allEvents = await getEvents();
+
+    // 2. Filter for World Championship events (V5RC)
+    // Looking for "World Championship" and ensuring it's for V5RC (High School / Middle School)
+    // Adjust filter string as needed based on actual event names.
+    const worldsEvents = allEvents.filter(e =>
+        e.name.includes("World Championship") &&
+        (e.name.includes("V5RC") || e.name.includes("VRC")) // specific enough for VEX V5
+    );
+
+    const qualifiedTeams = new Set<string>();
+
+    if (worldsEvents.length === 0) {
+        // Fallback for mock/dev if no API key or no events found
+        // If we are using MOCK_TEAMS, let's assume some are qualified
+        if (!process.env.ROBOTEVENTS_TOKEN) {
+            MOCK_TEAMS.forEach(t => {
+                if (t.skills && t.skills.rank <= 10) qualifiedTeams.add(t.number);
+            });
+            // Also add 3150N specifically if not caught
+            qualifiedTeams.add("3150N");
+        }
+        return qualifiedTeams;
+    }
+
+    // 3. Fetch approved teams for each World Championship event
+    for (const event of worldsEvents) {
+        if (event.id) {
+            const teamNumbers = await getEventTeams(event.id);
+            teamNumbers.forEach(n => qualifiedTeams.add(n));
+        }
+    }
+
+    return qualifiedTeams;
+}
+
 export async function getTopRegions(): Promise<string[]> {
     const teams = await getSkillsStandings();
     const regionCounts: Record<string, number> = {};

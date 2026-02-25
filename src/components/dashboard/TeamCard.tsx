@@ -73,7 +73,7 @@ export function TeamCard({ team, compact = false }: TeamCardProps) {
                         </div>
                     </div>
 
-                    {!compact && team.skills && (
+                    {team.skills && (
                         <div className="mt-4 pt-4 border-t grid grid-cols-2 gap-2 text-xs">
                             <div className="flex items-center space-x-1" title="Driver Skills">
                                 <Gamepad2 className="h-3 w-3 text-blue-500" />

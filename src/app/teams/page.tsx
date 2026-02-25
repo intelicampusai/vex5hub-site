@@ -2,11 +2,11 @@
 
 import { useState, useEffect, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
-import { getTeams, getTopRegions } from "@/lib/api";
+import { getTeams, getTopRegions, getWorldsQualifiedTeams } from "@/lib/api";
 import { TeamCard } from "@/components/dashboard/TeamCard";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Search } from "lucide-react";
+import { Search, Trophy } from "lucide-react";
 
 function TeamsContent() {
     const searchParams = useSearchParams();
@@ -21,12 +21,32 @@ function TeamsContent() {
     const [regions, setRegions] = useState<string[]>([]);
     const [loading, setLoading] = useState(true);
 
+    const [showQualified, setShowQualified] = useState(false);
+    const [qualifiedTeamNumbers, setQualifiedTeamNumbers] = useState<Set<string> | null>(null);
+
+    useEffect(() => {
+        if (showQualified && !qualifiedTeamNumbers) {
+            setLoading(true);
+            getWorldsQualifiedTeams().then(teams => {
+                setQualifiedTeamNumbers(teams);
+                setLoading(false);
+            }).catch(err => {
+                console.error("Failed to fetch qualified teams:", err);
+                setLoading(false);
+                setShowQualified(false); // Reset toggle on error
+            });
+        }
+    }, [showQualified, qualifiedTeamNumbers]);
+
     useEffect(() => {
         getTopRegions().then(setRegions).catch(console.error);
     }, []);
 
     useEffect(() => {
         const fetchTeams = async () => {
+            // If filter is enabled but data not loaded yet, wait (the other effect handles loading it)
+            if (showQualified && !qualifiedTeamNumbers) return;
+
             setLoading(true);
             try {
                 const allTeams = await getTeams(query);
@@ -42,7 +62,9 @@ function TeamsContent() {
                         }
                     }
 
-                    return gradeMatch && regionMatch;
+                    const qualifiedMatch = !showQualified || (qualifiedTeamNumbers ? qualifiedTeamNumbers.has(t.number) : false);
+
+                    return gradeMatch && regionMatch && qualifiedMatch;
                 });
                 setTeams(filtered);
             } catch (error) {
@@ -53,7 +75,7 @@ function TeamsContent() {
         };
         fetchTeams();
 
-    }, [query, selectedGrade, selectedRegion]);
+    }, [query, selectedGrade, selectedRegion, showQualified, qualifiedTeamNumbers]);
 
     const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -120,22 +142,35 @@ function TeamsContent() {
                         <Button
                             variant={selectedGrade === "All" ? "default" : "outline"}
                             onClick={() => handleGradeFilter('All')}
+                            className="h-8"
                         >
                             All
                         </Button>
                         <Button
                             variant={selectedGrade === "High School" ? "default" : "outline"}
                             onClick={() => handleGradeFilter('High School')}
+                            className="h-8"
                         >
                             HS
                         </Button>
                         <Button
                             variant={selectedGrade === "Middle School" ? "default" : "outline"}
                             onClick={() => handleGradeFilter('Middle School')}
+                            className="h-8"
                         >
                             MS
                         </Button>
                     </div>
+
+                    <Button
+                        variant={showQualified ? "default" : "outline"}
+                        onClick={() => setShowQualified(!showQualified)}
+                        className="gap-2"
+                        title="Show World Championship Qualified Teams Only"
+                    >
+                        <Trophy className="h-4 w-4" />
+                        <span className="hidden sm:inline">Worlds Qualified</span>
+                    </Button>
                 </div>
             </div>
 
