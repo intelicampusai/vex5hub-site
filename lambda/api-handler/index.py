@@ -39,10 +39,21 @@ def handler(event: dict, context: Any) -> dict:
         if path == '/teams' and method == 'GET':
             return get_teams(query_params)
         elif path.startswith('/teams/') and method == 'GET':
-            team_number = path.split('/')[-1]
+            parts = path.split('/')
+            team_number = parts[2] if len(parts) > 2 else None
+            sub = parts[3] if len(parts) > 3 else None
+            if sub == 'matches':
+                return get_team_matches(team_number)
             return get_team_detail(team_number)
         elif path == '/events' and method == 'GET':
             return get_events(query_params)
+        elif path.startswith('/events/') and method == 'GET':
+            parts = path.split('/')
+            sku = parts[2] if len(parts) > 2 else None
+            sub = parts[3] if len(parts) > 3 else None
+            if sub == 'matches':
+                return get_event_matches(sku)
+            return response(404, {"error": "Not Found"})
         else:
             return response(404, {"error": "Not Found"})
     except Exception as e:
@@ -72,10 +83,10 @@ def get_team_detail(number: str):
     if 'Item' not in meta:
         return response(404, {"error": "Team not found"})
         
-    # Get matches
+    # Get matches via reverse-lookup
     matches = table.query(
         KeyConditionExpression=Key('PK').eq(f'TEAM#{number}') & Key('SK').begins_with('MATCH#'),
-        ScanIndexForward=False, # Recent first
+        ScanIndexForward=False,
         Limit=50
     )
     
@@ -83,6 +94,23 @@ def get_team_detail(number: str):
     data['matches'] = matches.get('Items', [])
     
     return response(200, data)
+
+def get_team_matches(number: str):
+    """Return all match reverse-lookup items for a team."""
+    resp = table.query(
+        KeyConditionExpression=Key('PK').eq(f'TEAM#{number}') & Key('SK').begins_with('MATCH#'),
+        ScanIndexForward=False,
+        Limit=200
+    )
+    return response(200, resp.get('Items', []))
+
+def get_event_matches(sku: str):
+    """Return all match source-of-truth items for an event."""
+    resp = table.query(
+        KeyConditionExpression=Key('PK').eq(f'EVENT#{sku}') & Key('SK').begins_with('MATCH#'),
+        ScanIndexForward=True
+    )
+    return response(200, resp.get('Items', []))
 
 def get_events(params: dict):
     season_id = params.get('season', '190')

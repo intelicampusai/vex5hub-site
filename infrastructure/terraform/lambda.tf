@@ -92,7 +92,7 @@ resource "aws_lambda_function" "content_updater" {
   handler          = "index.handler"
   source_code_hash = data.archive_file.lambda_zip.output_base64sha256
   runtime          = "python3.12"
-  timeout          = 300  # 5 minutes
+  timeout          = 900  # 15 minutes (match sync needs retry back-off time)
   memory_size      = 512
 
   environment {
