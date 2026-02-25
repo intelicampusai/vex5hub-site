@@ -19,7 +19,7 @@ variable "domain_name" {
 variable "content_refresh_hours" {
   description = "Hours between content refreshes"
   type        = number
-  default     = 4
+  default     = 24
 }
 
 variable "tags" {
