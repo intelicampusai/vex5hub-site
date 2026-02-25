@@ -2,7 +2,7 @@
 
 import { useState, useEffect, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
-import { getTeams, getTopRegions, getWorldsQualifiedTeams } from "@/lib/api";
+import { getTeams, getTopRegions } from "@/lib/api";
 import { TeamCard } from "@/components/dashboard/TeamCard";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -22,21 +22,10 @@ function TeamsContent() {
     const [loading, setLoading] = useState(true);
 
     const [showQualified, setShowQualified] = useState(false);
-    const [qualifiedTeamNumbers, setQualifiedTeamNumbers] = useState<Set<string> | null>(null);
 
     useEffect(() => {
-        if (showQualified && qualifiedTeamNumbers === null) {
-            setLoading(true);
-            getWorldsQualifiedTeams().then(teams => {
-                setQualifiedTeamNumbers(teams);
-                setLoading(false);
-            }).catch(err => {
-                console.error("Failed to fetch qualified teams:", err);
-                setLoading(false);
-                setShowQualified(false); // Reset toggle on error
-            });
-        }
-    }, [showQualified, qualifiedTeamNumbers]);
+        getTopRegions().then(setRegions).catch(console.error);
+    }, []);
 
     useEffect(() => {
         getTopRegions().then(setRegions).catch(console.error);
@@ -44,8 +33,6 @@ function TeamsContent() {
 
     useEffect(() => {
         const fetchTeams = async () => {
-            // If filter is enabled but data not loaded yet, wait (the other effect handles loading it)
-            if (showQualified && qualifiedTeamNumbers === null) return;
 
             setLoading(true);
             try {
@@ -62,7 +49,7 @@ function TeamsContent() {
                         }
                     }
 
-                    const qualifiedMatch = !showQualified || (qualifiedTeamNumbers ? qualifiedTeamNumbers.has(t.number) : false);
+                    const qualifiedMatch = !showQualified || t.worlds_qualified === true;
 
                     return gradeMatch && regionMatch && qualifiedMatch;
                 });
@@ -75,7 +62,7 @@ function TeamsContent() {
         };
         fetchTeams();
 
-    }, [query, selectedGrade, selectedRegion, showQualified, qualifiedTeamNumbers]);
+    }, [query, selectedGrade, selectedRegion, showQualified]);
 
     const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();

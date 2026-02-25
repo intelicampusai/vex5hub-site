@@ -7,6 +7,7 @@ export interface Team {
     grade: 'High School' | 'Middle School' | 'College';
     region: string;
     country: string;
+    worlds_qualified?: boolean;
     stats?: {
         rank: number;
         wins: number;

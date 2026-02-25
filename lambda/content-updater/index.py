@@ -42,8 +42,11 @@ def handler(event: dict, context: Any) -> dict:
         update_events(api_key)
         results["updates"].append("events")
         
-        # 2. Update Top Teams (e.g. from Skills)
-        update_top_teams(api_key)
+        # 2. Fetch Worlds Teams
+        worlds_teams = fetch_worlds_teams(api_key, SEASON_ID)
+        
+        # 3. Update Top Teams (e.g. from Skills)
+        update_top_teams(api_key, worlds_teams)
         results["updates"].append("teams")
         
     except Exception as e:
@@ -99,7 +102,54 @@ def update_events(api_key: str):
             
         table.put_item(Item=item)
 
-def update_top_teams(api_key: str):
+def fetch_worlds_teams(api_key: str, season_id: int) -> set:
+    """Fetch the set of team numbers registered for the World Championship."""
+    qualified_teams = set()
+    
+    # First, find the Worlds event(s)
+    events_url = f"{RE_API_BASE}/events?season[]={season_id}&per_page=100"
+    events_data = api_request(events_url, api_key)
+    if not events_data or 'data' not in events_data:
+        return qualified_teams
+        
+    worlds_events = []
+    for evt in events_data['data']:
+        name = evt.get('name', '')
+        if "World Championship" in name and ("V5RC" in name or "VRC" in name):
+            worlds_events.append(evt)
+            
+    if not worlds_events:
+        logger.warning("No World Championship events found for this season.")
+        return qualified_teams
+        
+    # Then fetch teams for each
+    for evt in worlds_events:
+        evt_id = evt.get('id')
+        if not evt_id: continue
+        
+        logger.info(f"Fetching teams for Worlds event: {evt.get('name')} ({evt_id})")
+        
+        page = 1
+        last_page = 1
+        
+        while page <= last_page and page <= 50: # Safety limit
+            teams_url = f"{RE_API_BASE}/events/{evt_id}/teams?page={page}"
+            teams_data = api_request(teams_url, api_key)
+            
+            if not teams_data or 'data' not in teams_data:
+                break
+                
+            for team in teams_data['data']:
+                team_num = team.get('number')
+                if team_num: qualified_teams.add(team_num)
+                
+            last_page = teams_data.get('meta', {}).get('last_page', 1)
+            page += 1
+            
+    logger.info(f"Found {len(qualified_teams)} Worlds qualified teams.")
+    return qualified_teams
+
+def update_top_teams(api_key: str, worlds_teams: set = None):
     """Fetch top teams from Skills for both Middle and High School."""
     # Define endpoints for both grade levels
     endpoints = [
@@ -145,6 +195,7 @@ def update_top_teams(api_key: str):
                         'region': team_info.get('region'),
                         'country': team_info.get('country'),
                         'grade': team_info.get('gradeLevel'), # e.g. "Middle School" or "High School"
+                        'worlds_qualified': team_num in (worlds_teams or set()),
                         'location': {
                             'city': team_info.get('city'),
                             'region': team_info.get('region'),
