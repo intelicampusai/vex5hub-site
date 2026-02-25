@@ -168,18 +168,23 @@ function TeamsContent() {
                     ))}
                 </div>
             ) : (
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                    {teams.length > 0 ? (
-                        teams.map((team) => (
-                            <TeamCard key={team.id} team={team} />
-                        ))
-                    ) : (
-                        <div className="col-span-full text-center py-10 text-muted-foreground">
-                            No teams found matching "{query}"
-                            {selectedGrade !== "All" ? ` in ${selectedGrade}` : ""}
-                            {selectedRegion !== "All" ? ` in ${selectedRegion}` : ""}
-                        </div>
-                    )}
+                <div className="space-y-4">
+                    <div className="text-sm text-muted-foreground px-1 font-medium">
+                        Showing {teams.length} team{teams.length !== 1 ? 's' : ''}
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                        {teams.length > 0 ? (
+                            teams.map((team) => (
+                                <TeamCard key={team.id} team={team} />
+                            ))
+                        ) : (
+                            <div className="col-span-full text-center py-10 text-muted-foreground">
+                                No teams found matching "{query}"
+                                {selectedGrade !== "All" ? ` in ${selectedGrade}` : ""}
+                                {selectedRegion !== "All" ? ` in ${selectedRegion}` : ""}
+                            </div>
+                        )}
+                    </div>
                 </div>
             )}
         </div>
