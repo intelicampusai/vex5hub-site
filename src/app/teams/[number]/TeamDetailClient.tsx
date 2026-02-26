@@ -15,7 +15,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Video, ArrowLeft, Trophy, Target, Code2, ChevronDown, ChevronUp, Calendar } from "lucide-react";
+import { Video, ArrowLeft, Trophy, Target, Code2, ChevronDown, ChevronUp, Calendar, MapPin } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
@@ -196,19 +196,36 @@ export default function TeamDetailClient({ teamNumber }: TeamDetailClientProps) 
                 ) : matches.length > 0 ? (
                     (() => {
                         // Group matches by event (using event_name + sku for uniqueness)
-                        const groups: { [key: string]: { name: string; sku: string; matches: Match[] } } = {};
+                        const groups: {
+                            [key: string]: {
+                                name: string;
+                                sku: string;
+                                event_start?: string;
+                                event_end?: string;
+                                event_location?: string;
+                                matches: Match[]
+                            }
+                        } = {};
+
                         matches.forEach(match => {
                             const key = match.sku || match.event_name;
                             if (!groups[key]) {
-                                groups[key] = { name: match.event_name, sku: match.sku, matches: [] };
+                                groups[key] = {
+                                    name: match.event_name,
+                                    sku: match.sku,
+                                    event_start: match.event_start,
+                                    event_end: match.event_end,
+                                    event_location: match.event_location,
+                                    matches: []
+                                };
                             }
                             groups[key].matches.push(match);
                         });
 
-                        // Sort groups: most recent first (by scheduled date of first match)
+                        // Sort groups: most recent first (by event_start, fallback to scheduled date)
                         const sortedGroups = Object.entries(groups).sort(([, a], [, b]) => {
-                            const aDate = a.matches[0]?.scheduled || '';
-                            const bDate = b.matches[0]?.scheduled || '';
+                            const aDate = a.event_start || a.matches[0]?.scheduled || '';
+                            const bDate = b.event_start || b.matches[0]?.scheduled || '';
                             return bDate.localeCompare(aDate);
                         });
 
@@ -217,6 +234,9 @@ export default function TeamDetailClient({ teamNumber }: TeamDetailClientProps) 
                                 key={key}
                                 eventName={group.name}
                                 sku={group.sku}
+                                eventStart={group.event_start}
+                                eventEnd={group.event_end}
+                                eventLocation={group.event_location}
                                 matches={group.matches}
                                 teamNumber={number}
                             />
@@ -244,10 +264,13 @@ const ROUND_ORDER: Record<string, number> = {
 };
 
 function MatchGroup({
-    eventName, sku, matches, teamNumber
+    eventName, sku, eventStart, eventEnd, eventLocation, matches, teamNumber
 }: {
     eventName: string;
     sku: string;
+    eventStart?: string;
+    eventEnd?: string;
+    eventLocation?: string;
     matches: Match[];
     teamNumber: string;
 }) {
@@ -290,16 +313,31 @@ function MatchGroup({
                     </div>
                     <div>
                         <h3 className="font-bold leading-none">{eventName}</h3>
-                        <p className="text-xs text-muted-foreground mt-1">
-                            {matches.length} Matches
-                            {played.length > 0 && (
-                                <span className="ml-2">
-                                    <span className="text-green-600 dark:text-green-400 font-semibold">{wins}W</span>
-                                    {' · '}
-                                    <span className="text-red-600 dark:text-red-400 font-semibold">{losses}L</span>
-                                </span>
+                        <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mt-2">
+                            {eventStart && (
+                                <div className="flex items-center text-[10px] text-muted-foreground">
+                                    <Calendar className="h-3 w-3 mr-1 opacity-70" />
+                                    {formatDateRange(eventStart, eventEnd)}
+                                </div>
                             )}
-                        </p>
+                            {eventLocation && (
+                                <div className="flex items-center text-[10px] text-muted-foreground">
+                                    <MapPin className="h-3 w-3 mr-1 opacity-70" />
+                                    {eventLocation}
+                                </div>
+                            )}
+                            <div className="flex items-center text-[10px] text-muted-foreground">
+                                <Trophy className="h-3 w-3 mr-1 opacity-70" />
+                                {matches.length} Matches
+                                {played.length > 0 && (
+                                    <span className="ml-1 border-l pl-1">
+                                        <span className="text-green-600 dark:text-green-400 font-semibold">{wins}W</span>
+                                        {' - '}
+                                        <span className="text-red-600 dark:text-red-400 font-semibold">{losses}L</span>
+                                    </span>
+                                )}
+                            </div>
+                        </div>
                     </div>
                 </div>
                 {isOpen
@@ -397,4 +435,25 @@ function MatchGroup({
             </div>
         </Card>
     );
+}
+
+function formatDateRange(start: string, end?: string): string {
+    const s = new Date(start);
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const startStr = `${months[s.getMonth()]} ${s.getDate()}`;
+
+    if (!end || start === end) {
+        return `${startStr}, ${s.getFullYear()}`;
+    }
+
+    const e = new Date(end);
+    if (s.getMonth() === e.getMonth() && s.getFullYear() === e.getFullYear()) {
+        return `${months[s.getMonth()]} ${s.getDate()}-${e.getDate()}, ${s.getFullYear()}`;
+    }
+
+    if (s.getFullYear() === e.getFullYear()) {
+        return `${months[s.getMonth()]} ${s.getDate()} - ${months[e.getMonth()]} ${e.getDate()}, ${s.getFullYear()}`;
+    }
+
+    return `${startStr}, ${s.getFullYear()} - ${months[e.getMonth()]} ${e.getDate()}, ${e.getFullYear()}`;
 }

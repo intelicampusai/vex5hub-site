@@ -112,6 +112,22 @@ def update_events(api_key: str):
             
         table.put_item(Item=item)
 
+        # Also store SKU metadata for reverse-lookup enrichment
+        meta_item = {
+            'PK': f'EVENT#{sku}',
+            'SK': 'METADATA',
+            'sku': sku,
+            'name': evt.get('name'),
+            'start': start_date,
+            'end': evt.get('end'),
+            'venue': evt.get('location', {}).get('venue'),
+            'city': evt.get('location', {}).get('city'),
+            'region': evt.get('location', {}).get('region'),
+            'country': evt.get('location', {}).get('country'),
+            'updated_at': datetime.now(timezone.utc).isoformat()
+        }
+        table.put_item(Item=meta_item)
+
 def update_matches(api_key: str) -> int:
     """Fetch match results for top teams at Signature and Regional events.
     
@@ -137,7 +153,23 @@ def update_matches(api_key: str) -> int:
         Limit=100  # top 100 teams
     )
     teams = resp.get('Items', [])
-    logger.info(f"Fetching matches for {len(teams)} top teams.")
+    logger.info(f"Fetching matches for {len(teams)} teams...")
+
+    # Pre-fetch event metadata map for denormalization
+    # Since we don't have many events per season, we can just fetch all
+    events_resp = table.query(
+        KeyConditionExpression=Key('PK').eq(f'SEASON#{SEASON_ID}') & Key('SK').begins_with('EVENT#')
+    )
+    event_meta_map = {}
+    for e in events_resp.get('Items', []):
+        sku = e['sku']
+        loc = e.get('location', {})
+        loc_str = ", ".join(filter(None, [loc.get('city'), loc.get('region'), loc.get('country')]))
+        event_meta_map[sku] = {
+            'start': e.get('start'),
+            'end': e.get('end'),
+            'location': loc_str
+        }
 
     for team in teams:
         team_num = team.get('number', '')
@@ -161,7 +193,9 @@ def update_matches(api_key: str) -> int:
             evt_name = evt_info.get('name', '')
             div_id = match.get('division', {}).get('id', 1)
             match_num = match.get('matchnum', 0)
-            match_key = (sku, div_id, match_num)
+            round_num = match.get('round', 0)
+            instance = match.get('instance', 0)
+            match_key = (sku, div_id, round_num, instance, match_num)
 
             # Filter: only Signature/Regional events
             # We check DynamoDB event level if available, else skip unknown levels
@@ -172,7 +206,8 @@ def update_matches(api_key: str) -> int:
                 continue
 
             # Only write team reverse-lookup items for this specific team
-            _write_team_match_item(match, sku, evt_name, team_num)
+            evt_meta = event_meta_map.get(sku, {})
+            _write_team_match_item(match, sku, evt_name, team_num, evt_meta)
 
             # Only write event source-of-truth once per unique match
             if match_key not in seen_matches:
@@ -193,6 +228,7 @@ def _write_event_match_item(match: dict, sku: str, evt_name: str):
     div_id = match.get('division', {}).get('id', 1)
     match_num = match.get('matchnum', 0)
     round_num = match.get('round', 0)
+    instance = match.get('instance', 0)
     round_names = {1: 'Practice', 2: 'Qualification', 3: 'Quarterfinal', 4: 'Semifinal', 5: 'Final', 6: 'Round of 16'}
     round_name = round_names.get(round_num, f'Round {round_num}')
 
@@ -204,7 +240,7 @@ def _write_event_match_item(match: dict, sku: str, evt_name: str):
     red_score = red.get('score')
     blue_score = blue.get('score')
 
-    match_sk = f"MATCH#{div_id}#{match_num:04d}"
+    match_sk = f"MATCH#{div_id}#{round_num}#{instance:02d}#{match_num:04d}"
     item = {
         'PK': f'EVENT#{sku}',
         'SK': match_sk,
@@ -213,6 +249,7 @@ def _write_event_match_item(match: dict, sku: str, evt_name: str):
         'division_id': Decimal(str(div_id)),
         'match_num': Decimal(str(match_num)),
         'round': round_name,
+        'instance': Decimal(str(instance)),
         'field': match.get('field', ''),
         'scheduled': match.get('scheduled', ''),
         'started': match.get('started', ''),
@@ -228,13 +265,15 @@ def _write_event_match_item(match: dict, sku: str, evt_name: str):
     except Exception as e:
         logger.error(f"Error writing event match {sku}/{match_sk}: {e}")
 
-def _write_team_match_item(match: dict, sku: str, evt_name: str, team_num: str):
+def _write_team_match_item(match: dict, sku: str, evt_name: str, team_num: str, evt_meta: dict = None):
     """Write the team reverse-lookup match item.
     PK: TEAM#{num}  SK: MATCH#{sku}#{div_id}#{match_num:04d}
     """
+    if evt_meta is None: evt_meta = {}
     div_id = match.get('division', {}).get('id', 1)
     match_num = match.get('matchnum', 0)
     round_num = match.get('round', 0)
+    instance = match.get('instance', 0)
     round_names = {1: 'Practice', 2: 'Qualification', 3: 'Quarterfinal', 4: 'Semifinal', 5: 'Final', 6: 'Round of 16'}
     round_name = round_names.get(round_num, f'Round {round_num}')
 
@@ -253,7 +292,7 @@ def _write_team_match_item(match: dict, sku: str, evt_name: str, team_num: str):
     opponent_teams = blue_teams if alliance_color == 'red' else red_teams
     won = (my_score is not None and opp_score is not None and int(my_score) > int(opp_score))
 
-    team_match_sk = f"MATCH#{sku}#{div_id}#{match_num:04d}"
+    team_match_sk = f"MATCH#{sku}#{div_id}#{round_num}#{instance:02d}#{match_num:04d}"
     item = {
         'PK': f'TEAM#{team_num}',
         'SK': team_match_sk,
@@ -262,6 +301,7 @@ def _write_team_match_item(match: dict, sku: str, evt_name: str, team_num: str):
         'division_id': Decimal(str(div_id)),
         'match_num': Decimal(str(match_num)),
         'round': round_name,
+        'instance': Decimal(str(instance)),
         'alliance': alliance_color,
         'partner_teams': [t for t in partner_teams if t != team_num],
         'opponent_teams': opponent_teams,
@@ -269,6 +309,9 @@ def _write_team_match_item(match: dict, sku: str, evt_name: str, team_num: str):
         'opp_score': Decimal(str(opp_score)) if opp_score is not None else None,
         'won': won,
         'scheduled': match.get('scheduled', ''),
+        'event_start': evt_meta.get('start'),
+        'event_end': evt_meta.get('end'),
+        'event_location': evt_meta.get('location'),
         'updated_at': datetime.now(timezone.utc).isoformat()
     }
     item = {k: v for k, v in item.items() if v is not None}

@@ -66,4 +66,7 @@ export interface Match {
     scheduled?: string;
     updated_at?: string;
     video_url?: string;
+    event_start?: string;
+    event_end?: string;
+    event_location?: string;
 }
