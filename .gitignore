@@ -48,5 +48,6 @@ terraform-provider-*
 terraform.tfstate
 terraform.tfstate.backup
 *.tfplan
+infrastructure/terraform/tfplan
 .build/
 
