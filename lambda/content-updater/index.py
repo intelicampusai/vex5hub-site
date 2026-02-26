@@ -22,6 +22,7 @@ secrets_client = boto3.client('secretsmanager')
 TABLE_NAME = os.environ.get('TABLE_NAME')
 PROJECT_NAME = os.environ.get('PROJECT_NAME', 'vex5hub')
 SEASON_ID = int(os.environ.get('SEASON_ID', 190)) # Default to 2024-25, override as needed
+WORLDS_SKUS = os.environ.get('WORLDS_SKUS', '')
 
 table = dynamodb.Table(TABLE_NAME) if TABLE_NAME else None
 
@@ -326,7 +327,29 @@ def fetch_worlds_teams(api_key: str, season_id: int) -> set:
     """Fetch the set of team numbers registered for the World Championship."""
     qualified_teams = set()
     
-    # First, find the Worlds event(s) using the native level[]=World query
+    # Priority: use specific SKUs if provided via environment variable
+    if WORLDS_SKUS:
+        skus = [s.strip() for s in WORLDS_SKUS.split(',') if s.strip()]
+        for sku in skus:
+            logger.info(f"Fetching teams for specific Worlds SKU: {sku}")
+            page = 1
+            last_page = 1
+            while page <= last_page and page <= 50:
+                teams_url = f"{RE_API_BASE}/events/{sku}/teams?page={page}"
+                teams_data = api_request(teams_url, api_key)
+                if not teams_data or 'data' not in teams_data:
+                    break
+                for team in teams_data['data']:
+                    team_num = team.get('number')
+                    if team_num: qualified_teams.add(team_num)
+                last_page = teams_data.get('meta', {}).get('last_page', 1)
+                page += 1
+        
+        if qualified_teams:
+            logger.info(f"Found {len(qualified_teams)} teams from specific SKUs.")
+            return qualified_teams
+
+    # Fallback/Legacy: find the Worlds event(s) using the native level[]=World query
     events_url = f"{RE_API_BASE}/events?season[]={season_id}&level[]=World&per_page=100"
     events_data = api_request(events_url, api_key)
     if not events_data or 'data' not in events_data:
