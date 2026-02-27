@@ -391,6 +391,10 @@ def fetch_worlds_teams(api_key: str, season_id: int) -> set:
         evt_id = evt.get('id')
         if not evt_id: continue
         
+        # STRICT FILTER: RobotEvents API returns Signature events in level[]=World query
+        if evt.get('level') != 'World':
+            continue
+            
         logger.info(f"Fetching teams for Worlds event: {evt.get('name')} ({evt_id})")
         
         page = 1

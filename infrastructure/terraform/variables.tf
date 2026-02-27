@@ -37,3 +37,8 @@ variable "season_id" {
   type        = number
   default     = 197
 }
+variable "worlds_skus" {
+  description = "Comma-separated list of SKUs that are World Championship events"
+  type        = string
+  default     = ""
+}

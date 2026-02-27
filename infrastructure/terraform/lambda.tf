@@ -102,6 +102,7 @@ resource "aws_lambda_function" "content_updater" {
       CLOUDFRONT_DIST_ID     = aws_cloudfront_distribution.main.id
       PROJECT_NAME           = var.project_name
       SEASON_ID              = var.season_id
+      WORLDS_SKUS            = var.worlds_skus
     }
   }
 
