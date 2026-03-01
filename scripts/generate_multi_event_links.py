@@ -42,6 +42,20 @@ STREAMS = {
             "div_id": 1
         }
     ],
+    "RE-V5RC-25-0165": [ # Kalahari MS
+        {
+            "video_id": "uZLlramgfoQ", # Day 1
+            "ref_match_name": "Qualifier #13",
+            "ref_timestamp": 1943, # 00:32:23
+            "div_id": 1
+        },
+        {
+            "video_id": "k5bKDk28BQ8", # Day 2
+            "ref_match_name": "Qualifier #105",
+            "ref_timestamp": 4218, # ~1:10:18
+            "div_id": 1
+        }
+    ],
     "RE-V5RC-24-5556": [ # Sugar Rush (Last Season)
         {
             "video_id": "4zax7Yvnr20",
@@ -64,6 +78,7 @@ STREAMS = {
             "div_id": 1
         }
     ]
+
 }
 
 def load_matches(file_path):

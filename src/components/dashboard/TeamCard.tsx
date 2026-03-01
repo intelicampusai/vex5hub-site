@@ -60,37 +60,26 @@ export function TeamCard({ team, compact = false }: TeamCardProps) {
 
                     <div className="grid grid-cols-2 gap-4 text-sm">
                         <div className="flex flex-col">
-                            <span className="text-muted-foreground text-xs uppercase font-semibold">Record</span>
+                            <span className="text-muted-foreground text-[10px] uppercase font-semibold">Record</span>
                             <div className="flex items-center space-x-1 font-mono">
-                                <span className="text-green-600 font-bold">{team.stats?.wins}W</span>
-                                <span className="text-muted-foreground">-</span>
-                                <span className="text-red-500 font-bold">{team.stats?.losses}L</span>
-                                <span className="text-muted-foreground">-</span>
-                                <span className="text-yellow-600 font-bold">{team.stats?.ties}T</span>
+                                <span className="font-medium text-sm">
+                                    {team.stats ? `${team.stats.wins}-${team.stats.losses}-${team.stats.ties}` : "0-0-0"}
+                                </span>
                             </div>
                         </div>
 
                         <div className="flex flex-col">
-                            <span className="text-muted-foreground text-xs uppercase font-semibold">Skills</span>
+                            <span className="text-muted-foreground text-[10px] uppercase font-semibold">Skills</span>
                             <div className="flex items-baseline space-x-1">
                                 <span className="font-bold text-lg">{team.skills?.combined_score || 0}</span>
-                                <span className="text-xs text-muted-foreground">pts</span>
+                                {team.skills && (
+                                    <span className="text-[10px] text-muted-foreground font-medium ml-1">
+                                        ({team.skills.driver_score}D / {team.skills.programming_score}A)
+                                    </span>
+                                )}
                             </div>
                         </div>
                     </div>
-
-                    {team.skills && (
-                        <div className="mt-4 pt-4 border-t grid grid-cols-2 gap-2 text-xs">
-                            <div className="flex items-center space-x-1" title="Driver Skills">
-                                <Gamepad2 className="h-3 w-3 text-blue-500" />
-                                <span>Driver: {team.skills.driver_score}</span>
-                            </div>
-                            <div className="flex items-center space-x-1" title="Autonomous Coding Skills">
-                                <Zap className="h-3 w-3 text-purple-500" />
-                                <span>Auto: {team.skills.programming_score}</span>
-                            </div>
-                        </div>
-                    )}
                 </CardContent>
             </Card>
         </Link>
