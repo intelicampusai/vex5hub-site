@@ -72,3 +72,13 @@ export interface Match {
     event_end?: string;
     event_location?: string;
 }
+
+export interface TeamEvent {
+    sku: string;
+    event_name: string;
+    start: string;
+    end: string;
+    location: string;
+    level: string;
+    status: 'future' | 'active';
+}

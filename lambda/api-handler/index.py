@@ -44,6 +44,8 @@ def handler(event: dict, context: Any) -> dict:
             sub = parts[3] if len(parts) > 3 else None
             if sub == 'matches':
                 return get_team_matches(team_number)
+            elif sub == 'events':
+                return get_team_events(team_number)
             return get_team_detail(team_number)
         elif path == '/events' and method == 'GET':
             return get_events(query_params)
@@ -101,6 +103,14 @@ def get_team_matches(number: str):
         KeyConditionExpression=Key('PK').eq(f'TEAM#{number}') & Key('SK').begins_with('MATCH#'),
         ScanIndexForward=False,
         Limit=200
+    )
+    return response(200, resp.get('Items', []))
+
+def get_team_events(number: str):
+    """Return upcoming/active event registrations for a team."""
+    resp = table.query(
+        KeyConditionExpression=Key('PK').eq(f'TEAM#{number}') & Key('SK').begins_with('EVENT#'),
+        ScanIndexForward=True
     )
     return response(200, resp.get('Items', []))
 

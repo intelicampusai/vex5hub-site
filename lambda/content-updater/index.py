@@ -56,6 +56,10 @@ def handler(event: dict, context: Any) -> dict:
         match_count = update_matches(api_key)
         results["updates"].append(f"matches ({match_count})")
 
+        # 5. Update team event registrations (upcoming/live events)
+        event_count = update_team_events(api_key)
+        results["updates"].append(f"team_events ({event_count})")
+
     except Exception as e:
         logger.error(f"Update failed: {e}", exc_info=True)
         results["errors"].append(str(e))
@@ -228,6 +232,101 @@ def update_matches(api_key: str) -> int:
 
     logger.info(f"Total unique matches stored: {total_matches}")
     return total_matches
+
+
+def update_team_events(api_key: str) -> int:
+    """Fetch upcoming/active event registrations for tracked teams.
+
+    For each team, calls /teams/{re_id}/events?season[]=SEASON_ID and stores
+    items with PK: TEAM#{num}  SK: EVENT#{start_date}#{sku} for future or
+    active events.
+    """
+    import time
+    total_events = 0
+
+    # Get tracked teams
+    resp = table.query(
+        IndexName='GSI1',
+        KeyConditionExpression=(
+            Key('GSI1PK').eq(f'SEASON#{SEASON_ID}') &
+            Key('GSI1SK').begins_with('RANK#')
+        ),
+        Limit=200
+    )
+    teams = resp.get('Items', [])
+    logger.info(f"Fetching event registrations for {len(teams)} teams...")
+
+    now = datetime.now(timezone.utc).isoformat()
+
+    for team in teams:
+        team_num = team.get('number', '')
+        re_id = team.get('re_id')
+        if not team_num or not re_id:
+            continue
+
+        re_id = int(re_id)
+
+        events_data = api_request(
+            f"{RE_API_BASE}/teams/{re_id}/events?season[]={SEASON_ID}&per_page=100",
+            api_key
+        )
+        if not events_data or 'data' not in events_data:
+            continue
+
+        # First, delete existing EVENT# items for this team so stale ones are removed
+        old_resp = table.query(
+            KeyConditionExpression=Key('PK').eq(f'TEAM#{team_num}') & Key('SK').begins_with('EVENT#'),
+            ProjectionExpression='PK, SK'
+        )
+        for old_item in old_resp.get('Items', []):
+            table.delete_item(Key={'PK': old_item['PK'], 'SK': old_item['SK']})
+
+        for evt in events_data['data']:
+            sku = evt.get('sku', '')
+            evt_name = evt.get('name', '')
+            start_date = evt.get('start', '')
+            end_date = evt.get('end', '')
+            level = evt.get('level', '')
+            loc = evt.get('location', {})
+            loc_str = ', '.join(filter(None, [
+                loc.get('city'), loc.get('region'), loc.get('country')
+            ]))
+
+            # Determine status
+            if end_date and end_date < now:
+                status = 'past'
+            elif start_date and start_date <= now:
+                status = 'active'
+            else:
+                status = 'future'
+
+            # Only store upcoming or active events
+            if status == 'past':
+                continue
+
+            item = {
+                'PK': f'TEAM#{team_num}',
+                'SK': f'EVENT#{start_date}#{sku}',
+                'sku': sku,
+                'event_name': evt_name,
+                'start': start_date,
+                'end': end_date,
+                'location': loc_str,
+                'level': level,
+                'status': status,
+                'updated_at': datetime.now(timezone.utc).isoformat()
+            }
+
+            try:
+                table.put_item(Item=item)
+                total_events += 1
+            except Exception as e:
+                logger.error(f"Error writing team event TEAM#{team_num}/EVENT#{start_date}#{sku}: {e}")
+
+        time.sleep(0.3)
+
+    logger.info(f"Total team event registrations stored: {total_events}")
+    return total_events
 
 
 def _write_event_match_item(match: dict, sku: str, evt_name: str, evt_meta: dict = None):

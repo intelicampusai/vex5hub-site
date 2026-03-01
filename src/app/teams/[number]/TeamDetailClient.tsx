@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import { useParams } from "next/navigation";
-import { getTeam, getMatches } from "@/lib/api";
-import { Team, Match } from "@/types";
+import { getTeam, getMatches, getTeamEvents } from "@/lib/api";
+import { Team, Match, TeamEvent } from "@/types";
 import {
     Table,
     TableBody,
@@ -15,7 +15,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Video, ArrowLeft, Trophy, Target, Code2, ChevronDown, ChevronUp, Calendar, MapPin } from "lucide-react";
+import { Video, ArrowLeft, Trophy, Target, Code2, ChevronDown, ChevronUp, Calendar, MapPin, Radio } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
@@ -29,6 +29,7 @@ export default function TeamDetailClient({ teamNumber }: TeamDetailClientProps) 
 
     const [team, setTeam] = useState<Team | null>(null);
     const [matches, setMatches] = useState<Match[]>([]);
+    const [teamEvents, setTeamEvents] = useState<TeamEvent[]>([]);
     const [loading, setLoading] = useState(true);
     const [matchesLoading, setMatchesLoading] = useState(true);
     const [error, setError] = useState(false);
@@ -62,8 +63,18 @@ export default function TeamDetailClient({ teamNumber }: TeamDetailClientProps) 
             }
         };
 
+        const fetchTeamEvents = async () => {
+            try {
+                const eventsData = await getTeamEvents(number);
+                setTeamEvents(eventsData);
+            } catch (err) {
+                console.error("Error fetching team events:", err);
+            }
+        };
+
         fetchTeam();
         fetchMatches();
+        fetchTeamEvents();
     }, [number]);
 
     if (loading) {
@@ -182,6 +193,86 @@ export default function TeamDetailClient({ teamNumber }: TeamDetailClientProps) 
                     </CardContent>
                 </Card>
             </div>
+
+            {/* Upcoming / Live Events */}
+            {teamEvents.length > 0 && (
+                <div className="space-y-4">
+                    <h2 className="text-2xl font-bold tracking-tight px-1 flex items-center gap-2">
+                        <Calendar className="h-6 w-6 text-blue-500" />
+                        Upcoming Events
+                    </h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {teamEvents.map((evt) => {
+                            const startDate = evt.start ? new Date(evt.start) : null;
+                            const endDate = evt.end ? new Date(evt.end) : null;
+                            const isLive = evt.status === 'active';
+
+                            const formatDate = (d: Date) =>
+                                d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+
+                            let dateStr = '';
+                            if (startDate && endDate) {
+                                const sameDay = startDate.toDateString() === endDate.toDateString();
+                                dateStr = sameDay
+                                    ? formatDate(startDate)
+                                    : `${formatDate(startDate)} - ${formatDate(endDate)}`;
+                            } else if (startDate) {
+                                dateStr = formatDate(startDate);
+                            }
+
+                            return (
+                                <Card
+                                    key={`${evt.sku}-${evt.start}`}
+                                    className={cn(
+                                        "relative overflow-hidden transition-all",
+                                        isLive && "border-green-500/50 shadow-green-500/10 shadow-md"
+                                    )}
+                                >
+                                    {isLive && (
+                                        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-green-400 to-emerald-500" />
+                                    )}
+                                    <CardContent className="pt-5 pb-4">
+                                        <div className="flex items-start justify-between gap-3">
+                                            <div className="flex-1 min-w-0">
+                                                <div className="flex items-center gap-2 mb-1">
+                                                    {isLive && (
+                                                        <Badge className="bg-green-500 text-white text-xs flex items-center gap-1 shrink-0">
+                                                            <Radio className="h-3 w-3 animate-pulse" />
+                                                            LIVE
+                                                        </Badge>
+                                                    )}
+                                                    {evt.level && (
+                                                        <Badge variant="outline" className="text-xs shrink-0">
+                                                            {evt.level}
+                                                        </Badge>
+                                                    )}
+                                                </div>
+                                                <h3 className="font-semibold text-sm leading-tight line-clamp-2">
+                                                    {evt.event_name}
+                                                </h3>
+                                                <div className="flex flex-col gap-1 mt-2 text-xs text-muted-foreground">
+                                                    {dateStr && (
+                                                        <span className="flex items-center gap-1">
+                                                            <Calendar className="h-3 w-3" />
+                                                            {dateStr}
+                                                        </span>
+                                                    )}
+                                                    {evt.location && (
+                                                        <span className="flex items-center gap-1">
+                                                            <MapPin className="h-3 w-3" />
+                                                            {evt.location}
+                                                        </span>
+                                                    )}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </CardContent>
+                                </Card>
+                            );
+                        })}
+                    </div>
+                </div>
+            )}
 
             {/* Competition History */}
             <div className="space-y-4">
