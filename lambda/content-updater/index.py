@@ -256,8 +256,6 @@ def update_team_events(api_key: str) -> int:
     teams = resp.get('Items', [])
     logger.info(f"Fetching event registrations for {len(teams)} teams...")
 
-    now = datetime.now(timezone.utc).isoformat()
-
     for team in teams:
         team_num = team.get('number', '')
         re_id = team.get('re_id')
@@ -273,14 +271,6 @@ def update_team_events(api_key: str) -> int:
         if not events_data or 'data' not in events_data:
             continue
 
-        # First, delete existing EVENT# items for this team so stale ones are removed
-        old_resp = table.query(
-            KeyConditionExpression=Key('PK').eq(f'TEAM#{team_num}') & Key('SK').begins_with('EVENT#'),
-            ProjectionExpression='PK, SK'
-        )
-        for old_item in old_resp.get('Items', []):
-            table.delete_item(Key={'PK': old_item['PK'], 'SK': old_item['SK']})
-
         for evt in events_data['data']:
             sku = evt.get('sku', '')
             evt_name = evt.get('name', '')
@@ -292,12 +282,20 @@ def update_team_events(api_key: str) -> int:
                 loc.get('city'), loc.get('region'), loc.get('country')
             ]))
 
-            # Determine status
-            if end_date and end_date < now:
-                status = 'past'
-            elif start_date and start_date <= now:
-                status = 'active'
-            else:
+            # Determine status using proper datetime comparison
+            try:
+                now_dt = datetime.now(timezone.utc)
+                end_dt = datetime.fromisoformat(end_date) if end_date else None
+                start_dt = datetime.fromisoformat(start_date) if start_date else None
+                
+                if end_dt and end_dt < now_dt:
+                    status = 'past'
+                elif start_dt and start_dt <= now_dt:
+                    status = 'active'
+                else:
+                    status = 'future'
+            except (ValueError, TypeError):
+                # If date parsing fails, default to future (better to show than miss)
                 status = 'future'
 
             # Only store upcoming or active events
