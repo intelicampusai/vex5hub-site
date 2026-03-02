@@ -381,13 +381,14 @@ function MatchGroup({
 
     // Build a short match label
     const matchLabel = (match: Match): string => {
+        const hasInstance = match.instance && match.instance > 0;
         switch (match.round) {
             case 'Qualification': return `Q${match.match_num}`;
             case 'Practice': return `P${match.match_num}`;
-            case 'Final': return `F${match.match_num}`;
-            case 'Semifinal': return `SF${match.match_num}`;
-            case 'Quarterfinal': return `QF${match.match_num}`;
-            case 'Round of 16': return `R16-${match.match_num}`;
+            case 'Final': return hasInstance ? `F ${match.instance}-${match.match_num}` : `F${match.match_num}`;
+            case 'Semifinal': return hasInstance ? `SF ${match.instance}-${match.match_num}` : `SF${match.match_num}`;
+            case 'Quarterfinal': return hasInstance ? `QF ${match.instance}-${match.match_num}` : `QF${match.match_num}`;
+            case 'Round of 16': return hasInstance ? `R16 ${match.instance}-${match.match_num}` : `R16-${match.match_num}`;
             default: return `#${match.match_num}`;
         }
     };

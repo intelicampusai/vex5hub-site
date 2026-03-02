@@ -58,6 +58,7 @@ export interface Match {
     event_name: string;
     division_id: number;
     match_num: number;
+    instance?: number;
     round: string;       // 'Practice' | 'Qualification' | 'Quarterfinal' | 'Semifinal' | 'Final' | 'Round of 16'
     alliance: 'red' | 'blue';
     partner_teams: string[];
