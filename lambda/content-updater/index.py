@@ -368,6 +368,10 @@ def _write_event_match_item(match: dict, sku: str, evt_name: str, evt_meta: dict
     }
     item = {k: v for k, v in item.items() if v is not None}
     try:
+        existing = table.get_item(Key={'PK': item['PK'], 'SK': item['SK']}).get('Item')
+        if existing and 'video_url' in existing:
+            item['video_url'] = existing['video_url']
+            
         table.put_item(Item=item)
         
         # Increment match_count on the metadata item
@@ -439,6 +443,10 @@ def _write_team_match_item(match: dict, sku: str, evt_name: str, team_num: str, 
     }
     item = {k: v for k, v in item.items() if v is not None}
     try:
+        existing = table.get_item(Key={'PK': item['PK'], 'SK': item['SK']}).get('Item')
+        if existing and 'video_url' in existing:
+            item['video_url'] = existing['video_url']
+            
         table.put_item(Item=item)
     except Exception as e:
         logger.error(f"Error writing team match TEAM#{team_num}/{team_match_sk}: {e}")
