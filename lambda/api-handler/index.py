@@ -127,15 +127,29 @@ def get_events(params: dict):
     
     resp = table.query(
         KeyConditionExpression=Key('PK').eq(f'SEASON#{season_id}') & Key('SK').begins_with('EVENT#'),
-        Limit=500
+        Limit=1000 # Increased fetch limit for internal sorting
     )
     events = resp.get('Items', [])
     
-    # Optional: If events don't have match_count, we could do a quick check, 
-    # but for list views we prefer it to be pre-calculated.
-    # For now, we just pass through what's in DynamoDB.
+    # Sort events: World level first, then by start date
+    def sort_key(e):
+        # Primary sort: level (World < National < Regional < Signature < Other)
+        # Note: In Python, sorting is stable, and we want 'World' at the top
+        level = e.get('level', 'Other')
+        level_priority = {
+            'World': 0,
+            'National': 1,
+            'Regional': 2,
+            'Signature': 3,
+            'Other': 4
+        }.get(level, 5)
+        
+        return (level_priority, e.get('start', '9999'))
+
+    events.sort(key=sort_key)
     
-    return response(200, events)
+    # Limit final response to 500 items to stay within Lambda/API limits
+    return response(200, events[:500])
 
 def response(status_code: int, body: Any) -> dict:
     return {

@@ -99,6 +99,18 @@ resource "aws_cloudfront_distribution" "main" {
     }
   }
 
+  ordered_cache_behavior {
+    path_pattern     = "/api/*"
+    allowed_methods  = ["GET", "HEAD", "OPTIONS"]
+    cached_methods   = ["GET", "HEAD"]
+    target_origin_id = "API"
+    
+    cache_policy_id          = data.aws_cloudfront_cache_policy.caching_disabled.id
+    origin_request_policy_id = data.aws_cloudfront_origin_request_policy.all_viewer_except_host_header.id
+    viewer_protocol_policy   = "https-only"
+    compress                 = true
+  }
+
   # Default behavior - Website (serves HTML, CSS, JS)
   default_cache_behavior {
     allowed_methods        = ["GET", "HEAD", "OPTIONS"]
@@ -123,19 +135,6 @@ resource "aws_cloudfront_distribution" "main" {
     cache_policy_id        = aws_cloudfront_cache_policy.optimized.id
     viewer_protocol_policy = "redirect-to-https"
     compress               = true
-  }
-
-
-  ordered_cache_behavior {
-    path_pattern     = "/api/*"
-    allowed_methods  = ["GET", "HEAD", "OPTIONS"]
-    cached_methods   = ["GET", "HEAD"]
-    target_origin_id = "API"
-    
-    cache_policy_id          = data.aws_cloudfront_cache_policy.caching_disabled.id
-    origin_request_policy_id = data.aws_cloudfront_origin_request_policy.all_viewer_except_host_header.id
-    viewer_protocol_policy   = "https-only"
-    compress                 = true
   }
 
 
