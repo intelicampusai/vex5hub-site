@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Event } from '@/types';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -14,7 +14,8 @@ import {
     Filter,
     Search,
     Video,
-    Users
+    Users,
+    RefreshCw
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
@@ -24,19 +25,70 @@ interface EventsClientProps {
     topRegions?: string[];
 }
 
+// Season ID for API calls (2025-2026 season)
+const SEASON_ID = process.env.NEXT_PUBLIC_SEASON_ID || "197";
+
 export default function EventsClient({ initialEvents, topRegions = [] }: EventsClientProps) {
+    const [events, setEvents] = useState<Event[]>(initialEvents);
+    const [isLoading, setIsLoading] = useState(false);
+    const [lastRefresh, setLastRefresh] = useState<Date | null>(null);
     const [selectedLevel, setSelectedLevel] = useState<string>('All');
     const [selectedCountry, setSelectedCountry] = useState<string>('All');
     const [searchQuery, setSearchQuery] = useState('');
     const [expandedUpcoming, setExpandedUpcoming] = useState(true);
     const [expandedPast, setExpandedPast] = useState(false);
 
+    // Fetch fresh events data from API
+    const fetchFreshEvents = async () => {
+        const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+        if (!apiUrl) return;
+
+        setIsLoading(true);
+        try {
+            const response = await fetch(`${apiUrl}/events?season=${SEASON_ID}`, {
+                cache: 'no-store'
+            });
+            if (response.ok) {
+                const data = await response.json();
+                if (Array.isArray(data)) {
+                    const formattedEvents = data.map((item: any) => ({
+                        id: item.id,
+                        sku: item.sku,
+                        name: item.name,
+                        start: item.start,
+                        end: item.end,
+                        season_id: item.season_id,
+                        location: item.location,
+                        capacity: item.capacity,
+                        division_ids: item.division_ids,
+                        status: item.status || 'future',
+                        livestream_url: item.livestream_url,
+                        grade: item.grade_level || item.grade,
+                        level: item.level || 'Other',
+                        match_count: item.match_count
+                    }));
+                    setEvents(formattedEvents);
+                    setLastRefresh(new Date());
+                }
+            }
+        } catch (error) {
+            console.error('Failed to fetch fresh events:', error);
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
+    // Fetch fresh data on initial mount
+    useEffect(() => {
+        fetchFreshEvents();
+    }, []);
+
     // Filter Options
     const levelOptions = ['All', 'Signature', 'Regional', 'National', 'World'];
     const countryOptions = ['All', 'United States', 'China', 'Canada', 'Australia', 'Europe'];
 
     // Filter events
-    const filteredEvents = initialEvents.filter(event => {
+    const filteredEvents = events.filter(event => {
         // Search filter (High priority)
         const searchLower = searchQuery.toLowerCase();
         const matchesSearch = !searchQuery ||
@@ -83,6 +135,24 @@ export default function EventsClient({ initialEvents, topRegions = [] }: EventsC
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
                         />
+                    </div>
+
+                    <div className="flex items-center gap-2">
+                        {lastRefresh && (
+                            <span className="text-xs text-muted-foreground">
+                                Updated {lastRefresh.toLocaleTimeString()}
+                            </span>
+                        )}
+                        <Button
+                            variant="outline"
+                            size="sm"
+                            onClick={fetchFreshEvents}
+                            disabled={isLoading}
+                            className="h-8"
+                        >
+                            <RefreshCw className={cn("h-3.5 w-3.5 mr-1", isLoading && "animate-spin")} />
+                            Refresh
+                        </Button>
                     </div>
 
                     <div className="flex items-center space-x-2 w-full md:w-auto p-1 overflow-x-auto pb-1 md:pb-0 scrollbar-hide">

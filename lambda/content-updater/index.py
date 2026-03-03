@@ -21,7 +21,7 @@ secrets_client = boto3.client('secretsmanager')
 # Environment variables
 TABLE_NAME = os.environ.get('TABLE_NAME')
 PROJECT_NAME = os.environ.get('PROJECT_NAME', 'vex5hub')
-SEASON_ID = int(os.environ.get('SEASON_ID', 190)) # Default to 2024-25, override as needed
+SEASON_ID = int(os.environ.get('SEASON_ID', 197)) # Default to 2025-26, override as needed
 WORLDS_SKUS = os.environ.get('WORLDS_SKUS', '')
 
 table = dynamodb.Table(TABLE_NAME) if TABLE_NAME else None
