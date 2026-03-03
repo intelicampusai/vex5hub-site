@@ -48,8 +48,8 @@ const MOCK_TEAMS: Team[] = [
             "total_matches": 0
         },
         "skills": {
-            "driver_score": 119,
-            "programming_score": 100,
+            "driver": 119,
+            "programming": 100,
             "combined_score": 219,
             "rank": 1
         }
@@ -68,8 +68,8 @@ const MOCK_TEAMS: Team[] = [
             "total_matches": 0
         },
         "skills": {
-            "driver_score": 116,
-            "programming_score": 113,
+            "driver": 116,
+            "programming": 113,
             "combined_score": 229,
             "rank": 1
         }
@@ -88,8 +88,8 @@ const MOCK_TEAMS: Team[] = [
             "total_matches": 0
         },
         "skills": {
-            "driver_score": 102,
-            "programming_score": 90,
+            "driver": 102,
+            "programming": 90,
             "combined_score": 192,
             "rank": 12
         }
@@ -108,8 +108,8 @@ const MOCK_TEAMS: Team[] = [
             "total_matches": 0
         },
         "skills": {
-            "driver_score": 101,
-            "programming_score": 88,
+            "driver": 101,
+            "programming": 88,
             "combined_score": 189,
             "rank": 2
         }
@@ -128,8 +128,8 @@ const MOCK_TEAMS: Team[] = [
             "total_matches": 0
         },
         "skills": {
-            "driver_score": 115,
-            "programming_score": 102,
+            "driver": 115,
+            "programming": 102,
             "combined_score": 217,
             "rank": 2
         }
@@ -298,8 +298,8 @@ export async function getSkillsStandings(): Promise<Team[]> {
         skills: {
             rank: item.rank,
             combined_score: item.score,
-            driver_score: item.driver_score,
-            programming_score: item.programming_score
+            driver: item.driver,
+            programming: item.programming
         }
     }));
 }

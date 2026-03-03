@@ -74,7 +74,7 @@ export function TeamCard({ team, compact = false }: TeamCardProps) {
                                 <span className="font-bold text-lg">{team.skills?.combined_score || 0}</span>
                                 {team.skills && (
                                     <span className="text-[10px] text-muted-foreground font-medium ml-1">
-                                        ({team.skills.driver_score}D / {team.skills.programming_score}A)
+                                        ({team.skills.driver}D / {team.skills.programming}A)
                                     </span>
                                 )}
                             </div>

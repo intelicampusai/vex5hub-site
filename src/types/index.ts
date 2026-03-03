@@ -19,8 +19,8 @@ export interface Team {
         total_matches: number;
     };
     skills?: {
-        driver_score: number;
-        programming_score: number;
+        driver: number;
+        programming: number;
         combined_score: number;
         rank: number;
     };

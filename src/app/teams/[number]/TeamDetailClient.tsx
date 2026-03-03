@@ -15,7 +15,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Video, ArrowLeft, Trophy, Target, Code2, ChevronDown, ChevronUp, Calendar, MapPin, Radio } from "lucide-react";
+import { Video, ArrowLeft, Trophy, Target, ChevronDown, ChevronUp, Calendar, MapPin, Radio } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
@@ -88,8 +88,7 @@ export default function TeamDetailClient({ teamNumber }: TeamDetailClientProps) 
                         <div className="h-4 w-48 bg-muted rounded"></div>
                     </div>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div className="h-32 bg-muted rounded"></div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="h-32 bg-muted rounded"></div>
                     <div className="h-32 bg-muted rounded"></div>
                 </div>
@@ -148,7 +147,7 @@ export default function TeamDetailClient({ teamNumber }: TeamDetailClientProps) 
             </div>
 
             {/* Stats Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <Card>
                     <CardHeader className="pb-2">
                         <CardTitle className="text-sm font-medium text-muted-foreground flex items-center">
@@ -173,22 +172,16 @@ export default function TeamDetailClient({ teamNumber }: TeamDetailClientProps) 
                     </CardHeader>
                     <CardContent>
                         <div className="text-2xl font-bold">{team.skills?.combined_score || 0}</div>
+                        <div className="flex gap-3 mt-1">
+                            <p className="text-xs text-muted-foreground">
+                                Driver: <span className="font-semibold">{team.skills?.driver || 0}</span>
+                            </p>
+                            <p className="text-xs text-muted-foreground">
+                                Programming: <span className="font-semibold">{team.skills?.programming || 0}</span>
+                            </p>
+                        </div>
                         <p className="text-xs text-muted-foreground mt-1">
                             World Rank: #{team.skills?.rank || "N/A"}
-                        </p>
-                    </CardContent>
-                </Card>
-
-                <Card>
-                    <CardHeader className="pb-2">
-                        <CardTitle className="text-sm font-medium text-muted-foreground flex items-center">
-                            <Code2 className="mr-2 h-4 w-4 text-purple-500" /> Programming
-                        </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                        <div className="text-2xl font-bold">{team.skills?.programming_score || 0}</div>
-                        <p className="text-xs text-muted-foreground mt-1">
-                            Driver: {team.skills?.driver_score || 0}
                         </p>
                     </CardContent>
                 </Card>
