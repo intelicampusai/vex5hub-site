@@ -76,9 +76,62 @@ def get_api_key() -> Optional[str]:
         logger.error(f"Failed to get API key: {e}")
         return None
 
+def save_event_to_dynamo(evt: dict):
+    """Process and save a single event object to DynamoDB."""
+    sku = evt.get('sku')
+    if not sku:
+        return
+        
+    start_date = evt.get('start', '')
+    level = evt.get('level', '')
+    
+    item = {
+        'PK': f'SEASON#{SEASON_ID}',
+        'SK': f'EVENT#{start_date}#{sku}',
+        'sku': sku,
+        'name': evt.get('name'),
+        'level': level,
+        'start': start_date,
+        'end': evt.get('end'),
+        'location': {
+            'venue': evt.get('location', {}).get('venue'),
+            'city': evt.get('location', {}).get('city'),
+            'region': evt.get('location', {}).get('region'),
+            'country': evt.get('location', {}).get('country')
+        },
+        'status': 'future',
+        'updated_at': datetime.now(timezone.utc).isoformat()
+    }
+    
+    # Status logic
+    now = datetime.now(timezone.utc).isoformat()
+    if start_date <= now <= evt.get('end', ''):
+        item['status'] = 'active'
+    elif evt.get('end', '') < now:
+        item['status'] = 'past'
+        
+    table.put_item(Item=item)
+
+    # Also store SKU metadata for reverse-lookup enrichment
+    meta_item = {
+        'PK': f'EVENT#{sku}',
+        'SK': 'METADATA',
+        'sku': sku,
+        'name': evt.get('name'),
+        'level': level,
+        'start': start_date,
+        'end': evt.get('end'),
+        'venue': evt.get('location', {}).get('venue'),
+        'city': evt.get('location', {}).get('city'),
+        'region': evt.get('location', {}).get('region'),
+        'country': evt.get('location', {}).get('country'),
+        'updated_at': datetime.now(timezone.utc).isoformat()
+    }
+    table.put_item(Item=meta_item)
+
 def update_events(api_key: str):
     """Fetch events for the current season and store in DynamoDB."""
-    # Fetch recent past events (last 60 days) + upcoming events
+    # 1. Fetch recent past events (last 60 days) + upcoming events via paging
     from datetime import timedelta
     sixty_days_ago = (datetime.now(timezone.utc) - timedelta(days=60)).strftime('%Y-%m-%d')
     
@@ -90,56 +143,19 @@ def update_events(api_key: str):
         if not data or 'data' not in data: break
 
         for evt in data['data']:
-            sku = evt.get('sku')
-            start_date = evt.get('start', '')
-            level = evt.get('level', '')
-            
-            item = {
-                'PK': f'SEASON#{SEASON_ID}',
-                'SK': f'EVENT#{start_date}#{sku}',
-                'sku': sku,
-                'name': evt.get('name'),
-                'level': level,
-                'start': start_date,
-                'end': evt.get('end'),
-                'location': {
-                    'venue': evt.get('location', {}).get('venue'),
-                    'city': evt.get('location', {}).get('city'),
-                    'region': evt.get('location', {}).get('region'),
-                    'country': evt.get('location', {}).get('country')
-                },
-                'status': 'future',
-                'updated_at': datetime.now(timezone.utc).isoformat()
-            }
-            
-            # Status logic
-            now = datetime.now(timezone.utc).isoformat()
-            if start_date <= now <= evt.get('end', ''):
-                item['status'] = 'active'
-            elif evt.get('end', '') < now:
-                item['status'] = 'past'
-                
-            table.put_item(Item=item)
-
-            # Also store SKU metadata for reverse-lookup enrichment
-            meta_item = {
-                'PK': f'EVENT#{sku}',
-                'SK': 'METADATA',
-                'sku': sku,
-                'name': evt.get('name'),
-                'level': level,
-                'start': start_date,
-                'end': evt.get('end'),
-                'venue': evt.get('location', {}).get('venue'),
-                'city': evt.get('location', {}).get('city'),
-                'region': evt.get('location', {}).get('region'),
-                'country': evt.get('location', {}).get('country'),
-                'updated_at': datetime.now(timezone.utc).isoformat()
-            }
-            table.put_item(Item=meta_item)
+            save_event_to_dynamo(evt)
 
         last_page = data.get('meta', {}).get('last_page', 1)
         page += 1
+
+    # 2. Explicitly fetch WORLDS_SKUS to ensure they are present even if > 60 days away
+    if WORLDS_SKUS:
+        skus = [s.strip() for s in WORLDS_SKUS.split(',') if s.strip()]
+        for sku in skus:
+            url = f"{RE_API_BASE}/events?sku[]={sku}"
+            data = api_request(url, api_key)
+            if data and 'data' in data and len(data['data']) > 0:
+                save_event_to_dynamo(data['data'][0])
 
 def update_matches(api_key: str) -> int:
     """Fetch match results for top teams at Signature and Regional events.
