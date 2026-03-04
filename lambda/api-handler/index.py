@@ -29,6 +29,20 @@ def handler(event: dict, context: Any) -> dict:
 
     logger.info(f"API Request: {method} {path}")
 
+    # Handle CORS preflight requests
+    if method == 'OPTIONS':
+        return {
+            'statusCode': 200,
+            'headers': {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+                'Access-Control-Allow-Headers': 'content-type, authorization, x-api-key',
+                'Access-Control-Max-Age': '86400'
+            },
+            'body': ''
+        }
+
     # Normalize path by removing /api prefix if present (from CloudFront)
     if path.startswith('/api/'):
         path = path[4:]
