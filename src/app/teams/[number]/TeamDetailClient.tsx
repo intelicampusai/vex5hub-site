@@ -213,6 +213,7 @@ export default function TeamDetailClient({ teamNumber }: TeamDetailClientProps) 
                                 dateStr = formatDate(startDate);
                             }
 
+                            const eventUrl = evt.sku ? `https://www.robotevents.com/${encodeURIComponent(evt.sku)}.html` : null;
                             return (
                                 <Card
                                     key={`${evt.sku}-${evt.start}`}
@@ -240,9 +241,22 @@ export default function TeamDetailClient({ teamNumber }: TeamDetailClientProps) 
                                                         </Badge>
                                                     )}
                                                 </div>
-                                                <h3 className="font-semibold text-sm leading-tight line-clamp-2">
-                                                    {evt.event_name}
-                                                </h3>
+                                                <div className="flex items-center gap-2">
+                                                    <h3 className="font-semibold text-sm leading-tight line-clamp-2">
+                                                        {evt.event_name}
+                                                    </h3>
+                                                    {eventUrl && (
+                                                        <Link
+                                                            href={eventUrl}
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            className="text-[10px] text-muted-foreground hover:text-primary inline-flex items-center gap-1 shrink-0"
+                                                        >
+                                                            RobotEvents
+                                                            <ExternalLink className="h-3 w-3" />
+                                                        </Link>
+                                                    )}
+                                                </div>
                                                 <div className="flex flex-col gap-1 mt-2 text-xs text-muted-foreground">
                                                     {dateStr && (
                                                         <span className="flex items-center gap-1">
