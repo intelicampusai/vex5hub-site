@@ -171,6 +171,7 @@ def update_matches(api_key: str) -> int:
     TARGET_LEVELS = {'Signature', 'Regional'}
     total_matches = 0
     seen_matches = set()  # deduplicate: tracks (sku, div_id, match_num)
+    team_records: Dict[str, Dict[str, int]] = {}
 
     # Get top tracked teams from DynamoDB GSI1 (ranked teams)
     resp = table.query(
@@ -182,6 +183,7 @@ def update_matches(api_key: str) -> int:
         Limit=100  # top 100 teams
     )
     teams = resp.get('Items', [])
+    team_lookup = {team.get('number'): team for team in teams if team.get('number')}
     logger.info(f"Fetching matches for {len(teams)} teams...")
 
     # Pre-fetch event metadata map for denormalization
@@ -234,6 +236,9 @@ def update_matches(api_key: str) -> int:
             if not sku:
                 continue
 
+            # Compute record for list view (only count finished matches with scores)
+            _track_team_record(team_records, team_num, match)
+
             # Only write team reverse-lookup items for this specific team
             evt_meta = event_meta_map.get(sku, {})
             _write_team_match_item(match, sku, evt_name, team_num, evt_meta)
@@ -246,8 +251,100 @@ def update_matches(api_key: str) -> int:
 
         time.sleep(0.5)  # gentle rate limiting between teams
 
+    _persist_team_records(team_records, team_lookup)
+
     logger.info(f"Total unique matches stored: {total_matches}")
     return total_matches
+
+
+def _track_team_record(team_records: Dict[str, Dict[str, int]], team_num: str, match: dict):
+    """Increment local W-L-T tallies for a team based on a single match."""
+    if not team_num:
+        return
+
+    alliances = match.get('alliances', [])
+    red = next((a for a in alliances if a.get('color') == 'red'), {})
+    blue = next((a for a in alliances if a.get('color') == 'blue'), {})
+    red_teams = [t.get('team', {}).get('name', '') for t in red.get('teams', [])]
+    blue_teams = [t.get('team', {}).get('name', '') for t in blue.get('teams', [])]
+    red_score = red.get('score')
+    blue_score = blue.get('score')
+
+    if red_score is None or blue_score is None:
+        return  # Skip matches without final scores
+
+    alliance_color = 'red' if team_num in red_teams else 'blue'
+    my_score = red_score if alliance_color == 'red' else blue_score
+    opp_score = blue_score if alliance_color == 'red' else red_score
+    if my_score is None or opp_score is None:
+        return
+
+    stats = team_records.setdefault(team_num, {
+        'wins': 0,
+        'losses': 0,
+        'ties': 0,
+        'total_matches': 0,
+        'wp': 0,
+        'ap': 0,
+        'sp': 0
+    })
+
+    stats['total_matches'] += 1
+    my_score = int(my_score)
+    opp_score = int(opp_score)
+
+    if my_score > opp_score:
+        stats['wins'] += 1
+        stats['wp'] += 2  # Standard WP scoring
+    elif my_score < opp_score:
+        stats['losses'] += 1
+    else:
+        stats['ties'] += 1
+        stats['wp'] += 1
+
+
+def _persist_team_records(team_records: Dict[str, Dict[str, int]], team_lookup: Dict[str, dict]):
+    """Write aggregated stats back to DynamoDB for each team."""
+    for team_num, stats in team_records.items():
+        existing = team_lookup.get(team_num, {})
+        stats_payload = {
+            'wins': Decimal(str(stats['wins'])),
+            'losses': Decimal(str(stats['losses'])),
+            'ties': Decimal(str(stats['ties'])),
+            'total_matches': Decimal(str(stats['total_matches'])),
+            'wp': Decimal(str(stats['wp'])),
+            'ap': Decimal('0'),
+            'sp': Decimal('0')
+        }
+
+        # Preserve the ranking value if we have one
+        existing_rank = None
+        existing_stats = existing.get('stats') or {}
+        if 'rank' in existing_stats:
+            existing_rank = existing_stats['rank']
+        else:
+            gsi_key = existing.get('GSI1SK', '')
+            if gsi_key.startswith('RANK#'):
+                try:
+                    rank_str = gsi_key.split('#')[1]
+                    existing_rank = Decimal(rank_str)
+                except Exception:
+                    existing_rank = None
+
+        if existing_rank is not None:
+            stats_payload['rank'] = existing_rank if isinstance(existing_rank, Decimal) else Decimal(str(existing_rank))
+
+        try:
+            table.update_item(
+                Key={'PK': f'TEAM#{team_num}', 'SK': 'METADATA'},
+                UpdateExpression="SET stats = :stats, updated_at = :updated_at",
+                ExpressionAttributeValues={
+                    ':stats': stats_payload,
+                    ':updated_at': datetime.now(timezone.utc).isoformat()
+                }
+            )
+        except Exception as e:
+            logger.error(f"Failed to persist stats for TEAM#{team_num}: {e}")
 
 
 def update_team_events(api_key: str) -> int:
@@ -620,6 +717,16 @@ def update_top_teams(api_key: str, worlds_teams: set = None):
                             'driver': Decimal(str(scores.get('driver', 0))),
                             'programming': Decimal(str(scores.get('programming', 0)))
                         },
+                        'stats': {
+                            'rank': Decimal(str(rank)),
+                            'wins': Decimal('0'),
+                            'losses': Decimal('0'),
+                            'ties': Decimal('0'),
+                            'total_matches': Decimal('0'),
+                            'wp': Decimal('0'),
+                            'ap': Decimal('0'),
+                            'sp': Decimal('0')
+                        },
                         'updated_at': datetime.now(timezone.utc).isoformat()
                     }
                     
@@ -659,4 +766,3 @@ def api_request(url: str, api_key: str, max_retries: int = 3) -> Optional[dict]:
             return None
     logger.error(f"Max retries exceeded for {url}")
     return None
-
