@@ -1,7 +1,30 @@
 # AWS Backup setup for DynamoDB daily snapshots retained 90 days
 
-resource "aws_iam_service_linked_role" "backup" {
-  aws_service_name = "backup.amazonaws.com"
+resource "aws_iam_role" "backup" {
+  name = "${var.project_name}-backup-role"
+
+  assume_role_policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Effect = "Allow"
+        Principal = {
+          Service = "backup.amazonaws.com"
+        }
+        Action = "sts:AssumeRole"
+      }
+    ]
+  })
+}
+
+resource "aws_iam_role_policy_attachment" "backup_service" {
+  role       = aws_iam_role.backup.name
+  policy_arn = "arn:aws:iam::aws:policy/service-role/AWSBackupServiceRolePolicyForBackup"
+}
+
+resource "aws_iam_role_policy_attachment" "backup_restores" {
+  role       = aws_iam_role.backup.name
+  policy_arn = "arn:aws:iam::aws:policy/service-role/AWSBackupServiceRolePolicyForRestores"
 }
 
 resource "aws_backup_vault" "main" {
@@ -30,7 +53,7 @@ resource "aws_backup_plan" "daily" {
 resource "aws_backup_selection" "dynamodb" {
   name         = "${var.project_name}-dynamodb-selection"
   plan_id      = aws_backup_plan.daily.id
-  iam_role_arn = aws_iam_service_linked_role.backup.arn
+  iam_role_arn = aws_iam_role.backup.arn
 
   resources = [
     aws_dynamodb_table.main.arn,
