@@ -32,11 +32,6 @@ export function TeamCard({ team, compact = false }: TeamCardProps) {
                                 {team.grade === 'High School' ? 'HS' : 'MS'}
                             </Badge>
                         )}
-                        {team.stats && (
-                            <Badge variant={team.stats.rank <= 10 ? "secondary" : "outline"} className="text-xs px-2 py-0 h-5">
-                                Rank #{team.stats.rank}
-                            </Badge>
-                        )}
                         {team.worlds_qualified && (
                             <Badge variant="secondary" className="text-xs px-2 py-0 h-5 bg-amber-100 text-amber-900 border-amber-200 dark:bg-amber-900/40 dark:text-amber-300 dark:border-amber-800 gap-1">
                                 <Trophy className="h-3 w-3" />

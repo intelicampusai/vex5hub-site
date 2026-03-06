@@ -120,7 +120,7 @@ export default function TeamDetailClient({ teamNumber }: TeamDetailClientProps) 
             {/* Breadcrumbs */}
             <div className="flex items-center space-x-2 text-sm text-muted-foreground">
                 <Link href="/teams" className="hover:text-primary flex items-center">
-                    <ArrowLeft className="mr-1 h-3 w-3" /> Rankings
+                    <ArrowLeft className="mr-1 h-3 w-3" /> Teams
                 </Link>
                 <span>/</span>
                 <span className="text-foreground font-medium">{team.number}</span>
@@ -136,7 +136,7 @@ export default function TeamDetailClient({ teamNumber }: TeamDetailClientProps) 
                 <div className="flex space-x-2">
                     <Badge variant="outline" className="text-sm px-3 py-1">{team.grade}</Badge>
                     {team.skills?.rank && (
-                        <Badge className="text-sm px-3 py-1">Rank #{team.skills.rank}</Badge>
+                        <Badge className="text-sm px-3 py-1">Skills #{team.skills.rank}</Badge>
                     )}
                     {team.worlds_qualified && (
                         <Badge variant="default" className="text-sm px-3 py-1 bg-yellow-500 hover:bg-yellow-600 text-black">
@@ -181,7 +181,7 @@ export default function TeamDetailClient({ teamNumber }: TeamDetailClientProps) 
                             </p>
                         </div>
                         <p className="text-xs text-muted-foreground mt-1">
-                            World Rank: #{team.skills?.rank || "N/A"}
+                            Skills Rank: #{team.skills?.rank || "N/A"}
                         </p>
                     </CardContent>
                 </Card>
