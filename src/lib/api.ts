@@ -2,10 +2,9 @@ import { Team, Event, Match, TeamEvent } from '@/types';
 
 // RobotEvents Season IDs
 export const SEASON_ID = process.env.NEXT_PUBLIC_SEASON_ID || "197";
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL;
+const API_BASE_URL = (process.env.NEXT_PUBLIC_API_URL || '/api').replace(/\/$/, '');
 
 async function fetchFromApi<T>(path: string): Promise<T | null> {
-    if (!API_BASE_URL) return null;
     try {
         const headers: HeadersInit = {
             'Accept': 'application/json',
@@ -15,7 +14,17 @@ async function fetchFromApi<T>(path: string): Promise<T | null> {
             headers['Authorization'] = `Bearer ${token}`;
         }
 
-        const response = await fetch(`${API_BASE_URL}${path}`, {
+        const normalizedPath = path.startsWith('/') ? path : `/${path}`;
+        const isAbsolute = /^https?:\/\//i.test(API_BASE_URL);
+        const targetUrl = isAbsolute
+            ? `${API_BASE_URL}${normalizedPath}`
+            : (typeof window !== 'undefined' ? `${API_BASE_URL}${normalizedPath}` : null);
+
+        if (!targetUrl) {
+            return null;
+        }
+
+        const response = await fetch(targetUrl, {
             headers,
             next: { revalidate: 3600 } // Cache for 1 hour
         });
