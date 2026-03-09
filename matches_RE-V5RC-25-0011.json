@@ -1,0 +1,5170 @@
+[
+  {
+    "id": 134167113,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 1,
+      "name": "Wasatch",
+      "code": null
+    },
+    "round": 1,
+    "instance": 1,
+    "matchnum": 1,
+    "scheduled": "2026-01-30T14:30:00-05:00",
+    "started": "2026-01-30T14:33:34-05:00",
+    "field": "Utah STEM Action",
+    "scored": false,
+    "name": "Practice #1",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 101,
+        "teams": [
+          {
+            "team": {
+              "id": 107414,
+              "name": "98548D",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 174352,
+              "name": "89801B",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 0,
+        "teams": [
+          {
+            "team": {
+              "id": 67018,
+              "name": "99067A",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 85980,
+              "name": "16099A",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134166978,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 2,
+      "name": "Oquirrh",
+      "code": null
+    },
+    "round": 1,
+    "instance": 1,
+    "matchnum": 3,
+    "scheduled": "2026-01-30T14:38:00-05:00",
+    "started": "2026-01-30T14:39:04-05:00",
+    "field": "Aldridge",
+    "scored": false,
+    "name": "Practice #3",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 84,
+        "teams": [
+          {
+            "team": {
+              "id": 36856,
+              "name": "8675A",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 143954,
+              "name": "1412J",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 28,
+        "teams": [
+          {
+            "team": {
+              "id": 128381,
+              "name": "3150A",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 163968,
+              "name": "98548N",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134166980,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 2,
+      "name": "Oquirrh",
+      "code": null
+    },
+    "round": 1,
+    "instance": 1,
+    "matchnum": 5,
+    "scheduled": "2026-01-30T14:46:00-05:00",
+    "started": "2026-01-30T14:45:21-05:00",
+    "field": "Hill AirSpace",
+    "scored": false,
+    "name": "Practice #5",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 3,
+        "teams": [
+          {
+            "team": {
+              "id": 191935,
+              "name": "1908C",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 93662,
+              "name": "2131N",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 124,
+        "teams": [
+          {
+            "team": {
+              "id": 171032,
+              "name": "2054V",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 130609,
+              "name": "98548G",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134166982,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 2,
+      "name": "Oquirrh",
+      "code": null
+    },
+    "round": 1,
+    "instance": 1,
+    "matchnum": 7,
+    "scheduled": "2026-01-30T14:54:00-05:00",
+    "started": "2026-01-30T14:51:34-05:00",
+    "field": "JR Automation",
+    "scored": false,
+    "name": "Practice #7",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 22,
+        "teams": [
+          {
+            "team": {
+              "id": 93665,
+              "name": "2131Y",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 174536,
+              "name": "54996B",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 75,
+        "teams": [
+          {
+            "team": {
+              "id": 82002,
+              "name": "99905C",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 185105,
+              "name": "80001X",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134167121,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 1,
+      "name": "Wasatch",
+      "code": null
+    },
+    "round": 1,
+    "instance": 1,
+    "matchnum": 9,
+    "scheduled": "2026-01-30T15:02:00-05:00",
+    "started": "2026-01-30T15:00:43-05:00",
+    "field": "Adobe",
+    "scored": false,
+    "name": "Practice #9",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 15,
+        "teams": [
+          {
+            "team": {
+              "id": 160828,
+              "name": "3017X",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 157607,
+              "name": "1281A",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 101,
+        "teams": [
+          {
+            "team": {
+              "id": 102468,
+              "name": "47874J",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 40093,
+              "name": "1028A",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134167123,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 1,
+      "name": "Wasatch",
+      "code": null
+    },
+    "round": 1,
+    "instance": 1,
+    "matchnum": 11,
+    "scheduled": "2026-01-30T15:10:00-05:00",
+    "started": "2026-01-30T15:08:18-05:00",
+    "field": "Hughes",
+    "scored": false,
+    "name": "Practice #11",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 88,
+        "teams": [
+          {
+            "team": {
+              "id": 177029,
+              "name": "55117A",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 107614,
+              "name": "89040B",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 6,
+        "teams": [
+          {
+            "team": {
+              "id": 72592,
+              "name": "41998B",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 160102,
+              "name": "98548M",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134167130,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 1,
+      "name": "Wasatch",
+      "code": null
+    },
+    "round": 2,
+    "instance": 1,
+    "matchnum": 5,
+    "scheduled": "2026-01-30T15:44:12-05:00",
+    "started": "2026-01-30T15:40:15-05:00",
+    "field": "Hughes",
+    "scored": false,
+    "name": "Qualifier #5",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 52,
+        "teams": [
+          {
+            "team": {
+              "id": 136735,
+              "name": "98548H",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 85980,
+              "name": "16099A",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 36,
+        "teams": [
+          {
+            "team": {
+              "id": 131680,
+              "name": "2990U",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 42355,
+              "name": "2323X",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134166994,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 2,
+      "name": "Oquirrh",
+      "code": null
+    },
+    "round": 2,
+    "instance": 1,
+    "matchnum": 7,
+    "scheduled": "2026-01-30T15:51:18-05:00",
+    "started": "2026-01-30T15:45:52-05:00",
+    "field": "JR Automation",
+    "scored": false,
+    "name": "Qualifier #7",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 60,
+        "teams": [
+          {
+            "team": {
+              "id": 50411,
+              "name": "1028T",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 86313,
+              "name": "11101B",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 18,
+        "teams": [
+          {
+            "team": {
+              "id": 128381,
+              "name": "3150A",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 155481,
+              "name": "8000J",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134167132,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 1,
+      "name": "Wasatch",
+      "code": null
+    },
+    "round": 2,
+    "instance": 1,
+    "matchnum": 7,
+    "scheduled": "2026-01-30T15:51:18-05:00",
+    "started": "2026-01-30T15:48:17-05:00",
+    "field": "Utah STEM Action",
+    "scored": false,
+    "name": "Qualifier #7",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 70,
+        "teams": [
+          {
+            "team": {
+              "id": 102468,
+              "name": "47874J",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 140719,
+              "name": "5776K",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 20,
+        "teams": [
+          {
+            "team": {
+              "id": 169891,
+              "name": "2145X",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 171647,
+              "name": "11777S",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134166996,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 2,
+      "name": "Oquirrh",
+      "code": null
+    },
+    "round": 2,
+    "instance": 1,
+    "matchnum": 9,
+    "scheduled": "2026-01-30T15:58:24-05:00",
+    "started": "2026-01-30T15:51:28-05:00",
+    "field": "Aldridge",
+    "scored": false,
+    "name": "Qualifier #9",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 97,
+        "teams": [
+          {
+            "team": {
+              "id": 186491,
+              "name": "11777J",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 171032,
+              "name": "2054V",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 16,
+        "teams": [
+          {
+            "team": {
+              "id": 97901,
+              "name": "8385C",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 36856,
+              "name": "8675A",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134166999,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 2,
+      "name": "Oquirrh",
+      "code": null
+    },
+    "round": 2,
+    "instance": 1,
+    "matchnum": 12,
+    "scheduled": "2026-01-30T16:09:03-05:00",
+    "started": "2026-01-30T16:02:34-05:00",
+    "field": "Aldridge",
+    "scored": false,
+    "name": "Qualifier #12",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 12,
+        "teams": [
+          {
+            "team": {
+              "id": 86364,
+              "name": "47874B",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 74633,
+              "name": "2131T",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 82,
+        "teams": [
+          {
+            "team": {
+              "id": 154044,
+              "name": "1168A",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 185105,
+              "name": "80001X",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134167000,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 2,
+      "name": "Oquirrh",
+      "code": null
+    },
+    "round": 2,
+    "instance": 1,
+    "matchnum": 13,
+    "scheduled": "2026-01-30T16:12:36-05:00",
+    "started": "2026-01-30T16:05:21-05:00",
+    "field": "JR Automation",
+    "scored": false,
+    "name": "Qualifier #13",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 91,
+        "teams": [
+          {
+            "team": {
+              "id": 109693,
+              "name": "2145Z",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 154947,
+              "name": "11101X",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 6,
+        "teams": [
+          {
+            "team": {
+              "id": 142581,
+              "name": "98548K",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 128381,
+              "name": "3150A",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134167137,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 1,
+      "name": "Wasatch",
+      "code": null
+    },
+    "round": 2,
+    "instance": 1,
+    "matchnum": 12,
+    "scheduled": "2026-01-30T16:09:03-05:00",
+    "started": "2026-01-30T16:07:05-05:00",
+    "field": "Adobe",
+    "scored": false,
+    "name": "Qualifier #12",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 47,
+        "teams": [
+          {
+            "team": {
+              "id": 178103,
+              "name": "1908K",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 23035,
+              "name": "8000C",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 35,
+        "teams": [
+          {
+            "team": {
+              "id": 93559,
+              "name": "63031A",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 107614,
+              "name": "89040B",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134167002,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 2,
+      "name": "Oquirrh",
+      "code": null
+    },
+    "round": 2,
+    "instance": 1,
+    "matchnum": 15,
+    "scheduled": "2026-01-30T16:19:42-05:00",
+    "started": "2026-01-30T16:14:34-05:00",
+    "field": "Aldridge",
+    "scored": false,
+    "name": "Qualifier #15",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 11,
+        "teams": [
+          {
+            "team": {
+              "id": 123613,
+              "name": "3017D",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 171071,
+              "name": "63031Z",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 92,
+        "teams": [
+          {
+            "team": {
+              "id": 86313,
+              "name": "11101B",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 171032,
+              "name": "2054V",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134167141,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 1,
+      "name": "Wasatch",
+      "code": null
+    },
+    "round": 2,
+    "instance": 1,
+    "matchnum": 16,
+    "scheduled": "2026-01-30T16:23:15-05:00",
+    "started": "2026-01-30T16:24:09-05:00",
+    "field": "Utah STEM Action",
+    "scored": false,
+    "name": "Qualifier #16",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 74,
+        "teams": [
+          {
+            "team": {
+              "id": 180513,
+              "name": "13713A",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 70128,
+              "name": "8000X",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 20,
+        "teams": [
+          {
+            "team": {
+              "id": 85980,
+              "name": "16099A",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 124036,
+              "name": "11777Y",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134167146,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 1,
+      "name": "Wasatch",
+      "code": null
+    },
+    "round": 2,
+    "instance": 1,
+    "matchnum": 21,
+    "scheduled": "2026-01-30T16:41:00-05:00",
+    "started": "2026-01-30T16:38:55-05:00",
+    "field": "Adobe",
+    "scored": false,
+    "name": "Qualifier #21",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 97,
+        "teams": [
+          {
+            "team": {
+              "id": 107414,
+              "name": "98548D",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 107614,
+              "name": "89040B",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 8,
+        "teams": [
+          {
+            "team": {
+              "id": 184935,
+              "name": "283K",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 14770,
+              "name": "5776A",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134167147,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 1,
+      "name": "Wasatch",
+      "code": null
+    },
+    "round": 2,
+    "instance": 1,
+    "matchnum": 22,
+    "scheduled": "2026-01-30T16:44:33-05:00",
+    "started": "2026-01-30T16:42:11-05:00",
+    "field": "Utah STEM Action",
+    "scored": false,
+    "name": "Qualifier #22",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 43,
+        "teams": [
+          {
+            "team": {
+              "id": 188373,
+              "name": "99067Z",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 136735,
+              "name": "98548H",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 72,
+        "teams": [
+          {
+            "team": {
+              "id": 171292,
+              "name": "77717F",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 102468,
+              "name": "47874J",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134167011,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 2,
+      "name": "Oquirrh",
+      "code": null
+    },
+    "round": 2,
+    "instance": 1,
+    "matchnum": 24,
+    "scheduled": "2026-01-30T16:51:39-05:00",
+    "started": "2026-01-30T16:50:27-05:00",
+    "field": "Aldridge",
+    "scored": false,
+    "name": "Qualifier #24",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 58,
+        "teams": [
+          {
+            "team": {
+              "id": 130609,
+              "name": "98548G",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 185105,
+              "name": "80001X",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 10,
+        "teams": [
+          {
+            "team": {
+              "id": 186564,
+              "name": "2429V",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 165381,
+              "name": "55117K",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134167152,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 1,
+      "name": "Wasatch",
+      "code": null
+    },
+    "round": 2,
+    "instance": 1,
+    "matchnum": 27,
+    "scheduled": "2026-01-30T17:02:18-05:00",
+    "started": "2026-01-30T16:59:48-05:00",
+    "field": "Adobe",
+    "scored": false,
+    "name": "Qualifier #27",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 28,
+        "teams": [
+          {
+            "team": {
+              "id": 169891,
+              "name": "2145X",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 129598,
+              "name": "63031D",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 54,
+        "teams": [
+          {
+            "team": {
+              "id": 160102,
+              "name": "98548M",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 107614,
+              "name": "89040B",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134167014,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 2,
+      "name": "Oquirrh",
+      "code": null
+    },
+    "round": 2,
+    "instance": 1,
+    "matchnum": 27,
+    "scheduled": "2026-01-30T17:02:18-05:00",
+    "started": "2026-01-30T17:01:02-05:00",
+    "field": "Aldridge",
+    "scored": false,
+    "name": "Qualifier #27",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 71,
+        "teams": [
+          {
+            "team": {
+              "id": 97901,
+              "name": "8385C",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 128381,
+              "name": "3150A",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 54,
+        "teams": [
+          {
+            "team": {
+              "id": 191935,
+              "name": "1908C",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 178043,
+              "name": "2323V",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134167019,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 2,
+      "name": "Oquirrh",
+      "code": null
+    },
+    "round": 2,
+    "instance": 1,
+    "matchnum": 32,
+    "scheduled": "2026-01-30T17:20:03-05:00",
+    "started": "2026-01-30T17:17:30-05:00",
+    "field": "Hill AirSpace",
+    "scored": false,
+    "name": "Qualifier #32",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 46,
+        "teams": [
+          {
+            "team": {
+              "id": 185105,
+              "name": "80001X",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 107023,
+              "name": "63031C",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 36,
+        "teams": [
+          {
+            "team": {
+              "id": 171032,
+              "name": "2054V",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 172945,
+              "name": "45538A",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134167159,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 1,
+      "name": "Wasatch",
+      "code": null
+    },
+    "round": 2,
+    "instance": 1,
+    "matchnum": 34,
+    "scheduled": "2026-01-30T17:27:09-05:00",
+    "started": "2026-01-30T17:30:00-05:00",
+    "field": "Utah STEM Action",
+    "scored": false,
+    "name": "Qualifier #34",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 11,
+        "teams": [
+          {
+            "team": {
+              "id": 190371,
+              "name": "55855X",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 190365,
+              "name": "55855A",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 113,
+        "teams": [
+          {
+            "team": {
+              "id": 140719,
+              "name": "5776K",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 85980,
+              "name": "16099A",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134167026,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 2,
+      "name": "Oquirrh",
+      "code": null
+    },
+    "round": 2,
+    "instance": 1,
+    "matchnum": 39,
+    "scheduled": "2026-01-30T17:44:54-05:00",
+    "started": "2026-01-30T17:40:31-05:00",
+    "field": "Aldridge",
+    "scored": false,
+    "name": "Qualifier #39",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 53,
+        "teams": [
+          {
+            "team": {
+              "id": 186736,
+              "name": "13358U",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 67019,
+              "name": "99067B",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 47,
+        "teams": [
+          {
+            "team": {
+              "id": 186491,
+              "name": "11777J",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 185105,
+              "name": "80001X",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134167163,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 1,
+      "name": "Wasatch",
+      "code": null
+    },
+    "round": 2,
+    "instance": 1,
+    "matchnum": 38,
+    "scheduled": "2026-01-30T17:41:21-05:00",
+    "started": "2026-01-30T17:45:04-05:00",
+    "field": "Hughes",
+    "scored": false,
+    "name": "Qualifier #38",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 34,
+        "teams": [
+          {
+            "team": {
+              "id": 102468,
+              "name": "47874J",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 188300,
+              "name": "8385W",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 45,
+        "teams": [
+          {
+            "team": {
+              "id": 107612,
+              "name": "10058B",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 185158,
+              "name": "16099E",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134167029,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 2,
+      "name": "Oquirrh",
+      "code": null
+    },
+    "round": 2,
+    "instance": 1,
+    "matchnum": 42,
+    "scheduled": "2026-01-30T17:55:33-05:00",
+    "started": "2026-01-30T17:49:15-05:00",
+    "field": "Aldridge",
+    "scored": false,
+    "name": "Qualifier #42",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 23,
+        "teams": [
+          {
+            "team": {
+              "id": 171032,
+              "name": "2054V",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 154044,
+              "name": "1168A",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 49,
+        "teams": [
+          {
+            "team": {
+              "id": 87630,
+              "name": "16099B",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 154947,
+              "name": "11101X",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134167165,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 1,
+      "name": "Wasatch",
+      "code": null
+    },
+    "round": 2,
+    "instance": 1,
+    "matchnum": 40,
+    "scheduled": "2026-01-30T17:48:27-05:00",
+    "started": "2026-01-30T17:52:47-05:00",
+    "field": "Utah STEM Action",
+    "scored": false,
+    "name": "Qualifier #40",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 72,
+        "teams": [
+          {
+            "team": {
+              "id": 85980,
+              "name": "16099A",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 155430,
+              "name": "11211W",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 18,
+        "teams": [
+          {
+            "team": {
+              "id": 188373,
+              "name": "99067Z",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 154472,
+              "name": "1511X",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134167035,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 2,
+      "name": "Oquirrh",
+      "code": null
+    },
+    "round": 2,
+    "instance": 1,
+    "matchnum": 48,
+    "scheduled": "2026-01-30T18:16:51-05:00",
+    "started": "2026-01-30T18:06:29-05:00",
+    "field": "Aldridge",
+    "scored": false,
+    "name": "Qualifier #48",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 100,
+        "teams": [
+          {
+            "team": {
+              "id": 128381,
+              "name": "3150A",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 141266,
+              "name": "15486N",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 6,
+        "teams": [
+          {
+            "team": {
+              "id": 107232,
+              "name": "10058A",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 130807,
+              "name": "32092B",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134167037,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 2,
+      "name": "Oquirrh",
+      "code": null
+    },
+    "round": 2,
+    "instance": 1,
+    "matchnum": 50,
+    "scheduled": "2026-01-30T18:23:57-05:00",
+    "started": "2026-01-30T18:11:47-05:00",
+    "field": "Hill AirSpace",
+    "scored": false,
+    "name": "Qualifier #50",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 18,
+        "teams": [
+          {
+            "team": {
+              "id": 93665,
+              "name": "2131Y",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 93662,
+              "name": "2131N",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 82,
+        "teams": [
+          {
+            "team": {
+              "id": 130609,
+              "name": "98548G",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 171032,
+              "name": "2054V",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134167172,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 1,
+      "name": "Wasatch",
+      "code": null
+    },
+    "round": 2,
+    "instance": 1,
+    "matchnum": 47,
+    "scheduled": "2026-01-30T18:13:18-05:00",
+    "started": "2026-01-30T18:20:10-05:00",
+    "field": "Hughes",
+    "scored": false,
+    "name": "Qualifier #47",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 52,
+        "teams": [
+          {
+            "team": {
+              "id": 107612,
+              "name": "10058B",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 107614,
+              "name": "89040B",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 19,
+        "teams": [
+          {
+            "team": {
+              "id": 67018,
+              "name": "99067A",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 136735,
+              "name": "98548H",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134167175,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 1,
+      "name": "Wasatch",
+      "code": null
+    },
+    "round": 2,
+    "instance": 1,
+    "matchnum": 50,
+    "scheduled": "2026-01-30T18:23:57-05:00",
+    "started": "2026-01-30T18:32:17-05:00",
+    "field": "Hughes",
+    "scored": false,
+    "name": "Qualifier #50",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 9,
+        "teams": [
+          {
+            "team": {
+              "id": 190365,
+              "name": "55855A",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 169650,
+              "name": "4154S",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 91,
+        "teams": [
+          {
+            "team": {
+              "id": 102468,
+              "name": "47874J",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 124087,
+              "name": "6891V",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134167043,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 2,
+      "name": "Oquirrh",
+      "code": null
+    },
+    "round": 2,
+    "instance": 1,
+    "matchnum": 56,
+    "scheduled": "2026-01-30T18:45:15-05:00",
+    "started": "2026-01-30T18:39:55-05:00",
+    "field": "Hill AirSpace",
+    "scored": false,
+    "name": "Qualifier #56",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 80,
+        "teams": [
+          {
+            "team": {
+              "id": 185105,
+              "name": "80001X",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 97901,
+              "name": "8385C",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 12,
+        "teams": [
+          {
+            "team": {
+              "id": 107232,
+              "name": "10058A",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 82002,
+              "name": "99905C",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134167179,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 1,
+      "name": "Wasatch",
+      "code": null
+    },
+    "round": 2,
+    "instance": 1,
+    "matchnum": 54,
+    "scheduled": "2026-01-30T18:38:09-05:00",
+    "started": "2026-01-30T18:44:04-05:00",
+    "field": "Adobe",
+    "scored": false,
+    "name": "Qualifier #54",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 35,
+        "teams": [
+          {
+            "team": {
+              "id": 107614,
+              "name": "89040B",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 70128,
+              "name": "8000X",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 48,
+        "teams": [
+          {
+            "team": {
+              "id": 185015,
+              "name": "3595V",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 113308,
+              "name": "16099C",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134167182,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 1,
+      "name": "Wasatch",
+      "code": null
+    },
+    "round": 2,
+    "instance": 1,
+    "matchnum": 57,
+    "scheduled": "2026-01-30T18:48:48-05:00",
+    "started": "2026-01-30T18:53:31-05:00",
+    "field": "Adobe",
+    "scored": false,
+    "name": "Qualifier #57",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 46,
+        "teams": [
+          {
+            "team": {
+              "id": 185158,
+              "name": "16099E",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 171647,
+              "name": "11777S",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 37,
+        "teams": [
+          {
+            "team": {
+              "id": 171292,
+              "name": "77717F",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 85980,
+              "name": "16099A",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134167047,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 2,
+      "name": "Oquirrh",
+      "code": null
+    },
+    "round": 2,
+    "instance": 1,
+    "matchnum": 60,
+    "scheduled": "2026-01-30T18:59:27-05:00",
+    "started": "2026-01-30T18:54:32-05:00",
+    "field": "Aldridge",
+    "scored": false,
+    "name": "Qualifier #60",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 31,
+        "teams": [
+          {
+            "team": {
+              "id": 139503,
+              "name": "4691R",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 171071,
+              "name": "63031Z",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 66,
+        "teams": [
+          {
+            "team": {
+              "id": 23032,
+              "name": "8000B",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 128381,
+              "name": "3150A",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134167184,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 1,
+      "name": "Wasatch",
+      "code": null
+    },
+    "round": 2,
+    "instance": 1,
+    "matchnum": 59,
+    "scheduled": "2026-01-30T18:55:54-05:00",
+    "started": "2026-01-30T19:00:55-05:00",
+    "field": "Hughes",
+    "scored": false,
+    "name": "Qualifier #59",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 91,
+        "teams": [
+          {
+            "team": {
+              "id": 102468,
+              "name": "47874J",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 155430,
+              "name": "11211W",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 3,
+        "teams": [
+          {
+            "team": {
+              "id": 177029,
+              "name": "55117A",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 107414,
+              "name": "98548D",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134167052,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 2,
+      "name": "Oquirrh",
+      "code": null
+    },
+    "round": 2,
+    "instance": 1,
+    "matchnum": 65,
+    "scheduled": "2026-01-30T19:17:12-05:00",
+    "started": "2026-01-30T19:09:18-05:00",
+    "field": "Hill AirSpace",
+    "scored": false,
+    "name": "Qualifier #65",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 54,
+        "teams": [
+          {
+            "team": {
+              "id": 142581,
+              "name": "98548K",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 185105,
+              "name": "80001X",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 8,
+        "teams": [
+          {
+            "team": {
+              "id": 36856,
+              "name": "8675A",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 191332,
+              "name": "55855C",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134167053,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 2,
+      "name": "Oquirrh",
+      "code": null
+    },
+    "round": 2,
+    "instance": 1,
+    "matchnum": 66,
+    "scheduled": "2026-01-30T19:20:45-05:00",
+    "started": "2026-01-30T19:11:59-05:00",
+    "field": "Aldridge",
+    "scored": false,
+    "name": "Qualifier #66",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 34,
+        "teams": [
+          {
+            "team": {
+              "id": 172945,
+              "name": "45538A",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 170060,
+              "name": "16099D",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 81,
+        "teams": [
+          {
+            "team": {
+              "id": 128381,
+              "name": "3150A",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 163968,
+              "name": "98548N",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134167056,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 2,
+      "name": "Oquirrh",
+      "code": null
+    },
+    "round": 2,
+    "instance": 1,
+    "matchnum": 69,
+    "scheduled": "2026-01-30T19:31:24-05:00",
+    "started": "2026-01-30T19:21:28-05:00",
+    "field": "Aldridge",
+    "scored": false,
+    "name": "Qualifier #69",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 100,
+        "teams": [
+          {
+            "team": {
+              "id": 63118,
+              "name": "5776T",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 171032,
+              "name": "2054V",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 0,
+        "teams": [
+          {
+            "team": {
+              "id": 186736,
+              "name": "13358U",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 123299,
+              "name": "11777X",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134167191,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 1,
+      "name": "Wasatch",
+      "code": null
+    },
+    "round": 2,
+    "instance": 1,
+    "matchnum": 66,
+    "scheduled": "2026-01-30T19:20:45-05:00",
+    "started": "2026-01-30T19:29:46-05:00",
+    "field": "Adobe",
+    "scored": false,
+    "name": "Qualifier #66",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 51,
+        "teams": [
+          {
+            "team": {
+              "id": 85980,
+              "name": "16099A",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 160102,
+              "name": "98548M",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 38,
+        "teams": [
+          {
+            "team": {
+              "id": 141349,
+              "name": "32092G",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 177029,
+              "name": "55117A",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134167062,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 2,
+      "name": "Oquirrh",
+      "code": null
+    },
+    "round": 2,
+    "instance": 1,
+    "matchnum": 75,
+    "scheduled": "2026-01-30T19:52:42-05:00",
+    "started": "2026-01-30T19:42:55-05:00",
+    "field": "Aldridge",
+    "scored": false,
+    "name": "Qualifier #75",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 86,
+        "teams": [
+          {
+            "team": {
+              "id": 171032,
+              "name": "2054V",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 67019,
+              "name": "99067B",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 11,
+        "teams": [
+          {
+            "team": {
+              "id": 184804,
+              "name": "283V",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 109693,
+              "name": "2145Z",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134167195,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 1,
+      "name": "Wasatch",
+      "code": null
+    },
+    "round": 2,
+    "instance": 1,
+    "matchnum": 70,
+    "scheduled": "2026-01-30T19:34:57-05:00",
+    "started": "2026-01-30T19:44:31-05:00",
+    "field": "Utah STEM Action",
+    "scored": false,
+    "name": "Qualifier #70",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 18,
+        "teams": [
+          {
+            "team": {
+              "id": 154472,
+              "name": "1511X",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 124036,
+              "name": "11777Y",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 83,
+        "teams": [
+          {
+            "team": {
+              "id": 59897,
+              "name": "2131F",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 107614,
+              "name": "89040B",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134167201,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 1,
+      "name": "Wasatch",
+      "code": null
+    },
+    "round": 2,
+    "instance": 1,
+    "matchnum": 76,
+    "scheduled": "2026-01-30T19:56:15-05:00",
+    "started": "2026-01-30T20:07:24-05:00",
+    "field": "Utah STEM Action",
+    "scored": false,
+    "name": "Qualifier #76",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 35,
+        "teams": [
+          {
+            "team": {
+              "id": 93559,
+              "name": "63031A",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 67018,
+              "name": "99067A",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 54,
+        "teams": [
+          {
+            "team": {
+              "id": 158464,
+              "name": "41998Z",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 102468,
+              "name": "47874J",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134167065,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 2,
+      "name": "Oquirrh",
+      "code": null
+    },
+    "round": 2,
+    "instance": 1,
+    "matchnum": 78,
+    "scheduled": "2026-01-31T10:00:00-05:00",
+    "started": "2026-01-31T10:13:05-05:00",
+    "field": "Aldridge",
+    "scored": false,
+    "name": "Qualifier #78",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 28,
+        "teams": [
+          {
+            "team": {
+              "id": 128381,
+              "name": "3150A",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 186736,
+              "name": "13358U",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 48,
+        "teams": [
+          {
+            "team": {
+              "id": 143954,
+              "name": "1412J",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 86364,
+              "name": "47874B",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134167207,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 1,
+      "name": "Wasatch",
+      "code": null
+    },
+    "round": 2,
+    "instance": 1,
+    "matchnum": 82,
+    "scheduled": "2026-01-31T10:15:32-05:00",
+    "started": "2026-01-31T10:15:10-05:00",
+    "field": "Utah STEM Action",
+    "scored": false,
+    "name": "Qualifier #82",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 61,
+        "teams": [
+          {
+            "team": {
+              "id": 102468,
+              "name": "47874J",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 174487,
+              "name": "45538B",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 6,
+        "teams": [
+          {
+            "team": {
+              "id": 124036,
+              "name": "11777Y",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 174352,
+              "name": "89801B",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134167067,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 2,
+      "name": "Oquirrh",
+      "code": null
+    },
+    "round": 2,
+    "instance": 1,
+    "matchnum": 80,
+    "scheduled": "2026-01-31T10:07:46-05:00",
+    "started": "2026-01-31T10:16:03-05:00",
+    "field": "Hill AirSpace",
+    "scored": false,
+    "name": "Qualifier #80",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 0,
+        "teams": [
+          {
+            "team": {
+              "id": 50411,
+              "name": "1028T",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 171071,
+              "name": "63031Z",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 86,
+        "teams": [
+          {
+            "team": {
+              "id": 185105,
+              "name": "80001X",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 154947,
+              "name": "11101X",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134167210,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 1,
+      "name": "Wasatch",
+      "code": null
+    },
+    "round": 2,
+    "instance": 1,
+    "matchnum": 85,
+    "scheduled": "2026-01-31T10:27:11-05:00",
+    "started": "2026-01-31T10:28:23-05:00",
+    "field": "Utah STEM Action",
+    "scored": false,
+    "name": "Qualifier #85",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 18,
+        "teams": [
+          {
+            "team": {
+              "id": 171292,
+              "name": "77717F",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 68256,
+              "name": "2131W",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 65,
+        "teams": [
+          {
+            "team": {
+              "id": 107614,
+              "name": "89040B",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 140719,
+              "name": "5776K",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134167214,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 1,
+      "name": "Wasatch",
+      "code": null
+    },
+    "round": 2,
+    "instance": 1,
+    "matchnum": 89,
+    "scheduled": "2026-01-31T10:42:43-05:00",
+    "started": "2026-01-31T10:40:11-05:00",
+    "field": "Hughes",
+    "scored": false,
+    "name": "Qualifier #89",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 100,
+        "teams": [
+          {
+            "team": {
+              "id": 107414,
+              "name": "98548D",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 85980,
+              "name": "16099A",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 0,
+        "teams": [
+          {
+            "team": {
+              "id": 59897,
+              "name": "2131F",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 67018,
+              "name": "99067A",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134167078,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 2,
+      "name": "Oquirrh",
+      "code": null
+    },
+    "round": 2,
+    "instance": 1,
+    "matchnum": 91,
+    "scheduled": "2026-01-31T10:50:29-05:00",
+    "started": "2026-01-31T10:49:20-05:00",
+    "field": "JR Automation",
+    "scored": false,
+    "name": "Qualifier #91",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 25,
+        "teams": [
+          {
+            "team": {
+              "id": 128381,
+              "name": "3150A",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 123299,
+              "name": "11777X",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 58,
+        "teams": [
+          {
+            "team": {
+              "id": 138964,
+              "name": "39313Z",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 185105,
+              "name": "80001X",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134167216,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 1,
+      "name": "Wasatch",
+      "code": null
+    },
+    "round": 2,
+    "instance": 1,
+    "matchnum": 91,
+    "scheduled": "2026-01-31T10:50:29-05:00",
+    "started": "2026-01-31T10:50:07-05:00",
+    "field": "Utah STEM Action",
+    "scored": false,
+    "name": "Qualifier #91",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 157,
+        "teams": [
+          {
+            "team": {
+              "id": 107614,
+              "name": "89040B",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 171647,
+              "name": "11777S",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 3,
+        "teams": [
+          {
+            "team": {
+              "id": 190365,
+              "name": "55855A",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 174487,
+              "name": "45538B",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134167218,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 1,
+      "name": "Wasatch",
+      "code": null
+    },
+    "round": 2,
+    "instance": 1,
+    "matchnum": 93,
+    "scheduled": "2026-01-31T10:58:15-05:00",
+    "started": "2026-01-31T10:55:25-05:00",
+    "field": "Adobe",
+    "scored": false,
+    "name": "Qualifier #93",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 61,
+        "teams": [
+          {
+            "team": {
+              "id": 14770,
+              "name": "5776A",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 143659,
+              "name": "10009A",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 42,
+        "teams": [
+          {
+            "team": {
+              "id": 190371,
+              "name": "55855X",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 102468,
+              "name": "47874J",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134167081,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 2,
+      "name": "Oquirrh",
+      "code": null
+    },
+    "round": 2,
+    "instance": 1,
+    "matchnum": 94,
+    "scheduled": "2026-01-31T11:02:08-05:00",
+    "started": "2026-01-31T11:04:49-05:00",
+    "field": "JR Automation",
+    "scored": false,
+    "name": "Qualifier #94",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 78,
+        "teams": [
+          {
+            "team": {
+              "id": 141266,
+              "name": "15486N",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 50411,
+              "name": "1028T",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 6,
+        "teams": [
+          {
+            "team": {
+              "id": 142646,
+              "name": "41998H",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 171032,
+              "name": "2054V",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134167223,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 1,
+      "name": "Wasatch",
+      "code": null
+    },
+    "round": 2,
+    "instance": 1,
+    "matchnum": 98,
+    "scheduled": "2026-01-31T11:17:40-05:00",
+    "started": "2026-01-31T11:12:56-05:00",
+    "field": "Hughes",
+    "scored": false,
+    "name": "Qualifier #98",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 61,
+        "teams": [
+          {
+            "team": {
+              "id": 160828,
+              "name": "3017X",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 157607,
+              "name": "1281A",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 28,
+        "teams": [
+          {
+            "team": {
+              "id": 176439,
+              "name": "84075X",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 85980,
+              "name": "16099A",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134167085,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 2,
+      "name": "Oquirrh",
+      "code": null
+    },
+    "round": 2,
+    "instance": 1,
+    "matchnum": 98,
+    "scheduled": "2026-01-31T11:17:40-05:00",
+    "started": "2026-01-31T11:15:40-05:00",
+    "field": "Hill AirSpace",
+    "scored": false,
+    "name": "Qualifier #98",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 80,
+        "teams": [
+          {
+            "team": {
+              "id": 123613,
+              "name": "3017D",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 128381,
+              "name": "3150A",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 9,
+        "teams": [
+          {
+            "team": {
+              "id": 165381,
+              "name": "55117K",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 186491,
+              "name": "11777J",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134167091,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 2,
+      "name": "Oquirrh",
+      "code": null
+    },
+    "round": 2,
+    "instance": 1,
+    "matchnum": 104,
+    "scheduled": "2026-01-31T11:40:58-05:00",
+    "started": "2026-01-31T11:38:07-05:00",
+    "field": "Hill AirSpace",
+    "scored": false,
+    "name": "Qualifier #104",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 18,
+        "teams": [
+          {
+            "team": {
+              "id": 82002,
+              "name": "99905C",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 170060,
+              "name": "16099D",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 67,
+        "teams": [
+          {
+            "team": {
+              "id": 171032,
+              "name": "2054V",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 155481,
+              "name": "8000J",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134167094,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 2,
+      "name": "Oquirrh",
+      "code": null
+    },
+    "round": 2,
+    "instance": 1,
+    "matchnum": 107,
+    "scheduled": "2026-01-31T11:52:37-05:00",
+    "started": "2026-01-31T11:46:18-05:00",
+    "field": "Hill AirSpace",
+    "scored": false,
+    "name": "Qualifier #107",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 29,
+        "teams": [
+          {
+            "team": {
+              "id": 185105,
+              "name": "80001X",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 143954,
+              "name": "1412J",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 65,
+        "teams": [
+          {
+            "team": {
+              "id": 109693,
+              "name": "2145Z",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 169652,
+              "name": "4154R",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134167234,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 1,
+      "name": "Wasatch",
+      "code": null
+    },
+    "round": 2,
+    "instance": 1,
+    "matchnum": 109,
+    "scheduled": "2026-01-31T12:00:23-05:00",
+    "started": "2026-01-31T11:49:53-05:00",
+    "field": "Utah STEM Action",
+    "scored": false,
+    "name": "Qualifier #109",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 39,
+        "teams": [
+          {
+            "team": {
+              "id": 23035,
+              "name": "8000C",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 145669,
+              "name": "1908B",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 45,
+        "teams": [
+          {
+            "team": {
+              "id": 102468,
+              "name": "47874J",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 68256,
+              "name": "2131W",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134167235,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 1,
+      "name": "Wasatch",
+      "code": null
+    },
+    "round": 2,
+    "instance": 1,
+    "matchnum": 110,
+    "scheduled": "2026-01-31T12:04:16-05:00",
+    "started": "2026-01-31T11:52:58-05:00",
+    "field": "Hughes",
+    "scored": false,
+    "name": "Qualifier #110",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 12,
+        "teams": [
+          {
+            "team": {
+              "id": 174352,
+              "name": "89801B",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 107614,
+              "name": "89040B",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 103,
+        "teams": [
+          {
+            "team": {
+              "id": 64853,
+              "name": "2131S",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 85980,
+              "name": "16099A",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134167242,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 1,
+      "name": "Wasatch",
+      "code": null
+    },
+    "round": 6,
+    "instance": 2,
+    "matchnum": 1,
+    "scheduled": null,
+    "started": "2026-01-31T14:43:25-05:00",
+    "field": "Hughes",
+    "scored": false,
+    "name": "R16 #2-1",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 20,
+        "teams": [
+          {
+            "team": {
+              "id": 68256,
+              "name": "2131W",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 70128,
+              "name": "8000X",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 68,
+        "teams": [
+          {
+            "team": {
+              "id": 107614,
+              "name": "89040B",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 185158,
+              "name": "16099E",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134167098,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 2,
+      "name": "Oquirrh",
+      "code": null
+    },
+    "round": 6,
+    "instance": 3,
+    "matchnum": 1,
+    "scheduled": null,
+    "started": "2026-01-31T14:48:17-05:00",
+    "field": "Hill AirSpace",
+    "scored": false,
+    "name": "R16 #3-1",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 9,
+        "teams": [
+          {
+            "team": {
+              "id": 107023,
+              "name": "63031C",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 186491,
+              "name": "11777J",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 110,
+        "teams": [
+          {
+            "team": {
+              "id": 128381,
+              "name": "3150A",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 171032,
+              "name": "2054V",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134167100,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 2,
+      "name": "Oquirrh",
+      "code": null
+    },
+    "round": 6,
+    "instance": 5,
+    "matchnum": 1,
+    "scheduled": null,
+    "started": "2026-01-31T14:59:59-05:00",
+    "field": "Hill AirSpace",
+    "scored": false,
+    "name": "R16 #5-1",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 6,
+        "teams": [
+          {
+            "team": {
+              "id": 67019,
+              "name": "99067B",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 174536,
+              "name": "54996B",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 88,
+        "teams": [
+          {
+            "team": {
+              "id": 185105,
+              "name": "80001X",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 109693,
+              "name": "2145Z",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134167247,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 1,
+      "name": "Wasatch",
+      "code": null
+    },
+    "round": 6,
+    "instance": 7,
+    "matchnum": 1,
+    "scheduled": null,
+    "started": "2026-01-31T15:14:04-05:00",
+    "field": "Utah STEM Action",
+    "scored": false,
+    "name": "R16 #7-1",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 9,
+        "teams": [
+          {
+            "team": {
+              "id": 178103,
+              "name": "1908K",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 59897,
+              "name": "2131F",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 77,
+        "teams": [
+          {
+            "team": {
+              "id": 102468,
+              "name": "47874J",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 85980,
+              "name": "16099A",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134167105,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 2,
+      "name": "Oquirrh",
+      "code": null
+    },
+    "round": 3,
+    "instance": 2,
+    "matchnum": 1,
+    "scheduled": null,
+    "started": "2026-01-31T15:16:47-05:00",
+    "field": "Aldridge",
+    "scored": false,
+    "name": "QF #2-1",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 32,
+        "teams": [
+          {
+            "team": {
+              "id": 50411,
+              "name": "1028T",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 141266,
+              "name": "15486N",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 84,
+        "teams": [
+          {
+            "team": {
+              "id": 128381,
+              "name": "3150A",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 171032,
+              "name": "2054V",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134167106,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 2,
+      "name": "Oquirrh",
+      "code": null
+    },
+    "round": 3,
+    "instance": 3,
+    "matchnum": 1,
+    "scheduled": null,
+    "started": "2026-01-31T15:21:00-05:00",
+    "field": "Hill AirSpace",
+    "scored": false,
+    "name": "QF #3-1",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 43,
+        "teams": [
+          {
+            "team": {
+              "id": 143954,
+              "name": "1412J",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 36856,
+              "name": "8675A",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 34,
+        "teams": [
+          {
+            "team": {
+              "id": 185105,
+              "name": "80001X",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 109693,
+              "name": "2145Z",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134167249,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 1,
+      "name": "Wasatch",
+      "code": null
+    },
+    "round": 3,
+    "instance": 1,
+    "matchnum": 1,
+    "scheduled": null,
+    "started": "2026-01-31T15:30:06-05:00",
+    "field": "Utah STEM Action",
+    "scored": false,
+    "name": "QF #1-1",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 41,
+        "teams": [
+          {
+            "team": {
+              "id": 107614,
+              "name": "89040B",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 185158,
+              "name": "16099E",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 38,
+        "teams": [
+          {
+            "team": {
+              "id": 40093,
+              "name": "1028A",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 170421,
+              "name": "2154A",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134167108,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 2,
+      "name": "Oquirrh",
+      "code": null
+    },
+    "round": 4,
+    "instance": 1,
+    "matchnum": 1,
+    "scheduled": null,
+    "started": "2026-01-31T15:31:12-05:00",
+    "field": "Hill AirSpace",
+    "scored": false,
+    "name": "SF #1-1",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 111,
+        "teams": [
+          {
+            "team": {
+              "id": 128381,
+              "name": "3150A",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 171032,
+              "name": "2054V",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 19,
+        "teams": [
+          {
+            "team": {
+              "id": 23032,
+              "name": "8000B",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 186564,
+              "name": "2429V",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134167252,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 1,
+      "name": "Wasatch",
+      "code": null
+    },
+    "round": 3,
+    "instance": 4,
+    "matchnum": 1,
+    "scheduled": null,
+    "started": "2026-01-31T15:47:33-05:00",
+    "field": "Utah STEM Action",
+    "scored": false,
+    "name": "QF #4-1",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 11,
+        "teams": [
+          {
+            "team": {
+              "id": 107414,
+              "name": "98548D",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 42355,
+              "name": "2323X",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 88,
+        "teams": [
+          {
+            "team": {
+              "id": 102468,
+              "name": "47874J",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 85980,
+              "name": "16099A",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134167253,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 1,
+      "name": "Wasatch",
+      "code": null
+    },
+    "round": 4,
+    "instance": 1,
+    "matchnum": 1,
+    "scheduled": null,
+    "started": "2026-01-31T15:59:26-05:00",
+    "field": "Hughes",
+    "scored": false,
+    "name": "SF #1-1",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 33,
+        "teams": [
+          {
+            "team": {
+              "id": 185486,
+              "name": "11101K",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 169891,
+              "name": "2145X",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 46,
+        "teams": [
+          {
+            "team": {
+              "id": 107614,
+              "name": "89040B",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 185158,
+              "name": "16099E",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134167254,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 1,
+      "name": "Wasatch",
+      "code": null
+    },
+    "round": 4,
+    "instance": 2,
+    "matchnum": 1,
+    "scheduled": null,
+    "started": "2026-01-31T16:05:02-05:00",
+    "field": "Adobe",
+    "scored": false,
+    "name": "SF #2-1",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 51,
+        "teams": [
+          {
+            "team": {
+              "id": 102468,
+              "name": "47874J",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 85980,
+              "name": "16099A",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 46,
+        "teams": [
+          {
+            "team": {
+              "id": 113308,
+              "name": "16099C",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 141349,
+              "name": "32092G",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134167110,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 2,
+      "name": "Oquirrh",
+      "code": null
+    },
+    "round": 5,
+    "instance": 1,
+    "matchnum": 1,
+    "scheduled": null,
+    "started": "2026-01-31T16:10:27-05:00",
+    "field": "JR Automation",
+    "scored": false,
+    "name": "Final #1-1",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 46,
+        "teams": [
+          {
+            "team": {
+              "id": 143954,
+              "name": "1412J",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 36856,
+              "name": "8675A",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 0,
+        "teams": [
+          {
+            "team": {
+              "id": 128381,
+              "name": "3150A",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 171032,
+              "name": "2054V",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134167255,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 1,
+      "name": "Wasatch",
+      "code": null
+    },
+    "round": 5,
+    "instance": 1,
+    "matchnum": 1,
+    "scheduled": null,
+    "started": "2026-01-31T16:21:32-05:00",
+    "field": "Adobe",
+    "scored": false,
+    "name": "Final #1-1",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 51,
+        "teams": [
+          {
+            "team": {
+              "id": 102468,
+              "name": "47874J",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 85980,
+              "name": "16099A",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 38,
+        "teams": [
+          {
+            "team": {
+              "id": 107614,
+              "name": "89040B",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 185158,
+              "name": "16099E",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134167111,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 2,
+      "name": "Oquirrh",
+      "code": null
+    },
+    "round": 5,
+    "instance": 1,
+    "matchnum": 2,
+    "scheduled": null,
+    "started": "2026-01-31T16:28:42-05:00",
+    "field": "JR Automation",
+    "scored": false,
+    "name": "Final #1-2",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 25,
+        "teams": [
+          {
+            "team": {
+              "id": 143954,
+              "name": "1412J",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 36856,
+              "name": "8675A",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 63,
+        "teams": [
+          {
+            "team": {
+              "id": 128381,
+              "name": "3150A",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 171032,
+              "name": "2054V",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134167256,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 1,
+      "name": "Wasatch",
+      "code": null
+    },
+    "round": 5,
+    "instance": 1,
+    "matchnum": 2,
+    "scheduled": null,
+    "started": "2026-01-31T16:38:26-05:00",
+    "field": "Adobe",
+    "scored": false,
+    "name": "Final #1-2",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 37,
+        "teams": [
+          {
+            "team": {
+              "id": 102468,
+              "name": "47874J",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 85980,
+              "name": "16099A",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 35,
+        "teams": [
+          {
+            "team": {
+              "id": 107614,
+              "name": "89040B",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 185158,
+              "name": "16099E",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134167112,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 2,
+      "name": "Oquirrh",
+      "code": null
+    },
+    "round": 5,
+    "instance": 1,
+    "matchnum": 3,
+    "scheduled": null,
+    "started": "2026-01-31T16:44:52-05:00",
+    "field": "JR Automation",
+    "scored": false,
+    "name": "Final #1-3",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 17,
+        "teams": [
+          {
+            "team": {
+              "id": 143954,
+              "name": "1412J",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 36856,
+              "name": "8675A",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 96,
+        "teams": [
+          {
+            "team": {
+              "id": 128381,
+              "name": "3150A",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 171032,
+              "name": "2054V",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:11-05:00"
+  },
+  {
+    "id": 134166973,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 100,
+      "name": "Grand Finals",
+      "code": null
+    },
+    "round": 5,
+    "instance": 1,
+    "matchnum": 1,
+    "scheduled": null,
+    "started": "2026-01-31T16:58:53-05:00",
+    "field": "JR Automation",
+    "scored": false,
+    "name": "Final #1-1",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 42,
+        "teams": [
+          {
+            "team": {
+              "id": 128381,
+              "name": "3150A",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 171032,
+              "name": "2054V",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 0,
+        "teams": [
+          {
+            "team": {
+              "id": 102468,
+              "name": "47874J",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 85980,
+              "name": "16099A",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:10-05:00"
+  },
+  {
+    "id": 134166974,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 100,
+      "name": "Grand Finals",
+      "code": null
+    },
+    "round": 5,
+    "instance": 1,
+    "matchnum": 2,
+    "scheduled": null,
+    "started": "2026-01-31T17:24:20-05:00",
+    "field": "JR Automation",
+    "scored": false,
+    "name": "Final #1-2",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 28,
+        "teams": [
+          {
+            "team": {
+              "id": 128381,
+              "name": "3150A",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 171032,
+              "name": "2054V",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 48,
+        "teams": [
+          {
+            "team": {
+              "id": 102468,
+              "name": "47874J",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 85980,
+              "name": "16099A",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:10-05:00"
+  },
+  {
+    "id": 134166975,
+    "event": {
+      "id": 60011,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: High School",
+      "code": "RE-V5RC-25-0011"
+    },
+    "division": {
+      "id": 100,
+      "name": "Grand Finals",
+      "code": null
+    },
+    "round": 5,
+    "instance": 1,
+    "matchnum": 3,
+    "scheduled": null,
+    "started": "2026-01-31T17:38:12-05:00",
+    "field": "JR Automation",
+    "scored": false,
+    "name": "Final #1-3",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 74,
+        "teams": [
+          {
+            "team": {
+              "id": 128381,
+              "name": "3150A",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 171032,
+              "name": "2054V",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 62,
+        "teams": [
+          {
+            "team": {
+              "id": 102468,
+              "name": "47874J",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 85980,
+              "name": "16099A",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-31T18:26:10-05:00"
+  }
+]

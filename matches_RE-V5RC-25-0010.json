@@ -1,0 +1,954 @@
+[
+  {
+    "id": 132647661,
+    "event": {
+      "id": 60010,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: Middle School",
+      "code": "RE-V5RC-25-0010"
+    },
+    "division": {
+      "id": 1,
+      "name": "Wasatch",
+      "code": null
+    },
+    "round": 1,
+    "instance": 1,
+    "matchnum": 2,
+    "scheduled": "2026-01-28T15:35:00-05:00",
+    "started": "2026-01-28T15:33:06-05:00",
+    "field": "Hughes",
+    "scored": false,
+    "name": "Practice #2",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 46,
+        "teams": [
+          {
+            "team": {
+              "id": 187965,
+              "name": "24580A",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 49154,
+              "name": "6007X",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 22,
+        "teams": [
+          {
+            "team": {
+              "id": 154963,
+              "name": "16689D",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 184612,
+              "name": "2429A",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-29T16:11:16-05:00"
+  },
+  {
+    "id": 132647669,
+    "event": {
+      "id": 60010,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: Middle School",
+      "code": "RE-V5RC-25-0010"
+    },
+    "division": {
+      "id": 1,
+      "name": "Wasatch",
+      "code": null
+    },
+    "round": 2,
+    "instance": 1,
+    "matchnum": 2,
+    "scheduled": "2026-01-28T16:33:54-05:00",
+    "started": "2026-01-28T16:36:44-05:00",
+    "field": "Hughes",
+    "scored": false,
+    "name": "Qualifier #2",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 60,
+        "teams": [
+          {
+            "team": {
+              "id": 104833,
+              "name": "673G",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 184612,
+              "name": "2429A",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 28,
+        "teams": [
+          {
+            "team": {
+              "id": 110473,
+              "name": "15486E",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 93772,
+              "name": "673F",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-29T16:11:16-05:00"
+  },
+  {
+    "id": 132647677,
+    "event": {
+      "id": 60010,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: Middle School",
+      "code": "RE-V5RC-25-0010"
+    },
+    "division": {
+      "id": 1,
+      "name": "Wasatch",
+      "code": null
+    },
+    "round": 2,
+    "instance": 1,
+    "matchnum": 10,
+    "scheduled": "2026-01-28T17:05:06-05:00",
+    "started": "2026-01-28T17:05:18-05:00",
+    "field": "Hughes",
+    "scored": false,
+    "name": "Qualifier #10",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 44,
+        "teams": [
+          {
+            "team": {
+              "id": 188715,
+              "name": "98548S",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 153183,
+              "name": "283S",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 118,
+        "teams": [
+          {
+            "team": {
+              "id": 184612,
+              "name": "2429A",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 187965,
+              "name": "24580A",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-29T16:11:16-05:00"
+  },
+  {
+    "id": 132647683,
+    "event": {
+      "id": 60010,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: Middle School",
+      "code": "RE-V5RC-25-0010"
+    },
+    "division": {
+      "id": 1,
+      "name": "Wasatch",
+      "code": null
+    },
+    "round": 2,
+    "instance": 1,
+    "matchnum": 16,
+    "scheduled": "2026-01-28T17:28:30-05:00",
+    "started": "2026-01-28T17:28:51-05:00",
+    "field": "Hughes",
+    "scored": false,
+    "name": "Qualifier #16",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 32,
+        "teams": [
+          {
+            "team": {
+              "id": 112941,
+              "name": "938A",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 184612,
+              "name": "2429A",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 51,
+        "teams": [
+          {
+            "team": {
+              "id": 163079,
+              "name": "1281B",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 141970,
+              "name": "15486R",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-29T16:11:16-05:00"
+  },
+  {
+    "id": 132647696,
+    "event": {
+      "id": 60010,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: Middle School",
+      "code": "RE-V5RC-25-0010"
+    },
+    "division": {
+      "id": 1,
+      "name": "Wasatch",
+      "code": null
+    },
+    "round": 2,
+    "instance": 1,
+    "matchnum": 29,
+    "scheduled": "2026-01-28T18:19:12-05:00",
+    "started": "2026-01-28T18:23:00-05:00",
+    "field": "Utah Stem Action",
+    "scored": false,
+    "name": "Qualifier #29",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 13,
+        "teams": [
+          {
+            "team": {
+              "id": 186590,
+              "name": "1281U",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 143052,
+              "name": "10058C",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 81,
+        "teams": [
+          {
+            "team": {
+              "id": 184612,
+              "name": "2429A",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 154963,
+              "name": "16689D",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-29T16:11:16-05:00"
+  },
+  {
+    "id": 132647704,
+    "event": {
+      "id": 60010,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: Middle School",
+      "code": "RE-V5RC-25-0010"
+    },
+    "division": {
+      "id": 1,
+      "name": "Wasatch",
+      "code": null
+    },
+    "round": 2,
+    "instance": 1,
+    "matchnum": 37,
+    "scheduled": "2026-01-28T18:50:24-05:00",
+    "started": "2026-01-28T18:52:20-05:00",
+    "field": "Utah Stem Action",
+    "scored": false,
+    "name": "Qualifier #37",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 57,
+        "teams": [
+          {
+            "team": {
+              "id": 141895,
+              "name": "15486P",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 184612,
+              "name": "2429A",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 23,
+        "teams": [
+          {
+            "team": {
+              "id": 58302,
+              "name": "673B",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 142526,
+              "name": "6007Y",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-29T16:11:16-05:00"
+  },
+  {
+    "id": 132647710,
+    "event": {
+      "id": 60010,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: Middle School",
+      "code": "RE-V5RC-25-0010"
+    },
+    "division": {
+      "id": 1,
+      "name": "Wasatch",
+      "code": null
+    },
+    "round": 2,
+    "instance": 1,
+    "matchnum": 43,
+    "scheduled": "2026-01-28T19:13:48-05:00",
+    "started": "2026-01-28T19:16:52-05:00",
+    "field": "Utah Stem Action",
+    "scored": false,
+    "name": "Qualifier #43",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 8,
+        "teams": [
+          {
+            "team": {
+              "id": 135518,
+              "name": "79298C",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 130866,
+              "name": "15486M",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 98,
+        "teams": [
+          {
+            "team": {
+              "id": 184612,
+              "name": "2429A",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 63706,
+              "name": "8871A",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-29T16:11:16-05:00"
+  },
+  {
+    "id": 132647722,
+    "event": {
+      "id": 60010,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: Middle School",
+      "code": "RE-V5RC-25-0010"
+    },
+    "division": {
+      "id": 1,
+      "name": "Wasatch",
+      "code": null
+    },
+    "round": 2,
+    "instance": 1,
+    "matchnum": 55,
+    "scheduled": "2026-01-29T11:27:18-05:00",
+    "started": "2026-01-29T11:30:53-05:00",
+    "field": "Utah Stem Action",
+    "scored": false,
+    "name": "Qualifier #55",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 11,
+        "teams": [
+          {
+            "team": {
+              "id": 63782,
+              "name": "8871B",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 174246,
+              "name": "98548P",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 79,
+        "teams": [
+          {
+            "team": {
+              "id": 184612,
+              "name": "2429A",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 158393,
+              "name": "79298T",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-29T16:11:16-05:00"
+  },
+  {
+    "id": 132647729,
+    "event": {
+      "id": 60010,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: Middle School",
+      "code": "RE-V5RC-25-0010"
+    },
+    "division": {
+      "id": 1,
+      "name": "Wasatch",
+      "code": null
+    },
+    "round": 2,
+    "instance": 1,
+    "matchnum": 62,
+    "scheduled": "2026-01-29T11:54:36-05:00",
+    "started": "2026-01-29T11:58:01-05:00",
+    "field": "Hughes",
+    "scored": false,
+    "name": "Qualifier #62",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 95,
+        "teams": [
+          {
+            "team": {
+              "id": 184612,
+              "name": "2429A",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 189154,
+              "name": "1840B",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 11,
+        "teams": [
+          {
+            "team": {
+              "id": 96551,
+              "name": "95070A",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 186968,
+              "name": "11353E",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-29T16:11:16-05:00"
+  },
+  {
+    "id": 132647732,
+    "event": {
+      "id": 60010,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: Middle School",
+      "code": "RE-V5RC-25-0010"
+    },
+    "division": {
+      "id": 1,
+      "name": "Wasatch",
+      "code": null
+    },
+    "round": 2,
+    "instance": 1,
+    "matchnum": 65,
+    "scheduled": "2026-01-29T12:06:18-05:00",
+    "started": "2026-01-29T12:14:35-05:00",
+    "field": "Utah Stem Action",
+    "scored": false,
+    "name": "Qualifier #65",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 0,
+        "teams": [
+          {
+            "team": {
+              "id": 186968,
+              "name": "11353E",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 143052,
+              "name": "10058C",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 116,
+        "teams": [
+          {
+            "team": {
+              "id": 184612,
+              "name": "2429A",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 49154,
+              "name": "6007X",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-29T16:11:16-05:00"
+  },
+  {
+    "id": 132647742,
+    "event": {
+      "id": 60010,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: Middle School",
+      "code": "RE-V5RC-25-0010"
+    },
+    "division": {
+      "id": 1,
+      "name": "Wasatch",
+      "code": null
+    },
+    "round": 3,
+    "instance": 1,
+    "matchnum": 1,
+    "scheduled": null,
+    "started": "2026-01-29T14:57:15-05:00",
+    "field": "Utah Stem Action",
+    "scored": false,
+    "name": "QF #1-1",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 14,
+        "teams": [
+          {
+            "team": {
+              "id": 104833,
+              "name": "673G",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 135518,
+              "name": "79298C",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 118,
+        "teams": [
+          {
+            "team": {
+              "id": 163079,
+              "name": "1281B",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 184612,
+              "name": "2429A",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-29T16:11:16-05:00"
+  },
+  {
+    "id": 132647746,
+    "event": {
+      "id": 60010,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: Middle School",
+      "code": "RE-V5RC-25-0010"
+    },
+    "division": {
+      "id": 1,
+      "name": "Wasatch",
+      "code": null
+    },
+    "round": 4,
+    "instance": 1,
+    "matchnum": 1,
+    "scheduled": null,
+    "started": "2026-01-29T15:17:15-05:00",
+    "field": "Utah Stem Action",
+    "scored": false,
+    "name": "SF #1-1",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 6,
+        "teams": [
+          {
+            "team": {
+              "id": 63706,
+              "name": "8871A",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 110473,
+              "name": "15486E",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 74,
+        "teams": [
+          {
+            "team": {
+              "id": 163079,
+              "name": "1281B",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 184612,
+              "name": "2429A",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-29T16:11:16-05:00"
+  },
+  {
+    "id": 132647748,
+    "event": {
+      "id": 60010,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: Middle School",
+      "code": "RE-V5RC-25-0010"
+    },
+    "division": {
+      "id": 1,
+      "name": "Wasatch",
+      "code": null
+    },
+    "round": 5,
+    "instance": 1,
+    "matchnum": 1,
+    "scheduled": null,
+    "started": "2026-01-29T15:38:28-05:00",
+    "field": "Hughes",
+    "scored": false,
+    "name": "Final #1-1",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 0,
+        "teams": [
+          {
+            "team": {
+              "id": 154963,
+              "name": "16689D",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 187965,
+              "name": "24580A",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 80,
+        "teams": [
+          {
+            "team": {
+              "id": 163079,
+              "name": "1281B",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 184612,
+              "name": "2429A",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-29T16:11:16-05:00"
+  },
+  {
+    "id": 132647749,
+    "event": {
+      "id": 60010,
+      "name": "Rumble In the Rockies VEX V5 Robotics Competition Signature Event: Middle School",
+      "code": "RE-V5RC-25-0010"
+    },
+    "division": {
+      "id": 1,
+      "name": "Wasatch",
+      "code": null
+    },
+    "round": 5,
+    "instance": 1,
+    "matchnum": 2,
+    "scheduled": null,
+    "started": "2026-01-29T15:48:39-05:00",
+    "field": "Hughes",
+    "scored": false,
+    "name": "Final #1-2",
+    "alliances": [
+      {
+        "color": "blue",
+        "score": 39,
+        "teams": [
+          {
+            "team": {
+              "id": 154963,
+              "name": "16689D",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 187965,
+              "name": "24580A",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "score": 47,
+        "teams": [
+          {
+            "team": {
+              "id": 163079,
+              "name": "1281B",
+              "code": null
+            },
+            "sitting": false
+          },
+          {
+            "team": {
+              "id": 184612,
+              "name": "2429A",
+              "code": null
+            },
+            "sitting": false
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-01-29T16:11:16-05:00"
+  }
+]

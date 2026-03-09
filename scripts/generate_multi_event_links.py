@@ -20,11 +20,43 @@ STREAMS = {
             "div_id": 1
         }
     ],
-    "RE-V5RC-25-0011": [ # Rumble In the Rockies
+    "RE-V5RC-25-0011": [ # Rumble In the Rockies HS
         {
             "video_id": "dqiXLjV04TY", # Wasatch HS Day 1
-            "ref_match_name": "Qualifier #38",
-            "ref_timestamp": 12132, # 3:22:12
+            "ref_match_name": "Qualifier #1",
+            "ref_timestamp": 3886,
+            "div_id": 1
+        },
+        {
+            "video_id": "4SnwGC71bns", # Wasatch HS Day 2
+            "ref_match_name": "Qualifier #111",
+            "ref_timestamp": 6774,
+            "div_id": 1
+        },
+        {
+            "video_id": "PsN2SkPObkQ", # Oquirrh HS Day 1
+            "ref_match_name": "Qualifier #1",
+            "ref_timestamp": 3947,
+            "div_id": 2
+        },
+        {
+            "video_id": "_MvvkIMnFjI", # Oquirrh HS Day 2
+            "ref_match_name": "Qualifier #113",
+            "ref_timestamp": 8407,
+            "div_id": 2
+        }
+    ],
+    "RE-V5RC-25-0010": [ # Rumble In the Rockies MS
+        {
+            "video_id": "agB71m6kfJw", # MS Day 1
+            "ref_match_name": "Qualifier #3",
+            "ref_timestamp": 3636,
+            "div_id": 1
+        },
+        {
+            "video_id": "bXGM9dOsLGc", # MS Day 2
+            "ref_match_name": "Qualifier #54",
+            "ref_timestamp": 1640,
             "div_id": 1
         }
     ],
@@ -75,6 +107,42 @@ STREAMS = {
             "video_id": "xrCy_MCgMMk",
             "ref_match_name": "Qualifier #1",
             "ref_timestamp": 3114,
+            "div_id": 1
+        }
+    ],
+    "RE-V5RC-25-0654": [ # Roundtable Robotics Challenge 2026
+        {
+            "video_id": "wwxtx_EJI58",
+            "ref_match_name": "Qualifier #2",
+            "ref_timestamp": 1154, # ~19:14
+            "div_id": 1
+        }
+    ],
+    "RE-V5RC-25-2898": [ # Brampton V5RC Push Back Qualifier
+        {
+            "video_id": "pugQyXnFikE",
+            "ref_match_name": "Qualifier #7",
+            "ref_timestamp": 690, # 11:30 in video
+            "div_id": 1
+        }
+    ],
+    "RE-V5RC-25-0003": [ # Gateway to the West Signature Event
+        {
+            "video_id": "TeYP6XvfV78", # Day 1
+            "ref_match_name": "Qualifier #2",
+            "ref_timestamp": 6832, # 1:53:52
+            "div_id": 1
+        },
+        {
+            "video_id": "GPeNrzttd1E", # Day 2 Morning
+            "ref_match_name": "Qualifier #88",
+            "ref_timestamp": 2083, # 34:43
+            "div_id": 1
+        },
+        {
+            "video_id": "GPeNrzttd1E", # Day 2 Eliminations
+            "ref_match_name": "QF #1-1",
+            "ref_timestamp": 18268, # 5:04:28
             "div_id": 1
         }
     ]

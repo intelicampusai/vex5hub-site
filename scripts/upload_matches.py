@@ -73,30 +73,59 @@ def upload_matches():
                         if team and 'name' in team:
                             teams.append(team['name'])
             
-            # Prepare Item
-            item_base = {
-                'id': match_data['match_id'],
-                'name': match_data['match_name'],
-                'video_url': match_data['video_url'],
-                'round': match_data.get('round'),
-                'instance': match_data.get('instance'),
-                'matchnum': match_data.get('matchnum'),
-                'started': started_iso, # Keep original
-                'scheduled': match_data.get('scheduled'),
-                'field': match_data.get('field'),
-                'alliances': alliances_obj, # Use normalized object
-                'division_id': match_data.get('division_id'),
-                'event': match_data.get('event'), 
-                'updated_at': datetime.now().isoformat()
-            }
-            
-            item_base = clean_item(item_base)
+            # Prepare flattened fields for frontend compatibility
+            alliances = match_data.get('alliances', [])
+            sku = match_data.get('event', {}).get('code')
+            event_name = match_data.get('event', {}).get('name')
             
             # Write for each team
             for team_number in teams:
-                item = item_base.copy()
-                item['PK'] = f'TEAM#{team_number}'
-                item['SK'] = f'MATCH#{utc_started}#{match_id}'
+                # Determine "partner" teams and "opponent" teams for this specific team
+                partner_teams = []
+                opponent_teams = []
+                my_score = None
+                opp_score = None
+                won = None
+                my_color = None
+
+                for alliance in alliances:
+                    alliance_teams = [t.get('team', {}).get('name') for t in alliance.get('teams', [])]
+                    if team_number in alliance_teams:
+                        my_color = alliance.get('color')
+                        partner_teams = [t for t in alliance_teams if t != team_number]
+                        my_score = alliance.get('score')
+                    else:
+                        opponent_teams.extend(alliance_teams)
+                        opp_score = alliance.get('score')
+
+                if my_score is not None and opp_score is not None:
+                    won = my_score > opp_score
+                
+                item = {
+                    'PK': f'TEAM#{team_number}',
+                    'SK': f'MATCH#{utc_started}#{match_id}',
+                    'id': match_data['match_id'],
+                    'name': match_data['match_name'],
+                    'video_url': match_data['video_url'],
+                    'sku': sku,
+                    'event_name': event_name,
+                    'round': match_data.get('round'),
+                    'instance': match_data.get('instance'),
+                    'match_num': match_data.get('matchnum'),
+                    'alliance': my_color,
+                    'partner_teams': partner_teams,
+                    'opponent_teams': opponent_teams,
+                    'my_score': my_score,
+                    'opp_score': opp_score,
+                    'won': won,
+                    'started': started_iso,
+                    'scheduled': match_data.get('scheduled'),
+                    'field': match_data.get('field'),
+                    'division_id': match_data.get('division_id'),
+                    'updated_at': datetime.now().isoformat()
+                }
+                
+                item = clean_item(item)
                 
                 try:
                     batch.put_item(Item=item)
