@@ -11,8 +11,23 @@ interface TeamCardProps {
     compact?: boolean;
 }
 
+function getCardAwardMedal(title: string): string {
+    const t = title.toLowerCase();
+    if (t.includes('excellence') || t.includes('champion') || t.includes('tournament champion') || t.includes('skills champion')) {
+        return '🥇';
+    }
+    if (t.includes('design') || t.includes('think') || t.includes('build') || t.includes('innovate') || t.includes('amaze') || t.includes('create')) {
+        return '🥈';
+    }
+    return '🥉';
+}
+
 export function TeamCard({ team, compact = false }: TeamCardProps) {
     const winRate = team.stats ? ((team.stats.wins / team.stats.total_matches) * 100).toFixed(0) : "0";
+    const awards = team.awards || [];
+    const maxDisplay = 5;
+    const displayAwards = awards.slice(0, maxDisplay);
+    const remaining = awards.length - maxDisplay;
 
     return (
         <Link href={`/teams/${team.number}`}>
@@ -75,6 +90,28 @@ export function TeamCard({ team, compact = false }: TeamCardProps) {
                             </div>
                         </div>
                     </div>
+
+                    {awards.length > 0 && (
+                        <div className="mt-3 pt-3 border-t">
+                            <span className="text-muted-foreground text-[10px] uppercase font-semibold">Awards</span>
+                            <div className="flex items-center gap-1 mt-1 flex-wrap">
+                                {displayAwards.map((award, i) => (
+                                    <span
+                                        key={i}
+                                        className="text-sm cursor-default"
+                                        title={`${award.title} — ${award.event_name}`}
+                                    >
+                                        {getCardAwardMedal(award.title)}
+                                    </span>
+                                ))}
+                                {remaining > 0 && (
+                                    <span className="text-[10px] text-muted-foreground font-medium ml-0.5">
+                                        +{remaining}
+                                    </span>
+                                )}
+                            </div>
+                        </div>
+                    )}
                 </CardContent>
             </Card>
         </Link>

@@ -60,6 +60,8 @@ def handler(event: dict, context: Any) -> dict:
                 return get_team_matches(team_number)
             elif sub == 'events':
                 return get_team_events(team_number)
+            elif sub == 'awards':
+                return get_team_awards(team_number)
             return get_team_detail(team_number)
         elif path == '/events' and method == 'GET':
             return get_events(query_params)
@@ -124,6 +126,14 @@ def get_team_events(number: str):
     """Return upcoming/active event registrations for a team."""
     resp = table.query(
         KeyConditionExpression=Key('PK').eq(f'TEAM#{number}') & Key('SK').begins_with('EVENT#'),
+        ScanIndexForward=True
+    )
+    return response(200, resp.get('Items', []))
+
+def get_team_awards(number: str):
+    """Return all award items for a team."""
+    resp = table.query(
+        KeyConditionExpression=Key('PK').eq(f'TEAM#{number}') & Key('SK').begins_with('AWARD#'),
         ScanIndexForward=True
     )
     return response(200, resp.get('Items', []))

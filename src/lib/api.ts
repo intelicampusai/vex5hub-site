@@ -1,4 +1,4 @@
-import { Team, Event, Match, TeamEvent } from '@/types';
+import { Team, Event, Match, TeamEvent, Award } from '@/types';
 
 // RobotEvents Season IDs
 export const SEASON_ID = process.env.NEXT_PUBLIC_SEASON_ID || "197";
@@ -283,6 +283,14 @@ export async function getTeamEvents(teamNumber: string): Promise<TeamEvent[]> {
     const apiEvents = await fetchFromApi<TeamEvent[]>(`/teams/${teamNumber}/events`);
     if (apiEvents && Array.isArray(apiEvents)) {
         return apiEvents;
+    }
+    return [];
+}
+
+export async function getTeamAwards(teamNumber: string): Promise<Award[]> {
+    const apiAwards = await fetchFromApi<Award[]>(`/teams/${teamNumber}/awards`);
+    if (apiAwards && Array.isArray(apiAwards)) {
+        return apiAwards;
     }
     return [];
 }

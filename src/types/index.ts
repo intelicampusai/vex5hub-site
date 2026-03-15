@@ -24,6 +24,7 @@ export interface Team {
         combined_score: number;
         rank: number;
     };
+    awards?: Award[];
 }
 
 export interface Event {
@@ -82,4 +83,11 @@ export interface TeamEvent {
     location: string;
     level: string;
     status: 'future' | 'active';
+}
+
+export interface Award {
+    title: string;
+    event_name: string;
+    sku: string;
+    qualifications?: string[];
 }

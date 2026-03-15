@@ -60,6 +60,10 @@ def handler(event: dict, context: Any) -> dict:
         event_count = update_team_events(api_key)
         results["updates"].append(f"team_events ({event_count})")
 
+        # 6. Update awards for tracked teams
+        award_count = update_awards(api_key)
+        results["updates"].append(f"awards ({award_count})")
+
     except Exception as e:
         logger.error(f"Update failed: {e}", exc_info=True)
         results["errors"].append(str(e))
@@ -438,6 +442,109 @@ def update_team_events(api_key: str) -> int:
 
     logger.info(f"Total team event registrations stored: {total_events}")
     return total_events
+
+
+def update_awards(api_key: str) -> int:
+    """Fetch awards for tracked teams from RobotEvents API.
+
+    For each team, calls /teams/{re_id}/awards?season[]={SEASON_ID} and stores:
+      1. Individual items:  PK: TEAM#{num}  SK: AWARD#{sku}#{award_id}
+      2. Compact summary list on team METADATA for quick card display.
+    """
+    import time
+    total_awards = 0
+
+    # Get tracked teams
+    resp = table.query(
+        IndexName='GSI1',
+        KeyConditionExpression=(
+            Key('GSI1PK').eq(f'SEASON#{SEASON_ID}') &
+            Key('GSI1SK').begins_with('RANK#')
+        ),
+        Limit=200
+    )
+    teams = resp.get('Items', [])
+    logger.info(f"Fetching awards for {len(teams)} teams...")
+
+    for team in teams:
+        team_num = team.get('number', '')
+        re_id = team.get('re_id')
+        if not team_num or not re_id:
+            continue
+
+        re_id = int(re_id)
+
+        awards_data = api_request(
+            f"{RE_API_BASE}/teams/{re_id}/awards?season[]={SEASON_ID}&per_page=250",
+            api_key
+        )
+        if not awards_data or 'data' not in awards_data:
+            continue
+
+        team_awards_summary = []
+
+        for award in awards_data['data']:
+            award_id = award.get('id')
+            title = award.get('title', '')
+            evt_info = award.get('event', {})
+            sku = evt_info.get('code', '')
+            evt_name = evt_info.get('name', '')
+
+            # Extract qualifications — RobotEvents returns a list of strings
+            raw_quals = award.get('qualifications', []) or []
+            qualifications = []
+            for q in raw_quals:
+                if isinstance(q, str):
+                    qualifications.append(q)
+                elif isinstance(q, dict):
+                    name = q.get('name', '')
+                    if name:
+                        qualifications.append(name)
+
+            if not award_id or not sku:
+                continue
+
+            # Write individual award item
+            award_item = {
+                'PK': f'TEAM#{team_num}',
+                'SK': f'AWARD#{sku}#{award_id}',
+                'title': title,
+                'event_name': evt_name,
+                'sku': sku,
+                'qualifications': qualifications if qualifications else None,
+                'updated_at': datetime.now(timezone.utc).isoformat()
+            }
+            award_item = {k: v for k, v in award_item.items() if v is not None}
+
+            try:
+                table.put_item(Item=award_item)
+                total_awards += 1
+            except Exception as e:
+                logger.error(f"Error writing award TEAM#{team_num}/AWARD#{sku}#{award_id}: {e}")
+
+            # Build compact summary for METADATA
+            summary = {'title': title, 'event_name': evt_name, 'sku': sku}
+            if qualifications:
+                summary['qualifications'] = qualifications
+            team_awards_summary.append(summary)
+
+        # Update team METADATA with compact awards list
+        if team_awards_summary:
+            try:
+                table.update_item(
+                    Key={'PK': f'TEAM#{team_num}', 'SK': 'METADATA'},
+                    UpdateExpression="SET awards = :awards",
+                    ExpressionAttributeValues={
+                        ':awards': team_awards_summary
+                    }
+                )
+            except Exception as e:
+                logger.error(f"Failed to update awards summary for TEAM#{team_num}: {e}")
+
+        time.sleep(0.3)
+
+    logger.info(f"Total awards stored: {total_awards}")
+    return total_awards
 
 
 def _write_event_match_item(match: dict, sku: str, evt_name: str, evt_meta: dict = None):

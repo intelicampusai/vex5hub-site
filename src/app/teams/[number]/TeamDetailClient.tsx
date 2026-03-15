@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import { useParams } from "next/navigation";
-import { getTeam, getMatches, getTeamEvents } from "@/lib/api";
-import { Team, Match, TeamEvent } from "@/types";
+import { getTeam, getMatches, getTeamEvents, getTeamAwards } from "@/lib/api";
+import { Team, Match, TeamEvent, Award } from "@/types";
 import {
     Table,
     TableBody,
@@ -15,12 +15,23 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Video, ArrowLeft, Trophy, Target, ChevronDown, ChevronUp, Calendar, MapPin, Radio, ExternalLink } from "lucide-react";
+import { Video, ArrowLeft, Trophy, Target, ChevronDown, ChevronUp, Calendar, MapPin, Radio, ExternalLink, Medal } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 interface TeamDetailClientProps {
     teamNumber?: string;
+}
+
+function getAwardMedal(title: string): { emoji: string; label: string } {
+    const t = title.toLowerCase();
+    if (t.includes('excellence') || t.includes('champion') || t.includes('tournament champion') || t.includes('skills champion')) {
+        return { emoji: '🥇', label: 'Gold' };
+    }
+    if (t.includes('design') || t.includes('think') || t.includes('build') || t.includes('innovate') || t.includes('amaze') || t.includes('create')) {
+        return { emoji: '🥈', label: 'Silver' };
+    }
+    return { emoji: '🥉', label: 'Bronze' };
 }
 
 export default function TeamDetailClient({ teamNumber }: TeamDetailClientProps) {
@@ -30,6 +41,7 @@ export default function TeamDetailClient({ teamNumber }: TeamDetailClientProps) 
     const [team, setTeam] = useState<Team | null>(null);
     const [matches, setMatches] = useState<Match[]>([]);
     const [teamEvents, setTeamEvents] = useState<TeamEvent[]>([]);
+    const [awards, setAwards] = useState<Award[]>([]);
     const [loading, setLoading] = useState(true);
     const [matchesLoading, setMatchesLoading] = useState(true);
     const [error, setError] = useState(false);
@@ -72,9 +84,19 @@ export default function TeamDetailClient({ teamNumber }: TeamDetailClientProps) 
             }
         };
 
+        const fetchAwards = async () => {
+            try {
+                const awardsData = await getTeamAwards(number);
+                setAwards(awardsData);
+            } catch (err) {
+                console.error("Error fetching awards:", err);
+            }
+        };
+
         fetchTeam();
         fetchMatches();
         fetchTeamEvents();
+        fetchAwards();
     }, [number]);
 
     if (loading) {
@@ -186,6 +208,59 @@ export default function TeamDetailClient({ teamNumber }: TeamDetailClientProps) 
                     </CardContent>
                 </Card>
             </div>
+
+            {/* Awards Section */}
+            {(awards.length > 0 || (team.awards && team.awards.length > 0)) && (() => {
+                const allAwards = awards.length > 0 ? awards : (team.awards || []);
+                // Group awards by event
+                const grouped: { [eventName: string]: Award[] } = {};
+                allAwards.forEach(award => {
+                    const key = award.event_name || 'Other';
+                    if (!grouped[key]) grouped[key] = [];
+                    grouped[key].push(award);
+                });
+                return (
+                    <div className="space-y-4">
+                        <h2 className="text-2xl font-bold tracking-tight px-1 flex items-center gap-2">
+                            <Medal className="h-6 w-6 text-yellow-500" />
+                            Season Awards
+                        </h2>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            {Object.entries(grouped).map(([eventName, eventAwards]) => (
+                                <Card key={eventName}>
+                                    <CardHeader className="pb-2">
+                                        <CardTitle className="text-sm font-medium text-muted-foreground">
+                                            {eventName}
+                                        </CardTitle>
+                                    </CardHeader>
+                                    <CardContent className="space-y-2">
+                                        {eventAwards.map((award, idx) => {
+                                            const medal = getAwardMedal(award.title);
+                                            return (
+                                                <div key={idx} className="flex items-start gap-2">
+                                                    <span className="text-lg flex-shrink-0" title={medal.label}>{medal.emoji}</span>
+                                                    <div className="min-w-0">
+                                                        <p className="text-sm font-medium leading-tight">{award.title}</p>
+                                                        {award.qualifications && award.qualifications.length > 0 && (
+                                                            <div className="flex flex-wrap gap-1 mt-1">
+                                                                {award.qualifications.map((q, qi) => (
+                                                                    <Badge key={qi} variant="outline" className="text-[10px] px-1.5 py-0 h-4 bg-yellow-50 text-yellow-700 border-yellow-200 dark:bg-yellow-900/20 dark:text-yellow-300 dark:border-yellow-800">
+                                                                        {q}
+                                                                    </Badge>
+                                                                ))}
+                                                            </div>
+                                                        )}
+                                                    </div>
+                                                </div>
+                                            );
+                                        })}
+                                    </CardContent>
+                                </Card>
+                            ))}
+                        </div>
+                    </div>
+                );
+            })()}
 
             {/* Upcoming / Live Events */}
             {teamEvents.length > 0 && (
