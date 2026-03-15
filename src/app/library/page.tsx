@@ -207,7 +207,8 @@ export default function LibraryPage() {
             if (a.hot && !b.hot) return -1;
             if (b.hot && !a.hot) return 1;
             return new Date(b.date).getTime() - new Date(a.date).getTime();
-        });
+        })
+        .slice(0, 9); // Only show the latest 9 items
 
     return (
         <div className="space-y-6">
@@ -268,7 +269,7 @@ export default function LibraryPage() {
 
             {/* Results count */}
             <p className="text-xs text-muted-foreground">
-                Showing {filtered.length} item{filtered.length !== 1 ? 's' : ''}
+                Showing the latest {filtered.length} item{filtered.length !== 1 ? 's' : ''}
             </p>
 
             {/* Content Grid */}
